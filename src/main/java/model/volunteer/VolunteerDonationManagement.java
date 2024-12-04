@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package DataConfiguration;
+package model.volunteer;
+
+import DataConfiguration.Network;
 
 /**
  *

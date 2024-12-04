@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import model.client.Donor;
-import model.client.Volunteer;
+import model.volunteer.Volunteer;
 
 public class Enterprise {
     String name;
