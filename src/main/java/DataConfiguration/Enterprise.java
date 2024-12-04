@@ -13,8 +13,8 @@ import Campaign.Campaign;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import models.Donor;
-import models.Volunteer;
+import model.client.Donor;
+import model.client.Volunteer;
 
 public class Enterprise {
     String name;
