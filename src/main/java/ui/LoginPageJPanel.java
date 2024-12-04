@@ -4,7 +4,6 @@
  */
 package ui;
 
-import com.mycompany.volunteermanagement.SampleData;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -118,47 +117,8 @@ public class LoginPageJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:      
-        String email = txtUsername.getText();
-        String password = new String(txtPassword.getPassword());
-        String selectedRole = (String) txtRole.getSelectedItem();
+        // TODO add your handling code here:     
 
-        // Simple authentication using sample data
-        boolean loginSuccessful = false;
-        switch (selectedRole) {
-            case "Volunteer":
-                loginSuccessful = SampleData.generateVolunteers().stream()
-                    .anyMatch(v -> v.getEmail().equals(email) && 
-                                   v.login(email, password));
-                if (loginSuccessful) {
-                    //new VolunteerDashboard().setVisible(true);
-                    //dispose();
-                }
-                break;
-            case "Donor":
-                loginSuccessful = SampleData.generateDonors().stream()
-                    .anyMatch(d -> d.getEmail().equals(email) && 
-                                   d.login(email, password));
-                if (loginSuccessful) {
-                    //new DonorDashboard().setVisible(true);
-                    //dispose();
-                }
-                break;
-            case "Admin":
-                if (email.equals("admin@example.com") && password.equals("admin")) {
-                    //new AdminDashboard().setVisible(true);
-                    //dispose();
-                    //loginSuccessful = true;
-                }
-                break;
-        }
-
-        if (!loginSuccessful) {
-            JOptionPane.showMessageDialog(this, 
-                "Invalid email or password", 
-                "Login Error", 
-                JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
 
