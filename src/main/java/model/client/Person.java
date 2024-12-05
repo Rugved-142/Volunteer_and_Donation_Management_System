@@ -11,11 +11,13 @@ package model.client;
 public class Person {
 
     String id;    
+    String name;
 
     public Person(String id) {
 
         this.id = id;
-    }
+    }   
+    
 
     public String getPersonId() {
         return id;
