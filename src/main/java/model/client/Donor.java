@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package models;
+package model.client;
 
 import Campaign.Donation;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author sarthak deshmukh
  */
-public class Donor extends User {
+public class Donor extends Person {
     private List<Donation> donationHistory;
 
     public Donor(String id, String name, String email, String password) {
