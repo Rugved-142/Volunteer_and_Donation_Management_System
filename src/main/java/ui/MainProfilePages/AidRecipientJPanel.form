@@ -44,21 +44,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnAssit" min="-2" pref="129" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnNeedAssitance" min="-2" pref="129" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnAssit" linkSize="1" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="btnNeedAssitance" linkSize="1" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="btnLogout" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -79,12 +71,15 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnAssit">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Assist"/>
+                <Property name="text" type="java.lang.String" value="New Request"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAssitActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnNeedAssitance">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nees Assistance"/>
+                <Property name="text" type="java.lang.String" value="History"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNeedAssitanceActionPerformed"/>

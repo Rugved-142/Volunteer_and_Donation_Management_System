@@ -4,8 +4,8 @@
  */
 package model.client;
 
-import AidRequest.AidRequest;
 import java.util.ArrayList;
+import model.organization.AidReceipent.AidRequest;
 
 /**
  *

@@ -4,14 +4,14 @@
  */
 package model.organization.AidReceipent;
 
-import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.UUID;
-
 /**
  *
  * @author rugvedgundawar
  */
+import java.time.LocalDateTime;
+import java.util.Objects;
+import java.util.UUID;
+
 public class AidRequest {
     private final String requestId;
     private final String requestorName;

@@ -4,12 +4,13 @@
  */
 package model.admin;
 
-import AidRequest.AidDistribution;
+
 import AidRequest.DistributionStatus;
 import AidRequest.ResourceInventory;
 import java.util.ArrayList;
 import model.client.Person;
 import model.client.PersonProfile;
+import model.organization.AidDistribution.AidDistribution;
 
 /**
  *
@@ -46,7 +47,7 @@ public class AidCoordinator extends PersonProfile {
     public DistributionStatus trackDistribution(String distributionId) {
         for (AidDistribution distribution : activeDistributions) {
             if (distribution.getId().equals(distributionId)) {
-                return distribution.getCurrentStatus();
+                return distribution.getStatus();
             }
         }
         return DistributionStatus.NOT_FOUND;

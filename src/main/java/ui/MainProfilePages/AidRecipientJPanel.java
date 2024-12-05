@@ -35,9 +35,14 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
 
         jSplitPane1.setDividerLocation(150);
 
-        btnAssit.setText("Assist");
+        btnAssit.setText("New Request");
+        btnAssit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssitActionPerformed(evt);
+            }
+        });
 
-        btnNeedAssitance.setText("Nees Assistance");
+        btnNeedAssitance.setText("History");
         btnNeedAssitance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNeedAssitanceActionPerformed(evt);
@@ -51,18 +56,16 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         AidRecipientOptionsJPanelLayout.setHorizontalGroup(
             AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAssit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnNeedAssitance, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnLogout)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAssit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNeedAssitance, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
+
+        AidRecipientOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAssit, btnLogout, btnNeedAssitance});
+
         AidRecipientOptionsJPanelLayout.setVerticalGroup(
             AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
@@ -93,6 +96,10 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
     private void btnNeedAssitanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNeedAssitanceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNeedAssitanceActionPerformed
+
+    private void btnAssitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAssitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
