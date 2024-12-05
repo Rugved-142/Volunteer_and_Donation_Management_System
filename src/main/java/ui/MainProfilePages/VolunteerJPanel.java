@@ -5,6 +5,7 @@
 package ui.MainProfilePages;
 
 import DataConfiguration.Network;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.VolunteerManagement.VolunteerProfile;
 
@@ -51,6 +52,11 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         btnViewCampaigns.setText("View Campaigns");
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout VolunteerOptionsJPanelLayout = new javax.swing.GroupLayout(VolunteerOptionsJPanel);
         VolunteerOptionsJPanel.setLayout(VolunteerOptionsJPanelLayout);
@@ -93,6 +99,13 @@ public class VolunteerJPanel extends javax.swing.JPanel {
             .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this); 
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

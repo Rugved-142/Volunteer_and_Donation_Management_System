@@ -18,7 +18,7 @@ public class UserAccount {
     String password;
     
     public UserAccount (PersonProfile profile, String un, String pw){
-        username = un;
+         username = un;
          password = pw;
          this.profile = profile;
 
