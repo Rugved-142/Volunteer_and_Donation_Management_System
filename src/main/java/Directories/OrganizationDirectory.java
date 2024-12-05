@@ -37,7 +37,7 @@ public class OrganizationDirectory {
         this.organizations = organizationList;
     }
     
-    public Organization findEnterprise(String id) {
+    public Organization findOrganization(String id) {
 
         for (Organization organization : organizations) {
 
