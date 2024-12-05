@@ -26,30 +26,30 @@ public class AidDistribution {
         resource.addFunds(donation.getAmount());
         this.remainingResources = resource.getAvailableFunds();
     }
-    
-    public boolean processAidRequest(AidRequest request){
-        if(remainingResources >= request.getAmountNeeded()){
-            request.setStatus(AidRequest.RequestStatus.PENDING);
-            return true;
-        } else {
-        request.setStatus(AidRequest.RequestStatus.REJECTED);
-        return false;
-        }
-    }
-    
-    public void approveRequest(AidRequest request) {
-        if (resource.allocateFunds(request.getAmountNeeded())) {
-            request.setStatus(AidRequest.RequestStatus.APPROVED);
-            remainingResources = resource.getAvailableFunds();
-        }
-    }
-
-    public void denyRequest(AidRequest request) {
-        request.setStatus(AidRequest.RequestStatus.REJECTED);
-    }
-
-    public double getRemainingResources() {
-        return remainingResources;
-    }
+//    
+//    public boolean processAidRequest(AidRequest request){
+//        if(remainingResources >= request.getAmountNeeded()){
+//            request.setStatus(AidRequest.RequestStatus.PENDING);
+//            return true;
+//        } else {
+//        request.setStatus(AidRequest.RequestStatus.REJECTED);
+//        return false;
+//        }
+//    }
+//    
+//    public void approveRequest(AidRequest request) {
+//        if (resource.allocateFunds(request.getAmountNeeded())) {
+//            request.setStatus(AidRequest.RequestStatus.APPROVED);
+//            remainingResources = resource.getAvailableFunds();
+//        }
+//    }
+//
+//    public void denyRequest(AidRequest request) {
+//        request.setStatus(AidRequest.RequestStatus.REJECTED);
+//    }
+//
+//    public double getRemainingResources() {
+//        return remainingResources;
+//    }
     
 }
