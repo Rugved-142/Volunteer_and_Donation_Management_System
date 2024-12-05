@@ -11,13 +11,18 @@ import java.util.ArrayList;
  *
  * @author sahar
  */
-public class AidRecipient extends Person {
+public class AidRecipient extends PersonProfile {
     private ArrayList<AidRequest> requestHistory;
     private String status;
 
-    public AidRecipient(String name, String email, String password, String phoneNumber) {
-        super(name, email, password, phoneNumber);
+    public AidRecipient(Person p,String name, String email, String password, String phoneNumber) {
+        super(p);
         this.requestHistory = new ArrayList<>();
+    }
+
+    @Override
+    public String getRole() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

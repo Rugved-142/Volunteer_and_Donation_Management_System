@@ -9,17 +9,18 @@ import AidRequest.DistributionStatus;
 import AidRequest.ResourceInventory;
 import java.util.ArrayList;
 import model.client.Person;
+import model.client.PersonProfile;
 
 /**
  *
  * @author sahar
  */
-public class AidCoordinator extends Person {
+public class AidCoordinator extends PersonProfile {
     private ArrayList<AidDistribution> activeDistributions;
     private ResourceInventory inventory;
 
-    public AidCoordinator(String name, String email, String password, String phoneNumber) {
-        super(name, email, password, phoneNumber);
+    public AidCoordinator(Person p,String name, String email, String password, String phoneNumber) {
+        super(p);
         this.activeDistributions = new ArrayList<>();
         this.inventory = new ResourceInventory();
     }
@@ -65,6 +66,11 @@ public class AidCoordinator extends Person {
 
     public void setInventory(ResourceInventory inventory) {
         this.inventory = inventory;
+    }
+
+    @Override
+    public String getRole() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
