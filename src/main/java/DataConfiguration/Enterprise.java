@@ -10,13 +10,32 @@ package DataConfiguration;
  */
 import AidRequest.AidRequest;
 import Campaign.Campaign;
+import Directories.OrganizationDirectory;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import model.client.Donor;
-import model.volunteer.Volunteer;
 
 public class Enterprise {
+    
     String name;
+    OrganizationDirectory organizationDirectory;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public OrganizationDirectory getOrganizationDirectory() {
+        return organizationDirectory;
+    }
+
+    public void setOrganizationDirectory(OrganizationDirectory organizationDirectory) {
+        this.organizationDirectory = organizationDirectory;
+    }
+    
 
 }

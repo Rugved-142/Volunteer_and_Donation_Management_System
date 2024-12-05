@@ -5,13 +5,13 @@
 package model.staff;
 
 import java.util.ArrayList;
-import model.client.User;
+import model.client.Person;
 
 /**
  *
  * @author sahar
  */
-public class DataAnalyst extends User {
+public class DataAnalyst extends Person {
     private ArrayList<Report> generatedReports;
     private AnalyticsTool analyticsTool;
 

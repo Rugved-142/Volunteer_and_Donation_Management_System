@@ -8,13 +8,13 @@ import AidRequest.AidDistribution;
 import AidRequest.DistributionStatus;
 import AidRequest.ResourceInventory;
 import java.util.ArrayList;
-import model.client.User;
+import model.client.Person;
 
 /**
  *
  * @author sahar
  */
-public class AidCoordinator extends User {
+public class AidCoordinator extends Person {
     private ArrayList<AidDistribution> activeDistributions;
     private ResourceInventory inventory;
 

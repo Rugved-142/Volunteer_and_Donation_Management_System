@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author sahar
  */
-public class AidRecipient extends User {
+public class AidRecipient extends Person {
     private ArrayList<AidRequest> requestHistory;
     private String status;
 

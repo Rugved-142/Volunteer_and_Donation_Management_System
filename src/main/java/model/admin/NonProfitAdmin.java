@@ -7,13 +7,13 @@ package model.admin;
 import AidRequest.AidRequest;
 import Campaign.Campaign;
 import java.util.ArrayList;
-import model.client.User;
+import model.client.Person;
 
 /**
  *
  * @author sahar
  */
-public class NonProfitAdmin extends User {
+public class NonProfitAdmin extends Person {
     private ArrayList<Campaign> managedCampaigns;
     private ArrayList<AidRequest> pendingRequests;
 

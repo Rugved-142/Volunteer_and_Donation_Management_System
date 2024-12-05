@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author sarthak deshmukh
  */
-public class Donor extends User {
+public class Donor extends Person {
     private List<Donation> donationHistory;
 
     public Donor(String id, String name, String email, String password) {

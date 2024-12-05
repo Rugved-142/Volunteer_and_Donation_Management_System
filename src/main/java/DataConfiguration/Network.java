@@ -4,10 +4,23 @@
  */
 package DataConfiguration;
 
+import Directories.EnterpriseDirectory;
+
 /**
  *
  * @author Sarthak
  */
 public class Network {
+    
+    EnterpriseDirectory enterpriseDirectory;
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
+    private Enterprise enterprise;
     
 }

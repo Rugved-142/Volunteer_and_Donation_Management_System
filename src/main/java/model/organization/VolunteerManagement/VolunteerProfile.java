@@ -2,21 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.volunteer;
+package model.organization.VolunteerManagement;
 
-import model.organization.VolunteerManagement.VolunteerSchedule;
-import model.organization.VolunteerManagement.VolunteerTaskStatus;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import model.client.Person;
 import model.client.PersonProfile;
 
 /**
  *
- * @author sarthak deshmukh
+ * @author Sarthak
  */
-class Volunteer extends PersonProfile{
+public class VolunteerProfile extends PersonProfile {
     private String name;
     private String email;
     private String password;
@@ -26,9 +24,10 @@ class Volunteer extends PersonProfile{
     private VolunteerSchedule schedule;
     private List<String> completedTasks;
     private int totalHours;
-
-    public Volunteer(String id, String name, String email, String password) {
-        this.id = id;
+    boolean registrationRequest=false;
+    
+    public VolunteerProfile(Person p, String name, String email, String password) {
+        super(p);
         this.name = name;
         this.email = email;
         this.password = password;
@@ -39,6 +38,28 @@ class Volunteer extends PersonProfile{
         this.completedTasks = new ArrayList<>();
         this.totalHours = 0;
     }
+
+    public HashMap<String, VolunteerTaskStatus> getTasks() {
+        return tasks;
+    }
+
+    public boolean getRegistrationRequest() {
+        return registrationRequest;
+    }
+
+    public void setRegistrationRequest(boolean registrationRequest) {
+        this.registrationRequest = registrationRequest;
+    }
+    
+
+       
+    public void approveRegitrationRequest(){
+        setRegistrationRequest(true);
+    }
+    
+    
+
+    
 
     public void addSkill(String skill) {
         this.skills.add(skill);
@@ -76,14 +97,6 @@ class Volunteer extends PersonProfile{
     
     
     // Getters and setters omitted for brevity
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -125,10 +138,6 @@ class Volunteer extends PersonProfile{
         this.availability = availability;
     }
 
-    public HashMap<String, VolunteerTaskStatus> getTasks() {
-        return tasks;
-    }
-
     public void setTasks(HashMap<String, VolunteerTaskStatus> tasks) {
         this.tasks = tasks;
     }
@@ -149,5 +158,8 @@ class Volunteer extends PersonProfile{
         this.totalHours = totalHours;
     }
     
-    
+    @Override
+    public String getRole(){
+        return  "Volunteer";
+    }
 }

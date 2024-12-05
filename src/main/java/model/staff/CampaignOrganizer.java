@@ -6,13 +6,13 @@ package model.staff;
 
 import Campaign.Campaign;
 import java.util.ArrayList;
-import model.client.User;
+import model.client.Person;
 
 /**
  *
  * @author sahar
  */
-public class CampaignOrganizer extends User {
+public class CampaignOrganizer extends Person {
     private ArrayList<Campaign> activeCampaigns;
     private ArrayList<Event> plannedEvents;
 

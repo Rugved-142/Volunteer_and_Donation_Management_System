@@ -5,13 +5,13 @@
 package model.staff;
 
 import java.util.ArrayList;
-import model.client.User;
+import model.client.Person;
 
 /**
  *
  * @author sahar
  */
-public class GovernmentRepresentative extends User {
+public class GovernmentRepresentative extends Person {
     private String department;
     private ArrayList<Compliance> complianceChecks;
 
