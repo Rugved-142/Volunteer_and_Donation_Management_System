@@ -12,7 +12,32 @@ import Directories.EnterpriseDirectory;
  */
 public class Network {
     
+    String name;
     EnterpriseDirectory enterpriseDirectory;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
+    
+    public Network(String name){
+        this.name=name;
+        this.enterpriseDirectory=enterpriseDirectory;
+    }
+
+public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }    
+    
 
     public Enterprise getEnterprise() {
         return enterprise;

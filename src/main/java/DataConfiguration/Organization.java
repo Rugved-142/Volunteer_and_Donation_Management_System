@@ -23,5 +23,30 @@ public class Organization {
         this.campaigns = campaigns;
     }  
     
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Campaign> getCampaigns() {
+        return campaigns;
+    }
+
+    public void setCampaigns(ArrayList<Campaign> campaigns) {
+        this.campaigns = campaigns;
+    }   
+    
     
 }

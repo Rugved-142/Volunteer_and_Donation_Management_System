@@ -20,6 +20,11 @@ public class Enterprise {
     
     String name;
     OrganizationDirectory organizationDirectory;
+    
+    public Enterprise(String name){
+        this.name = name;
+        this.organizationDirectory = organizationDirectory;
+    }
 
     public String getName() {
         return name;
