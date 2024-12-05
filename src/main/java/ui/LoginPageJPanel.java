@@ -10,8 +10,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
+import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
+
 import ui.MainProfilePages.RegistrationJPanel;
+
+import ui.MainProfilePages.DonorJPanel;
+
 import ui.MainProfilePages.VolunteerJPanel;
 
 
@@ -137,6 +142,14 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            VolunteerProfile volunteerProfile = (VolunteerProfile) userAccount.getAssociatedPersonProfile();
            VolunteerJPanel vjpanel = new VolunteerJPanel(userProcessContainer, network, volunteerProfile);
            userProcessContainer.add(vjpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
+        
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("Donor")){
+           Donor donor = (Donor) userAccount.getAssociatedPersonProfile();
+           DonorJPanel donorjpanel = new DonorJPanel(userProcessContainer, network, donor);
+           userProcessContainer.add(donorjpanel);
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
         }  

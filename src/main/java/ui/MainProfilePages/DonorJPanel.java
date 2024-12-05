@@ -4,17 +4,29 @@
  */
 package ui.MainProfilePages;
 
+import DataConfiguration.Network;
+import javax.swing.JPanel;
+import model.organization.DonationManagement.Donor;
+import model.organization.VolunteerManagement.VolunteerProfile;
+
 /**
  *
  * @author Sarthak
  */
 public class DonorJPanel extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Network network;
+    Donor donor;
+    
     /**
      * Creates new form VolunteerCoordinatorJPanel
      */
-    public DonorJPanel() {
+    public DonorJPanel(JPanel userProcessContainer, Network network, Donor donor) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.network = network;
+        this.donor = donor;
     }
 
     /**
@@ -37,7 +49,7 @@ public class DonorJPanel extends javax.swing.JPanel {
 
         btnDonateMoney.setText("Donate Money");
 
-        btnDonateResources.setText("Donate Resources");
+        btnDonateResources.setText("Donation History");
         btnDonateResources.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDonateResourcesActionPerformed(evt);
