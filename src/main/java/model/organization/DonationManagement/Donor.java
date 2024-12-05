@@ -6,19 +6,24 @@ package model.organization.DonationManagement;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.client.Person;
+import model.client.PersonProfile;
 
 /**
  *
  * @author sahar
  */
-public class Donor {
+public class Donor extends PersonProfile {
     private String loginName;
-    private String loginId;
+    private String email;
+    private String password;
     private List<Donation> donationHistory;
     
-    public Donor(String loginName, String loginId){
+    public Donor(Person p, String loginName, String email, String password){
+        super(p);
         this.loginName = loginName;
-        this.loginId = loginId;
+        this.email = email;
+        this.password = password;
         this.donationHistory = new ArrayList<>();
     }
     
@@ -36,9 +41,20 @@ public class Donor {
         return loginName;
     }
 
-    public String getLoginId() {
-        return loginId;
+    public String getEmail() {
+        return email;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getRole() {
+        return  "Donor";
+    }
+
+   
     
     
 }
