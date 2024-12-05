@@ -8,6 +8,8 @@ import Directories.EnterpriseDirectory;
 import Directories.OrganizationDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
+import model.organization.DonationManagement.Donor;
+import model.organization.DonationManagement.DonorDirectory;
 import model.organization.VolunteerManagement.VolunteerDirectory;
 import model.organization.VolunteerManagement.VolunteerProfile;
 
@@ -68,6 +70,12 @@ public class ConfigureNetwork {
         userAccountDirectory.newUserAccount(vp2, vp1.getPerson().getPersonId(), "password");
         userAccountDirectory.newUserAccount(vp3, vp1.getPerson().getPersonId(), "password");
 
+        // Initializing Donor Profile Accounts
+        DonorDirectory donorDirectory = organization6.getDonerDirectory();
+        Person pp4 = new Person("12348");
+        Donor donor1 = donorDirectory.newDonorProfile(pp4, "John", "John.donor@gmail.com", "password");
+        userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
+        
         return network;
     }
 }
