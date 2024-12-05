@@ -11,6 +11,7 @@ package DataConfiguration;
 import AidRequest.AidRequest;
 import Campaign.Campaign;
 import Directories.OrganizationDirectory;
+import Directories.OrganizationDirectory;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Enterprise {
     
     public Enterprise(String name){
         this.name = name;
-        this.organizationDirectory = organizationDirectory;
+        this.organizationDirectory = new OrganizationDirectory(this);
     }
 
     public String getName() {

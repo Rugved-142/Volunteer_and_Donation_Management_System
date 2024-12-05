@@ -5,15 +5,17 @@
 package DataConfiguration;
 
 import Directories.EnterpriseDirectory;
+import model.UserAccountManagement.UserAccountDirectory;
 
 /**
  *
  * @author Sarthak
  */
 public class Network {
-    
+
     String name;
     EnterpriseDirectory enterpriseDirectory;
+    UserAccountDirectory userAccountDirectory;
 
     public String getName() {
         return name;
@@ -22,22 +24,24 @@ public class Network {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
-    
-    public Network(String name){
-        this.name=name;
-        this.enterpriseDirectory=enterpriseDirectory;
+
+    public Network(String name) {
+        this.name = name;
+        this.enterpriseDirectory = new EnterpriseDirectory(this);
+        this.userAccountDirectory = new UserAccountDirectory();
     }
 
-public EnterpriseDirectory getEnterpriseDirectory() {
+    public UserAccountDirectory getUserAccountDirectory() {
+        return userAccountDirectory;
+    }
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
         return enterpriseDirectory;
     }
 
     public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
-    }    
-    
+    }
 
     public Enterprise getEnterprise() {
         return enterprise;
@@ -47,5 +51,5 @@ public EnterpriseDirectory getEnterpriseDirectory() {
         this.enterprise = enterprise;
     }
     private Enterprise enterprise;
-    
+
 }

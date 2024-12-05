@@ -10,14 +10,14 @@ import DataConfiguration.Network;
  *
  * @author sarthak deshmukh
  */
-public class VolunteerDonationManagement {
-    
-    public Network initialize(){
-        Network network = new Network();
-        return network;
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
-}
+//public class VolunteerDonationManagement {
+//    
+//    public Network initialize(){
+//        Network network = new Network();
+//        return network;
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println("Hello World!");
+//    }
+//}
