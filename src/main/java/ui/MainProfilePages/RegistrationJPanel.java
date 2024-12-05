@@ -8,6 +8,7 @@ import DataConfiguration.Network;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import ui.LoginPageJPanel;
+import ui.RegistrationPanels.AidReceipentRegistrationJPanel;
 import ui.RegistrationPanels.VolunteerRegistrationJPanel;
 
 /**
@@ -127,6 +128,11 @@ public class RegistrationJPanel extends javax.swing.JPanel {
 
     private void btnRecipientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecipientActionPerformed
         // TODO add your handling code here:
+        AidReceipentRegistrationJPanel arjpanel = new AidReceipentRegistrationJPanel(RegistrationWorkArea, network);
+        RegistrationWorkArea.removeAll();
+        RegistrationWorkArea.add(arjpanel);
+        CardLayout layout = (CardLayout) RegistrationWorkArea.getLayout();
+        layout.next(RegistrationWorkArea);
     }//GEN-LAST:event_btnRecipientActionPerformed
 
     private void btnVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolunteerActionPerformed
