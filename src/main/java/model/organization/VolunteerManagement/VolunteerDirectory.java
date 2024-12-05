@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.organization.VolunteerManagement;
-
-import DataConfiguration.Network;
 import DataConfiguration.Organization;
 import java.util.ArrayList;
 import model.client.Person;

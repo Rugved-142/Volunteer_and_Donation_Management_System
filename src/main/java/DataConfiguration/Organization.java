@@ -6,6 +6,7 @@ package DataConfiguration;
 
 import Campaign.Campaign;
 import java.util.ArrayList;
+import model.organization.VolunteerManagement.VolunteerDirectory;
 
 /**
  *
@@ -15,13 +16,24 @@ public class Organization {
     
     int id;
     String name;
-    ArrayList<Campaign> campaigns;
+    ArrayList<Campaign> campaigns;    
+    VolunteerDirectory volunteerDirectory;
 
     public Organization(int id, String name) {
         this.id = id;
         this.name = name;
         this.campaigns = campaigns;
+        this.volunteerDirectory = new VolunteerDirectory(this);
     }  
+    
+    public VolunteerDirectory getVolunteerDirectory() {
+        return volunteerDirectory;
+    }
+
+    public void setVolunteerDirectory(VolunteerDirectory volunteerDirectory) {
+        this.volunteerDirectory = volunteerDirectory;
+    }
+    
     
 
     public int getId() {
