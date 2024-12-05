@@ -4,6 +4,7 @@
  */
 package Directories;
 
+import DataConfiguration.Enterprise;
 import DataConfiguration.Organization;
 import java.util.ArrayList;
 
@@ -12,13 +13,38 @@ import java.util.ArrayList;
  * @author Sarthak
  */
 public class OrganizationDirectory {
+    
+    ArrayList<Organization> organizations;
+    Enterprise enterprise;
+    
+    public OrganizationDirectory(Enterprise enterprise) {
+        this.enterprise = enterprise;
+        organizations = new ArrayList();
+    }
+
+    
+    public Organization newOrganization(int id, String n) {
+        Organization org = new Organization(id, n);
+        organizations.add(org);
+        return org;
+    }
 
     public ArrayList<Organization> getOrganizationList() {
-        return organizationList;
+        return organizations;
     }
 
     public void setOrganizationList(ArrayList<Organization> organizationList) {
-        this.organizationList = organizationList;
+        this.organizations = organizationList;
     }
-    ArrayList<Organization> organizationList;
+    
+    public Organization findEnterprise(String id) {
+
+        for (Organization organization : organizations) {
+
+            if (organization.getName().equals(id)) {
+                return organization;
+            }
+        }
+        return null;
+    }
 }
