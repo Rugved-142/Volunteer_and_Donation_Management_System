@@ -10,8 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
+import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.VolunteerManagement.VolunteerProfile;
 import ui.MainProfilePages.RegistrationJPanel;
+import ui.MainProfilePages.VolunteerCoordinatorJPanel;
 import ui.MainProfilePages.VolunteerJPanel;
 
 
@@ -140,6 +142,14 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
         }  
+        
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("VolunteerCoordinator")){
+           VolunteerCoordinator volunteerCoordinatorProfile = (VolunteerCoordinator) userAccount.getAssociatedPersonProfile();
+           VolunteerCoordinatorJPanel vcjpanel = new VolunteerCoordinatorJPanel(userProcessContainer, network, volunteerCoordinatorProfile);
+           userProcessContainer.add(vcjpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

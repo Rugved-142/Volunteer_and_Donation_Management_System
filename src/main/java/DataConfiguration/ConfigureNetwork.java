@@ -8,6 +8,8 @@ import Directories.EnterpriseDirectory;
 import Directories.OrganizationDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
+import model.organization.VolunteerManagement.VolunteerCoordinator;
+import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
 import model.organization.VolunteerManagement.VolunteerDirectory;
 import model.organization.VolunteerManagement.VolunteerProfile;
 
@@ -44,7 +46,7 @@ public class ConfigureNetwork {
         Enterprise enterprise3 = enterpriseDirectory.newEnterprise("Public Service Enterprise");
 
         //Initializing organizations in Enterprise 3
-        OrganizationDirectory od3 = enterprise2.getOrganizationDirectory();
+        OrganizationDirectory od3 = enterprise3.getOrganizationDirectory();
         Organization organization5 = od3.newOrganization(5, "Recipient Registration");
 
         //Enterprise 4 : Community Support Enterprise
@@ -68,6 +70,12 @@ public class ConfigureNetwork {
         userAccountDirectory.newUserAccount(vp2, vp1.getPerson().getPersonId(), "password");
         userAccountDirectory.newUserAccount(vp3, vp1.getPerson().getPersonId(), "password");
 
+        //Creating volunteer coordinator profile
+        VolunteerCoordinatorDirectory volunteerCoordinatorDirectory = organization1.getVolunteerCoordinatorDirectory();
+        Person pp4 = new Person("12348");
+        VolunteerCoordinator vc = volunteerCoordinatorDirectory.newVolunteerCoordinatorProfile(pp4, "SarthakCoordinator", "coordinator@example.com", "password");
+        userAccountDirectory.newUserAccount(vc, vc.getPerson().getPersonId(), "password");
+        System.out.println("VolunteerCoordinator: " + vc.getPerson().getPersonId());
         return network;
     }
 }
