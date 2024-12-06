@@ -4,6 +4,7 @@
  */
 package DataConfiguration;
 
+import AidRequest.Resource;
 import Campaign.Campaign;
 import java.util.ArrayList;
 
@@ -13,6 +14,9 @@ import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
 
 import model.organization.AidReceipent.AidReceipentDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
+import model.organization.DonationManagement.Donation;
+import model.organization.DonationManagement.DonationDirectory;
+import model.organization.DonationManagement.Donor;
 
 import model.organization.DonationManagement.DonorDirectory;
 
@@ -32,6 +36,8 @@ public class Organization {
     DonorDirectory donorDirectory;
     AidReceipentDirectory aidReceipentDirectory;
     CampaignOrganizerDirectory campaignOrganizerDirectory;   
+    DonationDirectory donationDirectory;
+    Resource resource;
     
 
     public Organization(int id, String name) {
@@ -43,6 +49,8 @@ public class Organization {
         this.donorDirectory = new DonorDirectory(this);
         this.campaignOrganizerDirectory = new CampaignOrganizerDirectory(this);
         this.aidReceipentDirectory = new AidReceipentDirectory(this);
+        this.donationDirectory = new DonationDirectory(this);
+        this.resource = new Resource();
     }  
     
     public DonorDirectory getDonorDirectory() {
@@ -108,6 +116,19 @@ public class Organization {
     public AidReceipentDirectory getAidReceipentDirectory() {
         return aidReceipentDirectory;
     }
+
+    public DonationDirectory getDonationDirectory() {
+        return donationDirectory;
+    }
+
+    public Resource getResource() {
+        return resource;
+    }
     
+    public void processNewDonation(double amount, Donor donor){
+        donationDirectory.processDonation(amount, donor.getLoginName());
+        resource.addFunds(amount);
+        Donation donation = donor.makeDonation(amount);
+    }
     
 }

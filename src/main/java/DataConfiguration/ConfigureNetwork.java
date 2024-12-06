@@ -97,7 +97,7 @@ public class ConfigureNetwork {
         // Initializing Donor Profile Accounts
         DonorDirectory donorDirectory = organization6.getDonerDirectory();
         Person pp5 = new Person("12348");
-        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", "password");
+        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
         userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
         
 

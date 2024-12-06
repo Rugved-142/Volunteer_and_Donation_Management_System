@@ -21,9 +21,9 @@ public class DonorDirectory {
         donorList = new ArrayList();
     }
     
-    public Donor newDonorProfile(Person p, String name,String email, String password) {
+    public Donor newDonorProfile(Person p, String name,String email, int phonenumber, String password) {
 
-        Donor donor = new Donor(p,name,email,password);
+        Donor donor = new Donor(p,name,email,phonenumber,password);
         donorList.add(donor);
         return donor;
     }

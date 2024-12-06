@@ -17,14 +17,24 @@ public class Donor extends PersonProfile {
     private String loginName;
     private String email;
     private String password;
+    private int phoneNumber;
     private List<Donation> donationHistory;
     
-    public Donor(Person p, String loginName, String email, String password){
+    public Donor(Person p, String loginName, String email, int phonenumber, String password){
         super(p);
         this.loginName = loginName;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phonenumber;
         this.donationHistory = new ArrayList<>();
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     
     public Donation makeDonation(double amount){
@@ -36,7 +46,7 @@ public class Donor extends PersonProfile {
     public List<Donation> getDonationHistory(){
         return new ArrayList<>(donationHistory);
     }
-
+    
     public String getLoginName() {
         return loginName;
     }

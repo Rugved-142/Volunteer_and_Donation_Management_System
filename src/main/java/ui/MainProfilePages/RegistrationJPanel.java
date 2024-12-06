@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import ui.LoginPageJPanel;
 import ui.RegistrationPanels.AidReceipentRegistrationJPanel;
+import ui.RegistrationPanels.DonorRegistrationJPanel;
 import ui.RegistrationPanels.VolunteerRegistrationJPanel;
 
 /**
@@ -124,6 +125,11 @@ public class RegistrationJPanel extends javax.swing.JPanel {
 
     private void btnDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonorActionPerformed
         // TODO add your handling code here:
+        DonorRegistrationJPanel dnrjpanel = new DonorRegistrationJPanel(RegistrationWorkArea, network);
+        RegistrationWorkArea.removeAll();
+        RegistrationWorkArea.add(dnrjpanel);
+        CardLayout layout = (CardLayout) RegistrationWorkArea.getLayout();
+        layout.next(RegistrationWorkArea);
     }//GEN-LAST:event_btnDonorActionPerformed
 
     private void btnRecipientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecipientActionPerformed
