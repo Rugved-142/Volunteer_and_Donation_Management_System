@@ -4,11 +4,11 @@
  */
 package model.admin;
 
-import AidRequest.AidRequest;
 import Campaign.Campaign;
 import java.util.ArrayList;
 import model.client.Person;
 import model.client.PersonProfile;
+import model.organization.AidReceipent.AidRequest;
 
 /**
  *

@@ -8,7 +8,6 @@ package DataConfiguration;
  *
  * @author sarthak deshmukh
  */
-import AidRequest.AidRequest;
 import Campaign.Campaign;
 import Directories.OrganizationDirectory;
 import Directories.OrganizationDirectory;

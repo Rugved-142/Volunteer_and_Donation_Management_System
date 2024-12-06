@@ -7,7 +7,11 @@ package DataConfiguration;
 import Campaign.Campaign;
 import java.util.ArrayList;
 
+
 import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
+
+
+import model.organization.AidReceipent.AidReceipentDirectory;
 
 import model.organization.DonationManagement.DonorDirectory;
 
@@ -27,6 +31,7 @@ public class Organization {
     VolunteerCoordinatorDirectory volunteerCoordinatorDirectory;    
 
     DonorDirectory donorDirectory;
+    AidReceipentDirectory aidReceipentDirectory;
 
 
     public Organization(int id, String name) {
@@ -38,6 +43,10 @@ public class Organization {
         this.volunteerCoordinatorDirectory = new VolunteerCoordinatorDirectory(this);
 
         this.donorDirectory = new DonorDirectory(this);
+
+
+
+        this.aidReceipentDirectory = new AidReceipentDirectory(this);
 
     }  
     
@@ -84,6 +93,10 @@ public class Organization {
     public void setCampaigns(ArrayList<Campaign> campaigns) {
         this.campaigns = campaigns;
     }   
+
+    public AidReceipentDirectory getAidReceipentDirectory() {
+        return aidReceipentDirectory;
+    }
     
     
 }
