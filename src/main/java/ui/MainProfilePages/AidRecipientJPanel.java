@@ -4,17 +4,28 @@
  */
 package ui.MainProfilePages;
 
+import DataConfiguration.Network;
+import javax.swing.JPanel;
+import model.organization.AidReceipent.AidReceipentProfile;
+import model.organization.DonationManagement.Donor;
+
 /**
  *
  * @author Sarthak
  */
 public class AidRecipientJPanel extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Network network;
+    AidReceipentProfile aidReceipentProfile;
     /**
      * Creates new form VolunteerCoordinatorJPanel
      */
-    public AidRecipientJPanel() {
+    public AidRecipientJPanel(JPanel userProcessContainer, Network network, AidReceipentProfile aidReceipentProfile) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.network = network;
+        this.aidReceipentProfile = aidReceipentProfile;
     }
 
     /**
@@ -95,6 +106,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
 
     private void btnNeedAssitanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNeedAssitanceActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnNeedAssitanceActionPerformed
 
     private void btnAssitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssitActionPerformed

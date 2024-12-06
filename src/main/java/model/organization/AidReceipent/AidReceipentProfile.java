@@ -19,6 +19,7 @@ public class AidReceipentProfile extends PersonProfile {
     int phoneNumber;
     int age;
     String address;
+    
 
     public AidReceipentProfile(Person p,String name, String email, int phoneNumber, int age,String address) {
         super(p);

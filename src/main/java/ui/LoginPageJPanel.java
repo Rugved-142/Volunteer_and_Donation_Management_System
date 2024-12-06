@@ -10,8 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
+import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
+import ui.MainProfilePages.AidRecipientJPanel;
 
 import ui.MainProfilePages.RegistrationJPanel;
 
@@ -150,6 +152,13 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            Donor donor = (Donor) userAccount.getAssociatedPersonProfile();
            DonorJPanel donorjpanel = new DonorJPanel(userProcessContainer, network, donor);
            userProcessContainer.add(donorjpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("AidReceipent")){
+           AidReceipentProfile aidReceipentProfile = (AidReceipentProfile) userAccount.getAssociatedPersonProfile();
+           AidRecipientJPanel ajpanel = new AidRecipientJPanel(userProcessContainer, network, aidReceipentProfile);
+           userProcessContainer.add(ajpanel);
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
         }  

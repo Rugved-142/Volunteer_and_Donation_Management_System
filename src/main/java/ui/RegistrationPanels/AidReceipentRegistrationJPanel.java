@@ -230,17 +230,15 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
                     return;
                 }
 
-//                // Success message
-//                JOptionPane.showMessageDialog(this, "Registration successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                Random random = new Random();
+        Random random = new Random();
         EnterpriseDirectory enterpriseDirectory = network.getEnterpriseDirectory();
         Enterprise enterprise = enterpriseDirectory.findEnterprise("Public Service Enterprise");
         Organization organization = enterprise.getOrganizationDirectory().findOrganization("Receipient Registration");
         UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
         AidReceipentDirectory aidReceipentDirectory = organization.getAidReceipentDirectory();
         Person pp1 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-        AidReceipentProfile ap = aidReceipentDirectory.newAidReceipentProfile(pp1, name, email,Integer.parseInt(phone), Integer.parseInt(ageText), "password");
-        userAccountDirectory.newUserAccount(ap,name , "password");
+        AidReceipentProfile ap = aidReceipentDirectory.newAidReceipentProfile(pp1, name, email,Integer.parseInt(phone), Integer.parseInt(ageText), String.valueOf(confirmPassword));
+        userAccountDirectory.newUserAccount(ap,name , String.valueOf(confirmPassword));
         
         System.out.println("Volunteer profile created: " + ap.getPerson().getPersonId());
         
