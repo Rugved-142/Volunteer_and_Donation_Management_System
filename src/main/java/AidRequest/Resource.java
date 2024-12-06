@@ -4,6 +4,7 @@
  */
 package AidRequest;
 
+import DataConfiguration.Organization;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,7 @@ import model.organization.DonationManagement.DonationHistory;
 public class Resource {
     private double availableFunds;
     private List<DonationHistory> donationHistory;
+    Organization organization;
 
     public Resource() {
         this.availableFunds = 0.0;

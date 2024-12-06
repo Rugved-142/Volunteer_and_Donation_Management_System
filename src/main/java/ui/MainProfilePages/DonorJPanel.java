@@ -5,9 +5,12 @@
 package ui.MainProfilePages;
 
 import DataConfiguration.Network;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
+import ui.DonationManagement.NewDonationJPanel;
+import ui.RegistrationPanels.DonorRegistrationJPanel;
 
 /**
  *
@@ -43,11 +46,16 @@ public class DonorJPanel extends javax.swing.JPanel {
         btnDonateMoney = new javax.swing.JButton();
         btnDonateResources = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        DonarWorkArea = new javax.swing.JScrollPane();
+        DonorWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
         btnDonateMoney.setText("Donate Money");
+        btnDonateMoney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDonateMoneyActionPerformed(evt);
+            }
+        });
 
         btnDonateResources.setText("Donation History");
         btnDonateResources.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +96,9 @@ public class DonorJPanel extends javax.swing.JPanel {
         );
 
         jSplitPane1.setLeftComponent(DonorOptionsJPanel);
-        jSplitPane1.setRightComponent(DonarWorkArea);
+
+        DonorWorkArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(DonorWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -106,10 +116,19 @@ public class DonorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDonateResourcesActionPerformed
 
+    private void btnDonateMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateMoneyActionPerformed
+        // TODO add your handling code here:
+        NewDonationJPanel newdnt = new NewDonationJPanel(DonorWorkArea, network , donor);
+        DonorWorkArea.removeAll();
+        DonorWorkArea.add(newdnt);
+        CardLayout layout = (CardLayout) DonorWorkArea.getLayout();
+        layout.next(DonorWorkArea);
+    }//GEN-LAST:event_btnDonateMoneyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane DonarWorkArea;
     private javax.swing.JPanel DonorOptionsJPanel;
+    private javax.swing.JPanel DonorWorkArea;
     private javax.swing.JButton btnDonateMoney;
     private javax.swing.JButton btnDonateResources;
     private javax.swing.JButton btnLogout;

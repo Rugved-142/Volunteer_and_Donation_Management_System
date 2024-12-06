@@ -4,17 +4,37 @@
  */
 package ui.DonationManagement;
 
+import DataConfiguration.Enterprise;
+import DataConfiguration.Network;
+import DataConfiguration.Organization;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.organization.DonationManagement.Donation;
+import model.organization.DonationManagement.DonationHistory;
+import model.organization.DonationManagement.Donor;
+
 /**
  *
  * @author sahar
  */
 public class NewDonationJPanel extends javax.swing.JPanel {
-
+        JPanel userProcessContainer;
+    Network network;
+    Donor donor;
     /**
      * Creates new form NewDonationJPanel
      */
-    public NewDonationJPanel() {
+    public NewDonationJPanel(JPanel userProcessContainer, Network network, Donor donor) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.network = network;
+        this.donor = donor;
+        
+        txtDonorName.setText(donor.getLoginName());
+        txtDonorId.setText(donor.getPerson().getPersonId());
+        
+        txtDonorName.setEditable(false);
+        txtDonorId.setEditable(false);
     }
 
     /**
@@ -26,19 +46,176 @@ public class NewDonationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtDonorName = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtDonorId = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtDonationAmt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnDonate = new javax.swing.JButton();
+
+        txtDonorName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonorNameActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Donor Name");
+
+        txtDonorId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonorIdActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Donor Id");
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("New Donation");
+
+        txtDonationAmt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonationAmtActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Amount");
+
+        btnDonate.setText("Donate");
+        btnDonate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDonateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDonorId, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDonorName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDonationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDonate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDonorName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDonorId, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDonationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(49, 49, 49)
+                .addComponent(btnDonate)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtDonorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonorNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDonorNameActionPerformed
+
+    private void txtDonorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonorIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDonorIdActionPerformed
+
+    private void txtDonationAmtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonationAmtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDonationAmtActionPerformed
+
+    private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
+        // TODO add your handling code here:
+        try{
+            String amountTxt = txtDonationAmt.getText();
+            if(amountTxt.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Please enter amount", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            double amount;
+            try{
+                amount = Double.parseDouble(amountTxt);
+                if(amount<=0){
+                    JOptionPane.showMessageDialog(this, "Pleaase enter a valid amount", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this,"Pleaase enter a valid amount", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Enterprise communityEnterprise = null;
+            Organization donationOrg = null;
+            
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enterprise.getName().equals("Community Support Enterprise")) {
+                    communityEnterprise = enterprise;
+                    for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                        if (org.getName().equals("Donation Management")) {
+                            donationOrg = org;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            if (donationOrg == null) {
+                JOptionPane.showMessageDialog(this, "Donation organization not found", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            donationOrg.processNewDonation(amount, donor);
+            
+            String message = String.format("Thank you for your donation of $%.2f\n" + "Total funds available: $%.2f",amount, donationOrg.getResource().getAvailableFunds());
+            JOptionPane.showMessageDialog(this, message, "Donation Successful", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, donationOrg.getResource().getAvailableFunds(), "Donation Successful", JOptionPane.INFORMATION_MESSAGE);
+            txtDonationAmt.setText("");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Error Processing Donation" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDonateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDonate;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField txtDonationAmt;
+    private javax.swing.JTextField txtDonorId;
+    private javax.swing.JTextField txtDonorName;
     // End of variables declaration//GEN-END:variables
 }
