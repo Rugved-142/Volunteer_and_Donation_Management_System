@@ -4,17 +4,28 @@
  */
 package ui.MainProfilePages;
 
+import DataConfiguration.Network;
+import javax.swing.JPanel;
+import model.organization.CamapignManagement.CampaignOrganizerProfile;
+
 /**
  *
  * @author Sarthak
  */
 public class CampaignOrganizerJPanel extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Network network;
+    CampaignOrganizerProfile campaignOrganizerProfile;
+    
     /**
      * Creates new form VolunteerCoordinatorJPanel
      */
-    public CampaignOrganizerJPanel() {
+    public CampaignOrganizerJPanel(JPanel userProcessContainer, Network network, CampaignOrganizerProfile campaignOrganizerProfile) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.network = network;
+        this.campaignOrganizerProfile = campaignOrganizerProfile;
     }
 
     /**

@@ -62,6 +62,6 @@ public class VolunteerCoordinator extends PersonProfile {
 
     @Override
     public String getRole() {
-        return "VolunteerCoordinator";
+        return "Volunteer Coordinator";
     }
 }

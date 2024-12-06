@@ -8,6 +8,8 @@ import Directories.EnterpriseDirectory;
 import Directories.OrganizationDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
+import model.organization.CamapignManagement.CampaignOrganizerDirectory;
+import model.organization.CamapignManagement.CampaignOrganizerProfile;
 
 import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
@@ -84,6 +86,13 @@ public class ConfigureNetwork {
         VolunteerCoordinator vc = volunteerCoordinatorDirectory.newVolunteerCoordinatorProfile(pp4, "SarthakCoordinator", "coordinator@example.com", "password");
         userAccountDirectory.newUserAccount(vc, vc.getPerson().getPersonId(), "password");
         System.out.println("VolunteerCoordinator: " + vc.getPerson().getPersonId());
+        
+        //Creating Camapaign Organizor profile
+        CampaignOrganizerDirectory campaignOrganizerDirectory = organization3.getCampaignOrganizerDirectory();
+        Person pp6 = new Person("12350");
+        CampaignOrganizerProfile cop = campaignOrganizerDirectory.newCampaignOrganizerProfile(pp6, "SarthakOrganizer", "organizer@example.com", "password");
+        userAccountDirectory.newUserAccount(cop, cop.getPerson().getPersonId(), "password");
+        System.out.println("Campaign Organizer: " + cop.getPerson().getPersonId());
 
         // Initializing Donor Profile Accounts
         DonorDirectory donorDirectory = organization6.getDonerDirectory();

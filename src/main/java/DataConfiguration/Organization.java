@@ -12,6 +12,7 @@ import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
 
 
 import model.organization.AidReceipent.AidReceipentDirectory;
+import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 
 import model.organization.DonationManagement.DonorDirectory;
 
@@ -27,28 +28,38 @@ public class Organization {
     String name;
     ArrayList<Campaign> campaigns;    
     VolunteerDirectory volunteerDirectory;
-
-    VolunteerCoordinatorDirectory volunteerCoordinatorDirectory;    
-
+    VolunteerCoordinatorDirectory volunteerCoordinatorDirectory;   
     DonorDirectory donorDirectory;
     AidReceipentDirectory aidReceipentDirectory;
-
+    CampaignOrganizerDirectory campaignOrganizerDirectory;   
+    
 
     public Organization(int id, String name) {
         this.id = id;
         this.name = name;
         this.campaigns = campaigns;
         this.volunteerDirectory = new VolunteerDirectory(this);
-
         this.volunteerCoordinatorDirectory = new VolunteerCoordinatorDirectory(this);
-
         this.donorDirectory = new DonorDirectory(this);
-
-
-
+        this.campaignOrganizerDirectory = new CampaignOrganizerDirectory(this);
         this.aidReceipentDirectory = new AidReceipentDirectory(this);
-
     }  
+    
+    public DonorDirectory getDonorDirectory() {
+        return donorDirectory;
+    }
+
+    public void setDonorDirectory(DonorDirectory donorDirectory) {
+        this.donorDirectory = donorDirectory;
+    }
+
+    public CampaignOrganizerDirectory getCampaignOrganizerDirectory() {
+        return campaignOrganizerDirectory;
+    }
+
+    public void setCampaignOrganizerDirectory(CampaignOrganizerDirectory campaignOrganizerDirectory) {
+        this.campaignOrganizerDirectory = campaignOrganizerDirectory;
+    }
     
     public VolunteerCoordinatorDirectory getVolunteerCoordinatorDirectory() {
         return volunteerCoordinatorDirectory;
