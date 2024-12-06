@@ -4,17 +4,28 @@
  */
 package ui.MainProfilePages;
 
+import DataConfiguration.Network;
+import javax.swing.JPanel;
+import model.organization.VolunteerManagement.VolunteerCoordinator;
+
 /**
  *
  * @author Sarthak
  */
 public class VolunteerCoordinatorJPanel extends javax.swing.JPanel {
+    
+    JPanel userProcessContainer;
+    Network network;
+    VolunteerCoordinator volunteerCoordinator;
 
     /**
      * Creates new form VolunteerCoordinatorJPanel
      */
-    public VolunteerCoordinatorJPanel() {
+    public VolunteerCoordinatorJPanel(JPanel userProcessContainer, Network network, VolunteerCoordinator volunteerCoordinator) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.network = network;
+        this.volunteerCoordinator = volunteerCoordinator;
     }
 
     /**
