@@ -4,17 +4,24 @@
  */
 package ui.AidReceipient;
 
+import javax.swing.JPanel;
+import model.organization.AidReceipent.AidReceipentProfile;
+
 /**
  *
  * @author rugvedgundawar
  */
 public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    AidReceipentProfile aidReceipentProfile;
     /**
      * Creates new form AidReceipientHistoryJPanel
      */
-    public AidReceipientHistoryJPanel() {
+    public AidReceipientHistoryJPanel(JPanel userProcessContainer, AidReceipentProfile aidReceipentProfile) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.aidReceipentProfile = aidReceipentProfile;
     }
 
     /**
@@ -28,13 +35,13 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblHistory = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AID RECEIVED");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -53,7 +60,7 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblHistory);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,6 +89,6 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblHistory;
     // End of variables declaration//GEN-END:variables
 }

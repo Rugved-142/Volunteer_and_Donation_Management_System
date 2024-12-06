@@ -5,9 +5,12 @@
 package ui.MainProfilePages;
 
 import DataConfiguration.Network;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.DonationManagement.Donor;
+import ui.AidReceipient.AidReceipentNewRequestJPanel;
+import ui.AidReceipient.AidReceipientHistoryJPanel;
 
 /**
  *
@@ -39,28 +42,33 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         AidRecipientOptionsJPanel = new javax.swing.JPanel();
-        btnAssit = new javax.swing.JButton();
-        btnNeedAssitance = new javax.swing.JButton();
+        btnNewRequest = new javax.swing.JButton();
+        btnHistory = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         AidRecipientWorkArea = new javax.swing.JScrollPane();
 
         jSplitPane1.setDividerLocation(150);
 
-        btnAssit.setText("New Request");
-        btnAssit.addActionListener(new java.awt.event.ActionListener() {
+        btnNewRequest.setText("New Request");
+        btnNewRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssitActionPerformed(evt);
+                btnNewRequestActionPerformed(evt);
             }
         });
 
-        btnNeedAssitance.setText("History");
-        btnNeedAssitance.addActionListener(new java.awt.event.ActionListener() {
+        btnHistory.setText("History");
+        btnHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNeedAssitanceActionPerformed(evt);
+                btnHistoryActionPerformed(evt);
             }
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AidRecipientOptionsJPanelLayout = new javax.swing.GroupLayout(AidRecipientOptionsJPanel);
         AidRecipientOptionsJPanel.setLayout(AidRecipientOptionsJPanelLayout);
@@ -69,21 +77,21 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
             .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAssit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNeedAssitance, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNewRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        AidRecipientOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAssit, btnLogout, btnNeedAssitance});
+        AidRecipientOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnHistory, btnLogout, btnNewRequest});
 
         AidRecipientOptionsJPanelLayout.setVerticalGroup(
             AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
                 .addGap(130, 130, 130)
-                .addComponent(btnAssit)
+                .addComponent(btnNewRequest)
                 .addGap(37, 37, 37)
-                .addComponent(btnNeedAssitance)
+                .addComponent(btnHistory)
                 .addGap(32, 32, 32)
                 .addComponent(btnLogout)
                 .addContainerGap(189, Short.MAX_VALUE))
@@ -104,22 +112,36 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNeedAssitanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNeedAssitanceActionPerformed
+    private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnNeedAssitanceActionPerformed
+        AidReceipientHistoryJPanel arhpanel = new AidReceipientHistoryJPanel(userProcessContainer,aidReceipentProfile); // need to pass  History List
+        userProcessContainer.add(arhpanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnHistoryActionPerformed
 
-    private void btnAssitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssitActionPerformed
+    private void btnNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRequestActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAssitActionPerformed
+        AidReceipentNewRequestJPanel arnrpanel = new AidReceipentNewRequestJPanel(userProcessContainer,aidReceipentProfile);
+        userProcessContainer.add(arnrpanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnNewRequestActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this); 
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AidRecipientOptionsJPanel;
     private javax.swing.JScrollPane AidRecipientWorkArea;
-    private javax.swing.JButton btnAssit;
+    private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnNeedAssitance;
+    private javax.swing.JButton btnNewRequest;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
