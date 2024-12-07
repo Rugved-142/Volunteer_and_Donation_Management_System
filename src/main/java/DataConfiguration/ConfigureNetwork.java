@@ -12,6 +12,8 @@ import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
 import model.admin.AidCoordinator;
 import model.admin.AidCoordinatorDirectory;
+import model.organization.AidReceipent.AidReceipentDirectory;
+import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 
@@ -122,6 +124,33 @@ public class ConfigureNetwork {
         AidCoordinator coord1 = coordDirectory.newCoordinatorProfile(pp9, "Coord", "John.coord@gmail.com", 987654321, "password");
         userAccountDirectory.newUserAccount(coord1,coord1.getPerson().getPersonId() , "password");
         System.out.println("Aid Coordinator: " + coord1.getPerson().getPersonId());
+
+        // Initializing Aid Recipient Profile Accounts
+        AidReceipentDirectory aidReceipentDirectory = organization5.getAidReceipentDirectory(); // Organization for "Receipient Registration"
+
+        for (int i = 0; i < 30; i++) { // Create 30 sample AidRecipient profiles
+            // Generate random details
+            Person person = new Person(String.valueOf(random.nextInt(90000) + 10000)); // Unique Person ID
+            String name = faker.name().firstName() + " " + faker.name().lastName();    // Random full name
+            String email = name.replace(" ", ".").toLowerCase() + "@aidrecipient.com"; // Email
+            int phoneNumber = (int) (1000000000L + random.nextInt(900000000));         // Random 10-digit phone number
+            int age = random.nextInt(40) + 18;                                        // Age between 18 and 58
+            String password = "password";    
+
+            // Create the AidRecipientProfile
+            AidReceipentProfile aidReceipentProfile = aidReceipentDirectory.newAidReceipentProfile(
+                person,
+                name,
+                email,
+                age,
+                phoneNumber,
+                "password"
+            );
+
+            // Add the profile to UserAccountDirectory
+            userAccountDirectory.newUserAccount(aidReceipentProfile, aidReceipentProfile.getPerson().getPersonId(), "password");
+            System.out.println("Aid Recipient Profile Created: " + aidReceipentProfile.getPerson().getPersonId());
+        }
 
         return network;
     }
