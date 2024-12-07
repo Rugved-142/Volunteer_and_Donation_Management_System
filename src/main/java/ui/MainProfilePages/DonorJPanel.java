@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
+import ui.DonationManagement.DonationHistoryJPanel;
 import ui.DonationManagement.NewDonationJPanel;
 import ui.RegistrationPanels.DonorRegistrationJPanel;
 
@@ -114,6 +115,11 @@ public class DonorJPanel extends javax.swing.JPanel {
 
     private void btnDonateResourcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateResourcesActionPerformed
         // TODO add your handling code here:
+        DonationHistoryJPanel dnthstry = new DonationHistoryJPanel(DonorWorkArea, network , donor);
+        DonorWorkArea.removeAll();
+        DonorWorkArea.add(dnthstry);
+        CardLayout layout = (CardLayout) DonorWorkArea.getLayout();
+        layout.next(DonorWorkArea);
     }//GEN-LAST:event_btnDonateResourcesActionPerformed
 
     private void btnDonateMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateMoneyActionPerformed
