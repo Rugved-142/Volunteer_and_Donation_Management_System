@@ -4,10 +4,23 @@
  */
 package ui;
 
-import com.mycompany.volunteermanagement.SampleData;
+import DataConfiguration.Network;
+import DataConfiguration.Organization;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.UserAccountManagement.UserAccount;
+import model.UserAccountManagement.UserAccountDirectory;
+import model.organization.AidReceipent.AidReceipentProfile;
+import model.organization.DonationManagement.Donor;
+import model.organization.VolunteerManagement.VolunteerProfile;
+import ui.MainProfilePages.AidRecipientJPanel;
+
+import ui.MainProfilePages.RegistrationJPanel;
+
+import ui.MainProfilePages.DonorJPanel;
+
+import ui.MainProfilePages.VolunteerJPanel;
 
 
 /**
@@ -17,12 +30,14 @@ import javax.swing.JPanel;
 public class LoginPageJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
+    Network network;
     /**
      * Creates new form LoginPageJPanel
      */
-    public LoginPageJPanel(JPanel userProcessContainer) {
+    public LoginPageJPanel(JPanel userProcessContainer, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;        
+        this.userProcessContainer = userProcessContainer;  
+        this.network = network;
         setSize(870,600);
     }
 
@@ -41,8 +56,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
-        txtRole = new javax.swing.JComboBox<>();
-        lblRole = new javax.swing.JLabel();
+        btnRegister = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -61,9 +75,12 @@ public class LoginPageJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Volunteer", "Donor", "Admin" }));
-
-        lblRole.setText("Select Role:");
+        btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,23 +92,22 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                         .addGap(265, 265, 265)
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(btnLogin))
+                        .addGap(346, 346, 346)
+                        .addComponent(btnLogin)
+                        .addGap(60, 60, 60)
+                        .addComponent(btnRegister))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(334, 334, 334)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblRole)
-                                .addComponent(lblPassword))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPassword)
+                                .addGap(33, 33, 33))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblUsername)
-                                .addGap(9, 9, 9)))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUsername)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(38, 38, 38)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(257, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,69 +123,65 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRole))
-                .addGap(37, 37, 37)
-                .addComponent(btnLogin)
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addComponent(btnLogin)
+                    .addComponent(btnRegister))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:      
-        String email = txtUsername.getText();
-        String password = new String(txtPassword.getPassword());
-        String selectedRole = (String) txtRole.getSelectedItem();
-
-        // Simple authentication using sample data
-        boolean loginSuccessful = false;
-        switch (selectedRole) {
-            case "Volunteer":
-                loginSuccessful = SampleData.generateVolunteers().stream()
-                    .anyMatch(v -> v.getEmail().equals(email) && 
-                                   v.login(email, password));
-                if (loginSuccessful) {
-                    //new VolunteerDashboard().setVisible(true);
-                    //dispose();
-                }
-                break;
-            case "Donor":
-                loginSuccessful = SampleData.generateDonors().stream()
-                    .anyMatch(d -> d.getEmail().equals(email) && 
-                                   d.login(email, password));
-                if (loginSuccessful) {
-                    //new DonorDashboard().setVisible(true);
-                    //dispose();
-                }
-                break;
-            case "Admin":
-                if (email.equals("admin@example.com") && password.equals("admin")) {
-                    //new AdminDashboard().setVisible(true);
-                    //dispose();
-                    //loginSuccessful = true;
-                }
-                break;
+        // TODO add your handling code here:     
+        UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
+        UserAccount userAccount = userAccountDirectory.AuthenticateUser(txtUsername.getText(), new String(txtPassword.getPassword()));
+        
+        if(userAccount == null){
+            JOptionPane.showMessageDialog(null, "Username/Password invalid!","Warning",JOptionPane.WARNING_MESSAGE);
+            return;
         }
-
-        if (!loginSuccessful) {
-            JOptionPane.showMessageDialog(this, 
-                "Invalid email or password", 
-                "Login Error", 
-                JOptionPane.ERROR_MESSAGE);
-        }
+        
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("Volunteer")){
+           VolunteerProfile volunteerProfile = (VolunteerProfile) userAccount.getAssociatedPersonProfile();
+           VolunteerJPanel vjpanel = new VolunteerJPanel(userProcessContainer, network, volunteerProfile);
+           userProcessContainer.add(vjpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
+        
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("Donor")){
+           Donor donor = (Donor) userAccount.getAssociatedPersonProfile();
+           DonorJPanel donorjpanel = new DonorJPanel(userProcessContainer, network, donor);
+           userProcessContainer.add(donorjpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("AidReceipent")){
+           Organization organization = network.getEnterpriseDirectory().findEnterprise("Public Service Enterprise").getOrganizationDirectory().findOrganization("Receipient Registration");
+           AidReceipentProfile aidReceipentProfile = (AidReceipentProfile) userAccount.getAssociatedPersonProfile();
+           AidRecipientJPanel ajpanel = new AidRecipientJPanel(userProcessContainer, network, aidReceipentProfile,organization);
+           userProcessContainer.add(ajpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        RegistrationJPanel regjpanel = new RegistrationJPanel(userProcessContainer, network);
+        userProcessContainer.add(regjpanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JComboBox<String> txtRole;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
