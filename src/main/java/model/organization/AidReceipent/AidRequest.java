@@ -20,6 +20,7 @@ public class AidRequest {
     private RequestStatus status;
     private final LocalDateTime requestDate;
     private LocalDateTime lastUpdated;
+    AidReceipentProfile aidReceipentProfile;
     
     public enum RequestStatus {
         PENDING,
@@ -27,14 +28,15 @@ public class AidRequest {
         REJECTED
     }
     
-    public AidRequest(String requestorName, double amountNeeded, String reason) {
+    public AidRequest(String requestorName, double amountNeeded, String reason,AidReceipentProfile aidReceipentProfile) {
         this.requestId = UUID.randomUUID().toString();
         this.requestorName = requestorName;
-        this.amountNeeded = amountNeeded;
+        this.amountNeeded = amountNeeded; 
         this.reason = reason;
         this.status = RequestStatus.PENDING;
         this.requestDate = LocalDateTime.now();
         this.lastUpdated = LocalDateTime.now();
+        this.aidReceipentProfile = aidReceipentProfile;
     }
     
     // Status management
