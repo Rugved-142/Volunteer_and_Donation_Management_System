@@ -13,12 +13,11 @@ import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
 
 
 import model.organization.AidReceipent.AidReceipentDirectory;
+import model.organization.AidReceipent.AidRequestDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.DonationManagement.Donation;
 import model.organization.DonationManagement.DonationDirectory;
 import model.organization.DonationManagement.Donor;
-
-import model.organization.AidReceipent.AidRequestDirectory;
 import model.organization.DonationManagement.DonorDirectory;
 
 import model.organization.VolunteerManagement.VolunteerDirectory;
@@ -36,11 +35,10 @@ public class Organization {
     VolunteerCoordinatorDirectory volunteerCoordinatorDirectory;   
     DonorDirectory donorDirectory;
     AidReceipentDirectory aidReceipentDirectory;
+    AidRequestDirectory aidRequestDirectory;
     CampaignOrganizerDirectory campaignOrganizerDirectory;   
     DonationDirectory donationDirectory;
     Resource resource;
-    
-    AidRequestDirectory aidRequestDirectory;
 
     public Organization(int id, String name) {
         this.id = id;
@@ -51,9 +49,9 @@ public class Organization {
         this.donorDirectory = new DonorDirectory(this);
         this.campaignOrganizerDirectory = new CampaignOrganizerDirectory(this);
         this.aidReceipentDirectory = new AidReceipentDirectory(this);
+        this.aidRequestDirectory = new AidRequestDirectory(this);
         this.donationDirectory = new DonationDirectory(this);
         this.resource = new Resource();
-        this.aidRequestDirectory = new AidRequestDirectory(this);
     }  
     
     public DonorDirectory getDonorDirectory() {
@@ -119,15 +117,15 @@ public class Organization {
     public AidReceipentDirectory getAidReceipentDirectory() {
         return aidReceipentDirectory;
     }
-
+    public AidRequestDirectory getAidRequestDirectory() {
+        return aidRequestDirectory;
+    }
     public DonationDirectory getDonationDirectory() {
         return donationDirectory;
     }
 
     public Resource getResource() {
         return resource;
-    public AidRequestDirectory getAidRequestDirectory() {
-        return aidRequestDirectory;
     }
     
     public void processNewDonation(double amount, Donor donor){

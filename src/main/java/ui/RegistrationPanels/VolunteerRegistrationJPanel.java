@@ -55,6 +55,12 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         txtConfirmPassword = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
+        genderComboBox = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        txtDOB = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
 
         jLabel1.setText("First Name:");
 
@@ -76,6 +82,14 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Volunteer Registration");
 
+        jLabel7.setText("Gender:");
+
+        genderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE", "OTHERS" }));
+
+        jLabel8.setText("DOB:");
+
+        jLabel9.setText("Age:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,14 +105,20 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
                                 .addGap(42, 42, 42)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                                     .addComponent(txtFirstName)
                                     .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                                     .addComponent(txtPassword)
-                                    .addComponent(txtConfirmPassword)))
+                                    .addComponent(txtConfirmPassword)
+                                    .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDOB)
+                                    .addComponent(txtAge)))
                             .addComponent(jLabel6)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(282, 282, 282)
@@ -130,9 +150,21 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(btnSubmitVolunteer)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,13 +173,26 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
         String firstName = txtFirstName.getText().trim();
         String userName = txtFirstName.getText().trim() + " " + txtLastName.getText().trim();
         String email = txtEmail.getText();
+        String gender = genderComboBox.getSelectedItem().toString();
+        String DOB = txtDOB.getText();
+        int age;
         char[] password = txtPassword.getPassword();
         char[] confirmPassword = txtConfirmPassword.getPassword();        
         
-        if(firstName.isEmpty() || userName.isEmpty() || email.isEmpty() || password==null || confirmPassword==null){
+               
+        if(firstName.isEmpty() || userName.isEmpty() || email.isEmpty() || password==null || confirmPassword==null || gender.isEmpty() || DOB.isEmpty()){
             JOptionPane.showMessageDialog(null, "All fields are required!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
-        }        
+        }
+
+        try{
+            age = Integer.parseInt(txtAge.getText().trim());
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, "Please enter valid age!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         if(!(String.valueOf(password).equals(String.valueOf(confirmPassword))))
         {
@@ -162,7 +207,7 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
         UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
         VolunteerDirectory volunteerDirectory = organization.getVolunteerDirectory();
         Person pp1 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp1, userName, email, String.valueOf(password));
+        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp1, userName, email, gender,age,DOB,String.valueOf(password));
         userAccountDirectory.newUserAccount(vp,firstName , String.valueOf(password));
         
         System.out.println("Volunteer profile created: " + vp.getPerson().getPersonId());
@@ -173,13 +218,19 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmitVolunteer;
+    private javax.swing.JComboBox<String> genderComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JPasswordField txtConfirmPassword;
+    private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;

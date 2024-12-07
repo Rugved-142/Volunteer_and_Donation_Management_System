@@ -13,6 +13,7 @@ import model.client.Person;
  */
 public class VolunteerDirectory {
     Organization organization;
+    
     ArrayList<VolunteerProfile> volunteerList;
 
     public VolunteerDirectory(Organization organization) {
@@ -21,10 +22,18 @@ public class VolunteerDirectory {
         volunteerList = new ArrayList();
 
     }
+    
+    public ArrayList<VolunteerProfile> getVolunteerList() {
+        return volunteerList;
+    }
 
-    public VolunteerProfile newVolunteerProfile(Person p, String name,String email, String password) {
+    public void setVolunteerList(ArrayList<VolunteerProfile> volunteerList) {
+        this.volunteerList = volunteerList;
+    }
 
-        VolunteerProfile vp = new VolunteerProfile(p,name,email,password);
+    public VolunteerProfile newVolunteerProfile(Person p, String name,String email, String gender,int age, String DOB,String password) {
+
+        VolunteerProfile vp = new VolunteerProfile(p,name,email,gender,age,DOB,password);
         volunteerList.add(vp);
         return vp;
     }

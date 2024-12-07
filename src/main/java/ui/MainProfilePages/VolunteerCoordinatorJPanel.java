@@ -5,8 +5,12 @@
 package ui.MainProfilePages;
 
 import DataConfiguration.Network;
+import DataConfiguration.Organization;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.VolunteerManagement.VolunteerCoordinator;
+import ui.ProfileComponents.VolunteerCoordinatorDashboard;
+import ui.ProfileComponents.VolunteerStatsJPanel;
 
 /**
  *
@@ -26,6 +30,7 @@ public class VolunteerCoordinatorJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.network = network;
         this.volunteerCoordinator = volunteerCoordinator;
+        populateVolunteersTable();
     }
 
     /**
@@ -39,18 +44,33 @@ public class VolunteerCoordinatorJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         VolunteerCoordinatorOptionsJPanel = new javax.swing.JPanel();
-        btnAssignTasks = new javax.swing.JButton();
+        btnDashboard = new javax.swing.JButton();
         btnVolunteerStats = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        VolunteerCoordintorWorkArea = new javax.swing.JScrollPane();
+        VolunteerCoordinatorWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
-        btnAssignTasks.setText("Assign Tasks");
+        btnDashboard.setText("Dashboard");
+        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDashboardActionPerformed(evt);
+            }
+        });
 
         btnVolunteerStats.setText("Volunteer Stats");
+        btnVolunteerStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolunteerStatsActionPerformed(evt);
+            }
+        });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout VolunteerCoordinatorOptionsJPanelLayout = new javax.swing.GroupLayout(VolunteerCoordinatorOptionsJPanel);
         VolunteerCoordinatorOptionsJPanel.setLayout(VolunteerCoordinatorOptionsJPanelLayout);
@@ -60,7 +80,7 @@ public class VolunteerCoordinatorJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(VolunteerCoordinatorOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnVolunteerStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAssignTasks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36))
             .addGroup(VolunteerCoordinatorOptionsJPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -71,36 +91,66 @@ public class VolunteerCoordinatorJPanel extends javax.swing.JPanel {
             VolunteerCoordinatorOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VolunteerCoordinatorOptionsJPanelLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addComponent(btnAssignTasks)
+                .addComponent(btnDashboard)
                 .addGap(30, 30, 30)
                 .addComponent(btnVolunteerStats)
                 .addGap(50, 50, 50)
                 .addComponent(btnLogout)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(VolunteerCoordinatorOptionsJPanel);
-        jSplitPane1.setRightComponent(VolunteerCoordintorWorkArea);
+
+        VolunteerCoordinatorWorkArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(VolunteerCoordinatorWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
+        // TODO add your handling code here:
+           VolunteerCoordinatorDashboard vcd = new VolunteerCoordinatorDashboard(VolunteerCoordinatorWorkArea, network);
+           VolunteerCoordinatorWorkArea.add(vcd);
+           CardLayout layout = (CardLayout) VolunteerCoordinatorWorkArea.getLayout();
+           layout.next(VolunteerCoordinatorWorkArea);
+    }//GEN-LAST:event_btnDashboardActionPerformed
+
+    private void btnVolunteerStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolunteerStatsActionPerformed
+        // TODO add your handling code here:
+        Organization org = network.getEnterpriseDirectory().findEnterprise("Non-Profit Enterprise").getOrganizationDirectory().findOrganization("Volunteer Management");
+        VolunteerStatsJPanel vsjpanel = new VolunteerStatsJPanel(VolunteerCoordinatorWorkArea, org);
+           VolunteerCoordinatorWorkArea.add(vsjpanel);
+           CardLayout layout = (CardLayout) VolunteerCoordinatorWorkArea.getLayout();
+           layout.next(VolunteerCoordinatorWorkArea);
+    }//GEN-LAST:event_btnVolunteerStatsActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this); 
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel VolunteerCoordinatorOptionsJPanel;
-    private javax.swing.JScrollPane VolunteerCoordintorWorkArea;
-    private javax.swing.JButton btnAssignTasks;
+    private javax.swing.JPanel VolunteerCoordinatorWorkArea;
+    private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnVolunteerStats;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void populateVolunteersTable() {
+        
+    }
 }

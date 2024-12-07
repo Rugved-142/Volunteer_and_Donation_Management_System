@@ -127,7 +127,7 @@
           <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Registration"/>
+        <Property name="text" type="java.lang.String" value="AID Receipient Registration"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAidReceiptName">

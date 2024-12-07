@@ -11,16 +11,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
-import model.organization.CamapignManagement.CampaignOrganizerProfile;
-
-import model.organization.VolunteerManagement.VolunteerCoordinator;
-
 import model.organization.AidReceipent.AidReceipentProfile;
+import model.organization.CamapignManagement.CampaignOrganizerProfile;
+import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.DonationManagement.Donor;
-
 import model.organization.VolunteerManagement.VolunteerProfile;
-import ui.MainProfilePages.CampaignOrganizerJPanel;
 import ui.MainProfilePages.AidRecipientJPanel;
+import ui.MainProfilePages.CampaignOrganizerJPanel;
 
 import ui.MainProfilePages.RegistrationJPanel;
 
@@ -184,7 +181,6 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
         }  
-
         if(userAccount.getAssociatedPersonProfile().getRole().equals("AidReceipent")){
            Organization organization = network.getEnterpriseDirectory().findEnterprise("Public Service Enterprise").getOrganizationDirectory().findOrganization("Receipient Registration");
            AidReceipentProfile aidReceipentProfile = (AidReceipentProfile) userAccount.getAssociatedPersonProfile();

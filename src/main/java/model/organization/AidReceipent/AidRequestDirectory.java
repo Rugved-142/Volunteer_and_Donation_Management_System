@@ -27,4 +27,8 @@ public class AidRequestDirectory {
         aidRequestList.add(ar);
         return ar;
     }
+
+    public ArrayList<AidRequest> getAidRequestList() {
+        return aidRequestList;
+    }
 }

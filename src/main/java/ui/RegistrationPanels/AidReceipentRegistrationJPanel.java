@@ -70,7 +70,7 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Registration");
+        jLabel1.setText("AID Receipient Registration");
 
         lblAidReceiptName.setText("Name:");
 

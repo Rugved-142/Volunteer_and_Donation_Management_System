@@ -132,7 +132,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         AidReceipentNewRequestJPanel arnrpanel = new AidReceipentNewRequestJPanel(userProcessContainer,aidReceipentProfile,organization);
         AidReceipientWorkArea.removeAll();
         AidReceipientWorkArea.add(arnrpanel);
-        CardLayout layout = (CardLayout) AidRecipientWorkArea.getLayout();
+        CardLayout layout = (CardLayout) AidReceipientWorkArea.getLayout();
         layout.next(AidReceipientWorkArea);
     }//GEN-LAST:event_btnNewRequestActionPerformed
 

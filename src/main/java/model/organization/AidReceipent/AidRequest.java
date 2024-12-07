@@ -73,11 +73,15 @@ public class AidRequest {
     public LocalDateTime getLastUpdated() {
         return lastUpdated;
     }
+
+    public AidReceipentProfile getAidReceipentProfile() {
+        return aidReceipentProfile;
+    }
+    
     
     @Override
     public String toString() {
-        return String.format("AidRequest{requestId='%s', requestor='%s', amount=%.2f, status=%s}",
-                requestId, requestorName, amountNeeded, status);
+        return requestorName;
     }
     
     @Override
