@@ -8,6 +8,7 @@ import DataConfiguration.Network;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.VolunteerManagement.VolunteerProfile;
+import ui.ProfileComponents.VolunteerTasksJPanel;
 
 /**
  *
@@ -43,11 +44,16 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         btnViewTasks = new javax.swing.JButton();
         btnViewCampaigns = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        VolunteerWorkArea = new javax.swing.JScrollPane();
+        VolunteerWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
         btnViewTasks.setText("View Tasks");
+        btnViewTasks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewTasksActionPerformed(evt);
+            }
+        });
 
         btnViewCampaigns.setText("View Campaigns");
 
@@ -86,6 +92,8 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         );
 
         jSplitPane1.setLeftComponent(VolunteerOptionsJPanel);
+
+        VolunteerWorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(VolunteerWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -96,7 +104,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -107,10 +115,18 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnViewTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewTasksActionPerformed
+        // TODO add your handling code here:
+        VolunteerTasksJPanel vtjp = new VolunteerTasksJPanel(VolunteerWorkArea, network, volunteerProfile);
+        VolunteerWorkArea.add(vtjp);
+        CardLayout layout = (CardLayout) VolunteerWorkArea.getLayout();
+        layout.next(VolunteerWorkArea);
+    }//GEN-LAST:event_btnViewTasksActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel VolunteerOptionsJPanel;
-    private javax.swing.JScrollPane VolunteerWorkArea;
+    private javax.swing.JPanel VolunteerWorkArea;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewCampaigns;
     private javax.swing.JButton btnViewTasks;

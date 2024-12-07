@@ -39,12 +39,12 @@ public class VolunteerCoordinator extends PersonProfile {
     
     public void assignVolunteerTask(String volunteerId, String taskId, VolunteerTaskStatus status){
         VolunteerProfile volunteer = this.volunteers.get(volunteerId);
-        volunteer.assignTask(taskId, status);
+        //volunteer.assignTask(taskId, status);
     }
     
-    public void updateVolunteerTaskStatus(String volunteerId, String taskId, VolunteerTaskStatus status){
+    public void updateVolunteerTaskStatus(String volunteerId, String taskId, String status){
         VolunteerProfile volunteer = this.volunteers.get(volunteerId);
-        volunteer.updateTaskStatus(taskId, status);
+        //volunteer.updateTaskStatus(taskId, status);
     }
     
     public void manageSchedule(String volunteerId, VolunteerSchedule schedule){
