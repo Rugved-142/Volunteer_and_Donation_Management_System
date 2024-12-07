@@ -13,6 +13,7 @@ import model.client.Person;
  */
 public class VolunteerDirectory {
     Organization organization;
+    
     ArrayList<VolunteerProfile> volunteerList;
 
     public VolunteerDirectory(Organization organization) {
@@ -20,6 +21,14 @@ public class VolunteerDirectory {
         this.organization = organization;
         volunteerList = new ArrayList();
 
+    }
+    
+    public ArrayList<VolunteerProfile> getVolunteerList() {
+        return volunteerList;
+    }
+
+    public void setVolunteerList(ArrayList<VolunteerProfile> volunteerList) {
+        this.volunteerList = volunteerList;
     }
 
     public VolunteerProfile newVolunteerProfile(Person p, String name,String email, String password) {

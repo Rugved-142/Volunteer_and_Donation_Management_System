@@ -12,13 +12,20 @@ import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.organization.AidReceipent.AidReceipentProfile;
+import model.organization.CamapignManagement.CampaignOrganizerProfile;
+import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
 import ui.MainProfilePages.AidRecipientJPanel;
+import ui.MainProfilePages.CampaignOrganizerJPanel;
 
 import ui.MainProfilePages.RegistrationJPanel;
 
+import ui.MainProfilePages.VolunteerCoordinatorJPanel;
+
+
 import ui.MainProfilePages.DonorJPanel;
+
 
 import ui.MainProfilePages.VolunteerJPanel;
 
@@ -149,6 +156,24 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            layout.next(userProcessContainer);
         }  
         
+
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("Volunteer Coordinator")){
+           VolunteerCoordinator volunteerCoordinatorProfile = (VolunteerCoordinator) userAccount.getAssociatedPersonProfile();
+           VolunteerCoordinatorJPanel vcjpanel = new VolunteerCoordinatorJPanel(userProcessContainer, network, volunteerCoordinatorProfile);
+           userProcessContainer.add(vcjpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }
+        
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("Campaign Organizer")){
+           CampaignOrganizerProfile campaignOrganizerProfile = (CampaignOrganizerProfile) userAccount.getAssociatedPersonProfile();
+           CampaignOrganizerJPanel cojpanel = new CampaignOrganizerJPanel(userProcessContainer, network, campaignOrganizerProfile);
+           userProcessContainer.add(cojpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }
+
+
         if(userAccount.getAssociatedPersonProfile().getRole().equals("Donor")){
            Donor donor = (Donor) userAccount.getAssociatedPersonProfile();
            DonorJPanel donorjpanel = new DonorJPanel(userProcessContainer, network, donor);

@@ -8,8 +8,15 @@ import Directories.EnterpriseDirectory;
 import Directories.OrganizationDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
+import model.organization.CamapignManagement.CampaignOrganizerDirectory;
+import model.organization.CamapignManagement.CampaignOrganizerProfile;
+
+import model.organization.VolunteerManagement.VolunteerCoordinator;
+import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
+
 import model.organization.DonationManagement.Donor;
 import model.organization.DonationManagement.DonorDirectory;
+
 import model.organization.VolunteerManagement.VolunteerDirectory;
 import model.organization.VolunteerManagement.VolunteerProfile;
 
@@ -47,7 +54,9 @@ public class ConfigureNetwork {
 
         //Initializing organizations in Enterprise 3
         OrganizationDirectory od3 = enterprise3.getOrganizationDirectory();
-        Organization organization5 = od3.newOrganization(5, "Receipient Registration");
+
+        Organization organization5 = od3.newOrganization(5, "Recipient Registration");       
+
 
         //Enterprise 4 : Community Support Enterprise
         Enterprise enterprise4 = enterpriseDirectory.newEnterprise("Community Support Enterprise");
@@ -67,15 +76,32 @@ public class ConfigureNetwork {
         VolunteerProfile vp3 = volunteerDirectory.newVolunteerProfile(pp3, "Rugved", "rugved@example.com", "password");
 
         userAccountDirectory.newUserAccount(vp1, vp1.getPerson().getPersonId(), "password");
+        System.out.println("Volunteer: " + vp1.getPerson().getPersonId());
         userAccountDirectory.newUserAccount(vp2, vp1.getPerson().getPersonId(), "password");
         userAccountDirectory.newUserAccount(vp3, vp1.getPerson().getPersonId(), "password");
 
+
+        //Creating volunteer coordinator profile
+        VolunteerCoordinatorDirectory volunteerCoordinatorDirectory = organization1.getVolunteerCoordinatorDirectory();
+        Person pp4 = new Person("12349");
+        VolunteerCoordinator vc = volunteerCoordinatorDirectory.newVolunteerCoordinatorProfile(pp4, "SarthakCoordinator", "coordinator@example.com", "password");
+        userAccountDirectory.newUserAccount(vc, vc.getPerson().getPersonId(), "password");
+        System.out.println("VolunteerCoordinator: " + vc.getPerson().getPersonId());
+        
+        //Creating Camapaign Organizor profile
+        CampaignOrganizerDirectory campaignOrganizerDirectory = organization3.getCampaignOrganizerDirectory();
+        Person pp6 = new Person("12350");
+        CampaignOrganizerProfile cop = campaignOrganizerDirectory.newCampaignOrganizerProfile(pp6, "SarthakOrganizer", "organizer@example.com", "password");
+        userAccountDirectory.newUserAccount(cop, cop.getPerson().getPersonId(), "password");
+        System.out.println("Campaign Organizer: " + cop.getPerson().getPersonId());
+
         // Initializing Donor Profile Accounts
         DonorDirectory donorDirectory = organization6.getDonerDirectory();
-        Person pp4 = new Person("12348");
-        Donor donor1 = donorDirectory.newDonorProfile(pp4, "John", "John.donor@gmail.com", "password");
+        Person pp5 = new Person("12348");
+        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
         userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
         
+
         return network;
     }
 }

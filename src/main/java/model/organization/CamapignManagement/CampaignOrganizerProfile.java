@@ -15,11 +15,13 @@ public class CampaignOrganizerProfile extends PersonProfile{
     
     String name;
     String email;
+    String password;
 
-    public CampaignOrganizerProfile(Person p, String name, String email) {
+    public CampaignOrganizerProfile(Person p, String name, String email, String password) {
         super(p);
         this.name = name;
         this.email = email;
+        this.password = password;
     }
 
     @Override

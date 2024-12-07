@@ -162,8 +162,8 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
         UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
         VolunteerDirectory volunteerDirectory = organization.getVolunteerDirectory();
         Person pp1 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp1, userName, email, "password");
-        userAccountDirectory.newUserAccount(vp,firstName , "password");
+        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp1, userName, email, String.valueOf(password));
+        userAccountDirectory.newUserAccount(vp,firstName , String.valueOf(password));
         
         System.out.println("Volunteer profile created: " + vp.getPerson().getPersonId());
         
