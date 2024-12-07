@@ -17,6 +17,9 @@ import model.client.PersonProfile;
 public class VolunteerProfile extends PersonProfile {
     private String name;
     private String email;
+    int age;
+    String gender;
+    String DOB;    
     private String password;
     private ArrayList<String> skills;
     private ArrayList<String> availability;
@@ -27,10 +30,13 @@ public class VolunteerProfile extends PersonProfile {
     private int totalHours;
     boolean registrationRequest=false;
     
-    public VolunteerProfile(Person p, String name, String email, String password) {
+    public VolunteerProfile(Person p, String name, String email, String gender,int age,String DOB,String password) {
         super(p);
         this.name = name;
         this.email = email;
+        this.DOB = DOB;
+        this.age = age;
+        this.gender = gender;
         this.password = password;
         this.skills = new ArrayList<>();
         this.availability = new ArrayList<>();
@@ -38,6 +44,30 @@ public class VolunteerProfile extends PersonProfile {
         this.schedule = new VolunteerSchedule();
         this.completedTasks = new ArrayList<>();
         this.totalHours = 0;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(String DOB) {
+        this.DOB = DOB;
     }
 
     public ArrayList<VolunteerTask> getTasks() {

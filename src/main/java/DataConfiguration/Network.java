@@ -16,7 +16,7 @@ public class Network {
     String name;
     EnterpriseDirectory enterpriseDirectory;
     UserAccountDirectory userAccountDirectory;
-
+    
     public String getName() {
         return name;
     }

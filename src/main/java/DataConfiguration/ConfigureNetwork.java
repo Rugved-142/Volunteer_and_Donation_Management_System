@@ -69,11 +69,11 @@ public class ConfigureNetwork {
         UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
         VolunteerDirectory volunteerDirectory = organization1.getVolunteerDirectory();
         Person pp1 = new Person("12345");
-        VolunteerProfile vp1 = volunteerDirectory.newVolunteerProfile(pp1, "Sarthak", "sarthak@example.com", "password");
+        VolunteerProfile vp1 = volunteerDirectory.newVolunteerProfile(pp1, "Sarthak", "sarthak@example.com","MALE",25,"9 DEC 1999", "password");
         Person pp2 = new Person("12346");
-        VolunteerProfile vp2 = volunteerDirectory.newVolunteerProfile(pp2, "Nachiket", "nachiket@example.com", "password");
+        VolunteerProfile vp2 = volunteerDirectory.newVolunteerProfile(pp2, "Nachiket", "nachiket@example.com", "FEMALE",21,"9 DEC 1998","password");
         Person pp3 = new Person("12347");
-        VolunteerProfile vp3 = volunteerDirectory.newVolunteerProfile(pp3, "Rugved", "rugved@example.com", "password");
+        VolunteerProfile vp3 = volunteerDirectory.newVolunteerProfile(pp3, "Rugved", "rugved@example.com", "MALE",25,"9 DEC 2000","password");
 
         userAccountDirectory.newUserAccount(vp1, vp1.getPerson().getPersonId(), "password");
         System.out.println("Volunteer: " + vp1.getPerson().getPersonId());
