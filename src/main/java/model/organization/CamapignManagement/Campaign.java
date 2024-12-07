@@ -11,15 +11,33 @@ package model.organization.CamapignManagement;
 public class Campaign {
     private String name;
     private String description;
-    private String date;
+    private String fromDate;
+    private String toDate;       
 
-    public Campaign(String name, String description, String date) {
+    public Campaign(String name, String description, String fromDate, String toDate) {
         this.name = name;
         this.description = description;
-        this.date = date;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
     }
 
     // Getters and Setters
+    
+    public String getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
+    }
+    
+    public String getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
+    }
     public String getName() {
         return name;
     }
@@ -36,17 +54,9 @@ public class Campaign {
         this.description = description;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
-        return "Campaign [name=" + name + ", description=" + description + ", date=" + date + "]";
+        return this.name;
     }
 }
 

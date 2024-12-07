@@ -7,6 +7,10 @@ package ui;
 import DataConfiguration.ConfigureNetwork;
 import DataConfiguration.Network;
 import java.awt.CardLayout;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +23,7 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    public MainJFrame() {
+    public MainJFrame() throws FileNotFoundException, IOException {
         initComponents();
         network = ConfigureNetwork.initialize();
         LoginPageJPanel loginPage = new LoginPageJPanel(userProcessContainer, network);
@@ -90,8 +94,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainJFrame().setVisible(true);
+            public void run()  {
+                try {
+                    new MainJFrame().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

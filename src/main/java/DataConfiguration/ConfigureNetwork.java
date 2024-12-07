@@ -6,6 +6,8 @@ package DataConfiguration;
 
 import Directories.EnterpriseDirectory;
 import Directories.OrganizationDirectory;
+import com.github.javafaker.Faker;
+import java.util.Random;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
 import model.admin.AidCoordinator;
@@ -26,10 +28,13 @@ import model.organization.VolunteerManagement.VolunteerProfile;
  *
  * @author Sarthak
  */
-public class ConfigureNetwork {
+public class ConfigureNetwork {    
+    
 
-    public static Network initialize() {
-        //Crreating network
+    public static Network initialize() {       
+        
+        //Creating network
+        Faker faker = new Faker();
         Network network = new Network("Management Group");
 
         //Initializing enterpriseDirectory
@@ -70,18 +75,18 @@ public class ConfigureNetwork {
         //Initializing Volunteer profile accounts
         UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
         VolunteerDirectory volunteerDirectory = organization1.getVolunteerDirectory();
-        Person pp1 = new Person("12345");
-        VolunteerProfile vp1 = volunteerDirectory.newVolunteerProfile(pp1, "Sarthak", "sarthak@example.com","MALE",25,"9 DEC 1999", "password");
-        Person pp2 = new Person("12346");
-        VolunteerProfile vp2 = volunteerDirectory.newVolunteerProfile(pp2, "Nachiket", "nachiket@example.com", "FEMALE",21,"9 DEC 1998","password");
-        Person pp3 = new Person("12347");
-        VolunteerProfile vp3 = volunteerDirectory.newVolunteerProfile(pp3, "Rugved", "rugved@example.com", "MALE",25,"9 DEC 2000","password");
-
-        userAccountDirectory.newUserAccount(vp1, vp1.getPerson().getPersonId(), "password");
-        System.out.println("Volunteer: " + vp1.getPerson().getPersonId());
-        userAccountDirectory.newUserAccount(vp2, vp1.getPerson().getPersonId(), "password");
-        userAccountDirectory.newUserAccount(vp3, vp1.getPerson().getPersonId(), "password");
-
+        Random random = new Random();
+        for(int i=0;i<24;i++){
+        Person pp = new Person(String.valueOf(random.nextInt(90000) + 10000));
+        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp, faker.name().firstName(), faker.animal().name()+"@gmail.com","MALE",random.nextInt(30) + 20,faker.date().toString(), "password");
+        userAccountDirectory.newUserAccount(vp, vp.getPerson().getPersonId(), "password");
+        }
+        
+        for(int i=0;i<24;i++){
+        Person pp = new Person(String.valueOf(random.nextInt(90000) + 10000));
+        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp, faker.name().firstName(), faker.animal().name()+"@gmail.com","FEMALE",random.nextInt(30) + 20,faker.date().toString(), "password");
+        userAccountDirectory.newUserAccount(vp, vp.getPerson().getPersonId(), "password");
+        }
 
         //Creating volunteer coordinator profile
         VolunteerCoordinatorDirectory volunteerCoordinatorDirectory = organization1.getVolunteerCoordinatorDirectory();
@@ -97,11 +102,19 @@ public class ConfigureNetwork {
         userAccountDirectory.newUserAccount(cop, cop.getPerson().getPersonId(), "password");
         System.out.println("Campaign Organizer: " + cop.getPerson().getPersonId());
 
+        
+//        DonorDirectory donorDirectory = organization6.getDonerDirectory();
+//        Person pp5 = new Person("12348");
+//        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
+//        userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
+        
         // Initializing Donor Profile Accounts
         DonorDirectory donorDirectory = organization6.getDonerDirectory();
-        Person pp5 = new Person("12348");
-        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
-        userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
+        for(int i=0;i<49;i++){
+        Person pp5 = new Person(String.valueOf(random.nextInt(90000) + 10000));
+        Donor donor = donorDirectory.newDonorProfile(pp5, faker.name().firstName(), faker.animal().name()+".donor@gmail.com", (int)faker.number().randomNumber(10, true), "password");
+        userAccountDirectory.newUserAccount(donor, donor.getPerson().getPersonId(), "password");
+        }
         
         // Initializing AidCoordinator Profile Accounts
         AidCoordinatorDirectory coordDirectory = organization2.getCoordinatorDirectory();

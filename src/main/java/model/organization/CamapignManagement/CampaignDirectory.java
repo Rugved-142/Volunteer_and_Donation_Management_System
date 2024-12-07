@@ -28,11 +28,12 @@ public class CampaignDirectory {
     }
 
     // Modify a campaign
-    public void modifyCampaign(String name, String newDescription, String newDate) {
+    public void modifyCampaign(String name, String newDescription, String newFromDate,String newToDate) {
         for (Campaign campaign : campaigns) {
             if (campaign.getName().equals(name)) {
                 campaign.setDescription(newDescription);
-                campaign.setDate(newDate);
+                campaign.setFromDate(newFromDate);
+                campaign.setToDate(newToDate);
                 break;
             }
         }

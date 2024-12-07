@@ -17,8 +17,8 @@ public class CampaignOrganizer {
     
 
     // Add a campaign
-    private void addCampaign(String name, String description, String date) {
-        Campaign campaign = new Campaign(name, description, date);
+    private void addCampaign(String name, String description, String fromDate,String toDate) {
+        Campaign campaign = new Campaign(name, description, fromDate, toDate);
         directory.addCampaign(campaign);
     }
 
@@ -28,8 +28,8 @@ public class CampaignOrganizer {
     }
 
     // Modify a campaign
-    private void modifyCampaign(String name, String newDescription, String newDate) {
-        directory.modifyCampaign(name, newDescription, newDate);
+    private void modifyCampaign(String name, String newDescription, String fromDate,String toDate) {
+        directory.modifyCampaign(name, newDescription, fromDate,toDate);
     }
 
     // Show all campaigns

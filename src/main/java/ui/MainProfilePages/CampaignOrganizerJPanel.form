@@ -43,26 +43,31 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnAddCampaigns" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnViewCampaigns" max="32767" attributes="0"/>
+                          <Component id="btnAddCampaigns" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                       <Component id="btnAddCampaigns" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="btnViewCampaigns" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="219" max="32767" attributes="0"/>
+                      <EmptySpace pref="185" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -70,24 +75,32 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnAddCampaigns">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Campaigns"/>
+                <Property name="text" type="java.lang.String" value="Add Campaign"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddCampaignsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnLogout">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="btnViewCampaigns">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="View Campaign"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JScrollPane" name="CampaignOrganizerWorkArea">
+        <Container class="javax.swing.JPanel" name="CampaignOrganizerWorkArea">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="right"/>
             </Constraint>
           </Constraints>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
         </Container>
       </SubComponents>
     </Container>
