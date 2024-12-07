@@ -29,6 +29,8 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.aidReceipentProfile = aidReceipentProfile;
         this.organization = organization;
+        
+        txtRequestorName.setText(aidReceipentProfile.getName());
     }
 
     /** 
