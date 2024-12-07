@@ -19,11 +19,19 @@ import model.organization.AidDistribution.AidDistribution;
 public class AidCoordinator extends PersonProfile {
     private ArrayList<AidDistribution> activeDistributions;
     private ResourceInventory inventory;
+    private String name;
+    private String email;
+    private String password;
+    private long phoneNumber;
 
-    public AidCoordinator(Person p,String name, String email, String password, String phoneNumber) {
+    public AidCoordinator(Person p,String name, String email, long phoneNumber, String password) {
         super(p);
         this.activeDistributions = new ArrayList<>();
         this.inventory = new ResourceInventory();
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
     public boolean distributeResources(AidDistribution distribution) {
@@ -69,9 +77,25 @@ public class AidCoordinator extends PersonProfile {
         this.inventory = inventory;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
     @Override
     public String getRole() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "Aid Coordinator";
     }
     
 }

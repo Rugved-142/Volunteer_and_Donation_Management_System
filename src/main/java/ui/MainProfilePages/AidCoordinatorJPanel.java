@@ -4,17 +4,31 @@
  */
 package ui.MainProfilePages;
 
+import DataConfiguration.Network;
+import DataConfiguration.Organization;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import model.admin.AidCoordinator;
+import model.organization.DonationManagement.Donor;
+import ui.AidDistribution.DistributionResourceJPanel;
+import ui.DonationManagement.DonationHistoryJPanel;
+
 /**
  *
  * @author Sarthak
  */
 public class AidCoordinatorJPanel extends javax.swing.JPanel {
-
+    JPanel userProcessContainer;
+    Network network;
+    AidCoordinator coord;
     /**
      * Creates new form VolunteerCoordinatorJPanel
      */
-    public AidCoordinatorJPanel() {
+    public AidCoordinatorJPanel(JPanel userProcessContainer, Network network, AidCoordinator coord) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.network = network;
+        this.coord = coord;
     }
 
     /**
@@ -31,11 +45,16 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         btnDistribute = new javax.swing.JButton();
         btnAvailableAid = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        AidCoordinatorWorkArea = new javax.swing.JScrollPane();
+        AidCoordinatorWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(170);
 
         btnDistribute.setText("Distribute Resources");
+        btnDistribute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDistributeActionPerformed(evt);
+            }
+        });
 
         btnAvailableAid.setText("Available Aid");
         btnAvailableAid.addActionListener(new java.awt.event.ActionListener() {
@@ -45,6 +64,11 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AidCoordinatorJPanelLayout = new javax.swing.GroupLayout(AidCoordinatorJPanel);
         AidCoordinatorJPanel.setLayout(AidCoordinatorJPanelLayout);
@@ -75,6 +99,8 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         );
 
         jSplitPane1.setLeftComponent(AidCoordinatorJPanel);
+
+        AidCoordinatorWorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(AidCoordinatorWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -91,12 +117,25 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
 
     private void btnAvailableAidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAidActionPerformed
         // TODO add your handling code here:
+        DistributionResourceJPanel distres = new DistributionResourceJPanel(AidCoordinatorWorkArea, network , coord);
+        AidCoordinatorWorkArea.removeAll();
+        AidCoordinatorWorkArea.add(distres);
+        CardLayout layout = (CardLayout) AidCoordinatorWorkArea.getLayout();
+        layout.next(AidCoordinatorWorkArea);
     }//GEN-LAST:event_btnAvailableAidActionPerformed
+
+    private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDistributeActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AidCoordinatorJPanel;
-    private javax.swing.JScrollPane AidCoordinatorWorkArea;
+    private javax.swing.JPanel AidCoordinatorWorkArea;
     private javax.swing.JButton btnAvailableAid;
     private javax.swing.JButton btnDistribute;
     private javax.swing.JButton btnLogout;
