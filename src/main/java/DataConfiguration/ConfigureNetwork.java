@@ -55,7 +55,7 @@ public class ConfigureNetwork {
         //Initializing organizations in Enterprise 3
         OrganizationDirectory od3 = enterprise3.getOrganizationDirectory();
 
-        Organization organization5 = od3.newOrganization(5, "Recipient Registration");       
+        Organization organization5 = od3.newOrganization(5, "Receipient Registration");       
 
 
         //Enterprise 4 : Community Support Enterprise
