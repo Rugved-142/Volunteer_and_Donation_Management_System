@@ -179,9 +179,9 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAidReceiptConfirmPassword)
                     .addComponent(txtAidReceiptConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAidReciptRegister)
-                .addGap(39, 39, 39))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAidReciptRegister, lblAidReceiptAddress, lblAidReceiptAge, lblAidReceiptConfirmPassword, lblAidReceiptContact, lblAidReceiptEmail, lblAidReceiptName, lblAidReceiptPassword, txtAidReceiptAddress, txtAidReceiptAge, txtAidReceiptConfirmPassword, txtAidReceiptContact, txtAidReceiptEmail, txtAidReceiptName, txtAidReceiptPassword});
@@ -230,19 +230,25 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
                     return;
                 }
 
-//                // Success message
-//                JOptionPane.showMessageDialog(this, "Registration successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                Random random = new Random();
+        Random random = new Random();
         EnterpriseDirectory enterpriseDirectory = network.getEnterpriseDirectory();
         Enterprise enterprise = enterpriseDirectory.findEnterprise("Public Service Enterprise");
         Organization organization = enterprise.getOrganizationDirectory().findOrganization("Receipient Registration");
         UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
         AidReceipentDirectory aidReceipentDirectory = organization.getAidReceipentDirectory();
         Person pp1 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-        AidReceipentProfile ap = aidReceipentDirectory.newAidReceipentProfile(pp1, name, email,Integer.parseInt(phone), Integer.parseInt(ageText), "password");
-        userAccountDirectory.newUserAccount(ap,name , "password");
+        AidReceipentProfile ap = aidReceipentDirectory.newAidReceipentProfile(pp1, name, email,Integer.parseInt(phone), Integer.parseInt(ageText), String.valueOf(confirmPassword));
+        userAccountDirectory.newUserAccount(ap,name , String.valueOf(confirmPassword));
         
         System.out.println("Volunteer profile created: " + ap.getPerson().getPersonId());
+        
+        txtAidReceiptName.setText("");
+        txtAidReceiptEmail.setText("");
+        txtAidReceiptContact.setText("");
+        txtAidReceiptAge.setText("");
+        txtAidReceiptAddress.setText("");
+        txtAidReceiptPassword.setText("");
+        txtAidReceiptConfirmPassword.setText("");
         
         JOptionPane.showMessageDialog(null, "Registration Succesful","Success",JOptionPane.INFORMATION_MESSAGE);                                          
     }//GEN-LAST:event_btnAidReciptRegisterActionPerformed

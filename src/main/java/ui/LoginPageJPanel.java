@@ -5,18 +5,18 @@
 package ui;
 
 import DataConfiguration.Network;
+import DataConfiguration.Organization;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
+import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
-
 import model.organization.VolunteerManagement.VolunteerCoordinator;
-
 import model.organization.DonationManagement.Donor;
-
 import model.organization.VolunteerManagement.VolunteerProfile;
+import ui.MainProfilePages.AidRecipientJPanel;
 import ui.MainProfilePages.CampaignOrganizerJPanel;
 
 import ui.MainProfilePages.RegistrationJPanel;
@@ -181,7 +181,14 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
         }  
-
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("AidReceipent")){
+           Organization organization = network.getEnterpriseDirectory().findEnterprise("Public Service Enterprise").getOrganizationDirectory().findOrganization("Receipient Registration");
+           AidReceipentProfile aidReceipentProfile = (AidReceipentProfile) userAccount.getAssociatedPersonProfile();
+           AidRecipientJPanel ajpanel = new AidRecipientJPanel(userProcessContainer, network, aidReceipentProfile,organization);
+           userProcessContainer.add(ajpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
