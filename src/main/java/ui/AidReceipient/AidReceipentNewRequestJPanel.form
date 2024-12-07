@@ -32,50 +32,21 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="lblAidAmountNeeded" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="txtAidAmountNeeded" min="-2" pref="139" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lblAidStatus" min="-2" pref="102" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="txtAidStatus" min="-2" pref="139" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblAidRequestorName" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="txtRequestorName" min="-2" pref="139" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblAidRequestId" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="txtAidRequestID" min="-2" pref="139" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblAidReason" min="-2" pref="102" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblAidRequestdate" min="-2" pref="102" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnAidRequest" max="32767" attributes="0"/>
-                              <Component id="txtAidRequestDate" pref="139" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblAidRequestId" linkSize="1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="lblAidRequestorName" linkSize="1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="lblAidAmountNeeded" linkSize="1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="lblAidReason" linkSize="1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="184" max="32767" attributes="0"/>
+              <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtAidAmountNeeded" linkSize="1" min="-2" pref="139" max="-2" attributes="0"/>
+                  <Component id="txtRequestorName" linkSize="1" min="-2" pref="139" max="-2" attributes="0"/>
+                  <Component id="txtAidRequestID" linkSize="1" min="-2" pref="139" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" linkSize="1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="btnAidRequest" linkSize="1" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="147" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,37 +57,27 @@
               <Component id="jLabel1" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAidRequestId" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAidRequestID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAidRequestId" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAidRequestID" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAidRequestorName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtRequestorName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAidRequestorName" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRequestorName" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblAidReason" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAidReason" linkSize="2" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAidAmountNeeded" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAidAmountNeeded" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAidAmountNeeded" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAidStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAidStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAidRequestdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAidRequestDate" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnAidRequest" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <Component id="btnAidRequest" linkSize="2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="120" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -168,24 +129,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblAidStatus">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Status:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtAidStatus">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PENDING"/>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAidRequestdate">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Date:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtAidRequestDate">
-    </Component>
     <Component class="javax.swing.JButton" name="btnAidRequest">
       <Properties>
         <Property name="text" type="java.lang.String" value="Request"/>

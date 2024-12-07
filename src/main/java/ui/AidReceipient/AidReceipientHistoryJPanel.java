@@ -4,6 +4,7 @@
  */
 package ui.AidReceipient;
 
+import DataConfiguration.Organization;
 import javax.swing.JPanel;
 import model.organization.AidReceipent.AidReceipentProfile;
 
@@ -15,13 +16,15 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     AidReceipentProfile aidReceipentProfile;
+    Organization organization;
     /**
      * Creates new form AidReceipientHistoryJPanel
      */
-    public AidReceipientHistoryJPanel(JPanel userProcessContainer, AidReceipentProfile aidReceipentProfile) {
+    public AidReceipientHistoryJPanel(JPanel userProcessContainer, AidReceipentProfile aidReceipentProfile,Organization organization) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.aidReceipentProfile = aidReceipentProfile;
+        this.organization = organization;
     }
 
     /**
@@ -43,17 +46,17 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
 
         tblHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Donor Name", "Amount Received", "Received Date"
+                "Donor Name", "Amount Received", "Received Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -61,6 +64,12 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblHistory);
+        if (tblHistory.getColumnModel().getColumnCount() > 0) {
+            tblHistory.getColumnModel().getColumn(0).setResizable(false);
+            tblHistory.getColumnModel().getColumn(1).setResizable(false);
+            tblHistory.getColumnModel().getColumn(2).setResizable(false);
+            tblHistory.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -5,6 +5,7 @@
 package ui.MainProfilePages;
 
 import DataConfiguration.Network;
+import DataConfiguration.Organization;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.AidReceipent.AidReceipentProfile;
@@ -21,14 +22,16 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Network network;
     AidReceipentProfile aidReceipentProfile;
+    Organization organization;
     /**
      * Creates new form VolunteerCoordinatorJPanel
      */
-    public AidRecipientJPanel(JPanel userProcessContainer, Network network, AidReceipentProfile aidReceipentProfile) {
+    public AidRecipientJPanel(JPanel userProcessContainer, Network network, AidReceipentProfile aidReceipentProfile, Organization organization) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.network = network;
         this.aidReceipentProfile = aidReceipentProfile;
+        this.organization = organization;
     }
 
     /**
@@ -40,12 +43,13 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AidRecipientWorkArea = new javax.swing.JScrollPane();
         jSplitPane1 = new javax.swing.JSplitPane();
         AidRecipientOptionsJPanel = new javax.swing.JPanel();
         btnNewRequest = new javax.swing.JButton();
         btnHistory = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        AidRecipientWorkArea = new javax.swing.JScrollPane();
+        AidReceipientWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
@@ -98,7 +102,9 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         );
 
         jSplitPane1.setLeftComponent(AidRecipientOptionsJPanel);
-        jSplitPane1.setRightComponent(AidRecipientWorkArea);
+
+        AidReceipientWorkArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(AidReceipientWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -114,18 +120,20 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         // TODO add your handling code here:
-        AidReceipientHistoryJPanel arhpanel = new AidReceipientHistoryJPanel(userProcessContainer,aidReceipentProfile); // need to pass  History List
-        userProcessContainer.add(arhpanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        AidReceipientHistoryJPanel arhpanel = new AidReceipientHistoryJPanel(userProcessContainer,aidReceipentProfile,organization);
+        AidReceipientWorkArea.removeAll();
+        AidReceipientWorkArea.add(arhpanel);
+        CardLayout layout = (CardLayout) AidReceipientWorkArea.getLayout();
+        layout.next(AidReceipientWorkArea);
     }//GEN-LAST:event_btnHistoryActionPerformed
 
     private void btnNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRequestActionPerformed
         // TODO add your handling code here:
-        AidReceipentNewRequestJPanel arnrpanel = new AidReceipentNewRequestJPanel(userProcessContainer,aidReceipentProfile);
-        userProcessContainer.add(arnrpanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        AidReceipentNewRequestJPanel arnrpanel = new AidReceipentNewRequestJPanel(userProcessContainer,aidReceipentProfile,organization);
+        AidReceipientWorkArea.removeAll();
+        AidReceipientWorkArea.add(arnrpanel);
+        CardLayout layout = (CardLayout) AidRecipientWorkArea.getLayout();
+        layout.next(AidReceipientWorkArea);
     }//GEN-LAST:event_btnNewRequestActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -137,6 +145,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AidReceipientWorkArea;
     private javax.swing.JPanel AidRecipientOptionsJPanel;
     private javax.swing.JScrollPane AidRecipientWorkArea;
     private javax.swing.JButton btnHistory;

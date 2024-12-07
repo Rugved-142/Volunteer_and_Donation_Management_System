@@ -4,6 +4,7 @@
  */
 package ui.AidReceipient;
 
+import DataConfiguration.Organization;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.organization.AidReceipent.AidReceipentProfile;
@@ -19,13 +20,15 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     AidRequestDirectory aidRequestDirectory;
     AidReceipentProfile aidReceipentProfile;
+    Organization organization;
     /**
      * Creates new form AidReceipentNewRequestJPanel
      */
-    public AidReceipentNewRequestJPanel(JPanel userProcessContainer,AidReceipentProfile aidReceipentProfile) {
+    public AidReceipentNewRequestJPanel(JPanel userProcessContainer,AidReceipentProfile aidReceipentProfile, Organization organization) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.aidReceipentProfile = aidReceipentProfile;
+        this.organization = organization;
     }
 
     /** 
@@ -46,10 +49,6 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
         lblAidReason = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAidReason = new javax.swing.JTextArea();
-        lblAidStatus = new javax.swing.JLabel();
-        txtAidStatus = new javax.swing.JTextField();
-        lblAidRequestdate = new javax.swing.JLabel();
-        txtAidRequestDate = new javax.swing.JTextField();
         btnAidRequest = new javax.swing.JButton();
         lblAidAmountNeeded = new javax.swing.JLabel();
         txtAidAmountNeeded = new javax.swing.JTextField();
@@ -72,13 +71,6 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
         txtAidReason.setRows(5);
         jScrollPane1.setViewportView(txtAidReason);
 
-        lblAidStatus.setText("Status:");
-
-        txtAidStatus.setText("PENDING");
-        txtAidStatus.setEnabled(false);
-
-        lblAidRequestdate.setText("Date:");
-
         btnAidRequest.setText("Request");
         btnAidRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,39 +90,23 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(182, 182, 182)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblAidAmountNeeded, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(txtAidAmountNeeded, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAidStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(txtAidStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblAidRequestorName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(txtRequestorName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblAidRequestId, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(txtAidRequestID, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(lblAidReason, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblAidRequestdate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(27, 27, 27)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnAidRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtAidRequestDate, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAidRequestId, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAidRequestorName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAidAmountNeeded, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAidReason, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAidAmountNeeded, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRequestorName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAidRequestID, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnAidRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAidRequest, jScrollPane1, lblAidAmountNeeded, lblAidReason, lblAidRequestId, lblAidRequestorName, txtAidAmountNeeded, txtAidRequestID, txtRequestorName});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -153,17 +129,12 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
                     .addComponent(lblAidAmountNeeded)
                     .addComponent(txtAidAmountNeeded, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAidStatus)
-                    .addComponent(txtAidStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAidRequestdate)
-                    .addComponent(txtAidRequestDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addComponent(btnAidRequest)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAidRequest, lblAidAmountNeeded, lblAidReason, lblAidRequestId, lblAidRequestorName, txtAidRequestID, txtRequestorName});
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAidRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAidRequestActionPerformed
@@ -199,7 +170,7 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Reason must not be empty.", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        aidRequestDirectory = organization.getAidRequestDirectory();
         aidRequestDirectory.addAidRequest(requestorName,Double.parseDouble(amountNeededText),reason,aidReceipentProfile);
         
         // Simulate a successful submission
@@ -221,14 +192,10 @@ public class AidReceipentNewRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblAidAmountNeeded;
     private javax.swing.JLabel lblAidReason;
     private javax.swing.JLabel lblAidRequestId;
-    private javax.swing.JLabel lblAidRequestdate;
     private javax.swing.JLabel lblAidRequestorName;
-    private javax.swing.JLabel lblAidStatus;
     private javax.swing.JTextField txtAidAmountNeeded;
     private javax.swing.JTextArea txtAidReason;
-    private javax.swing.JTextField txtAidRequestDate;
     private javax.swing.JTextField txtAidRequestID;
-    private javax.swing.JTextField txtAidStatus;
     private javax.swing.JTextField txtRequestorName;
     // End of variables declaration//GEN-END:variables
 }

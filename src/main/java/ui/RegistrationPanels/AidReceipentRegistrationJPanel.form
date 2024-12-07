@@ -113,9 +113,9 @@
                   <Component id="lblAidReceiptConfirmPassword" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAidReceiptConfirmPassword" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAidReciptRegister" linkSize="2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

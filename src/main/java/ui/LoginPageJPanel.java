@@ -5,6 +5,7 @@
 package ui;
 
 import DataConfiguration.Network;
+import DataConfiguration.Organization;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -156,8 +157,9 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            layout.next(userProcessContainer);
         }  
         if(userAccount.getAssociatedPersonProfile().getRole().equals("AidReceipent")){
+           Organization organization = network.getEnterpriseDirectory().findEnterprise("Public Service Enterprise").getOrganizationDirectory().findOrganization("Receipient Registration");
            AidReceipentProfile aidReceipentProfile = (AidReceipentProfile) userAccount.getAssociatedPersonProfile();
-           AidRecipientJPanel ajpanel = new AidRecipientJPanel(userProcessContainer, network, aidReceipentProfile);
+           AidRecipientJPanel ajpanel = new AidRecipientJPanel(userProcessContainer, network, aidReceipentProfile,organization);
            userProcessContainer.add(ajpanel);
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
