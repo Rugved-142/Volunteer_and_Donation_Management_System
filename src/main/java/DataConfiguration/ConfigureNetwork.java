@@ -76,6 +76,7 @@ public class ConfigureNetwork {
         VolunteerProfile vp3 = volunteerDirectory.newVolunteerProfile(pp3, "Rugved", "rugved@example.com", "password");
 
         userAccountDirectory.newUserAccount(vp1, vp1.getPerson().getPersonId(), "password");
+        System.out.println("Volunteer: " + vp1.getPerson().getPersonId());
         userAccountDirectory.newUserAccount(vp2, vp1.getPerson().getPersonId(), "password");
         userAccountDirectory.newUserAccount(vp3, vp1.getPerson().getPersonId(), "password");
 
