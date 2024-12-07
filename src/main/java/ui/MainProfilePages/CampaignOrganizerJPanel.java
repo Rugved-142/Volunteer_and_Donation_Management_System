@@ -5,8 +5,11 @@
 package ui.MainProfilePages;
 
 import DataConfiguration.Network;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
+import ui.ProfileComponents.AddCampaignsJPanel;
+import ui.ProfileComponents.VolunteerCoordinatorDashboard;
 
 /**
  *
@@ -41,38 +44,52 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
         CampaignOrganizerJPanel = new javax.swing.JPanel();
         btnAddCampaigns = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        CampaignOrganizerWorkArea = new javax.swing.JScrollPane();
+        btnViewCampaigns = new javax.swing.JButton();
+        CampaignOrganizerWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
-        btnAddCampaigns.setText("Add Campaigns");
+        btnAddCampaigns.setText("Add Campaign");
+        btnAddCampaigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCampaignsActionPerformed(evt);
+            }
+        });
 
         btnLogout.setText("Logout");
+
+        btnViewCampaigns.setText("View Campaign");
 
         javax.swing.GroupLayout CampaignOrganizerJPanelLayout = new javax.swing.GroupLayout(CampaignOrganizerJPanel);
         CampaignOrganizerJPanel.setLayout(CampaignOrganizerJPanelLayout);
         CampaignOrganizerJPanelLayout.setHorizontalGroup(
             CampaignOrganizerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CampaignOrganizerJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddCampaigns)
-                .addGap(36, 36, 36))
             .addGroup(CampaignOrganizerJPanelLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(33, 33, 33)
                 .addComponent(btnLogout)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CampaignOrganizerJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(CampaignOrganizerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnViewCampaigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddCampaigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
         CampaignOrganizerJPanelLayout.setVerticalGroup(
             CampaignOrganizerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CampaignOrganizerJPanelLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
+                .addGap(116, 116, 116)
                 .addComponent(btnAddCampaigns)
-                .addGap(60, 60, 60)
+                .addGap(34, 34, 34)
+                .addComponent(btnViewCampaigns)
+                .addGap(53, 53, 53)
                 .addComponent(btnLogout)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(CampaignOrganizerJPanel);
+
+        CampaignOrganizerWorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(CampaignOrganizerWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -87,12 +104,21 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddCampaignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCampaignsActionPerformed
+        // TODO add your handling code here:
+        AddCampaignsJPanel cowa = new AddCampaignsJPanel(CampaignOrganizerWorkArea, network);
+           CampaignOrganizerWorkArea.add(cowa);
+           CardLayout layout = (CardLayout) CampaignOrganizerWorkArea.getLayout();
+           layout.next(CampaignOrganizerWorkArea);
+    }//GEN-LAST:event_btnAddCampaignsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CampaignOrganizerJPanel;
-    private javax.swing.JScrollPane CampaignOrganizerWorkArea;
+    private javax.swing.JPanel CampaignOrganizerWorkArea;
     private javax.swing.JButton btnAddCampaigns;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnViewCampaigns;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

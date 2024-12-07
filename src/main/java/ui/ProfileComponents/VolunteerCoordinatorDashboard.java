@@ -44,8 +44,8 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVolunteerInfo = new javax.swing.JTable();
         btnAssignTask = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtTaskTextArea = new javax.swing.JTextArea();
+        btnDeleteVolunteer = new javax.swing.JButton();
+        txtTaskTextArea = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Volunteer List");
@@ -75,9 +75,7 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
             }
         });
 
-        txtTaskTextArea.setColumns(20);
-        txtTaskTextArea.setRows(5);
-        jScrollPane2.setViewportView(txtTaskTextArea);
+        btnDeleteVolunteer.setText("Delete Volunteer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,9 +89,11 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
                 .addContainerGap(119, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAssignTask)
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDeleteVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAssignTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(39, 39, 39)
+                        .addComponent(txtTaskTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88))
         );
@@ -105,10 +105,12 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAssignTask)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(txtTaskTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnDeleteVolunteer)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,11 +141,11 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignTask;
+    private javax.swing.JButton btnDeleteVolunteer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblVolunteerInfo;
-    private javax.swing.JTextArea txtTaskTextArea;
+    private javax.swing.JTextField txtTaskTextArea;
     // End of variables declaration//GEN-END:variables
 
     private void populateVolunteersTable() {
