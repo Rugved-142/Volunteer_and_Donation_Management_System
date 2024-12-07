@@ -7,16 +7,10 @@ package ui.MainProfilePages;
 import DataConfiguration.Network;
 import DataConfiguration.Organization;
 import java.awt.CardLayout;
-import java.util.ArrayList;
-import java.util.Random;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 import model.organization.VolunteerManagement.VolunteerCoordinator;
-import model.organization.VolunteerManagement.VolunteerProfile;
-import model.organization.VolunteerManagement.VolunteerTaskStatus;
 import ui.ProfileComponents.VolunteerCoordinatorDashboard;
-import ui.ProfileComponents.VolunteerTasksJPanel;
+import ui.ProfileComponents.VolunteerStatsJPanel;
 
 /**
  *
@@ -114,11 +108,11 @@ public class VolunteerCoordinatorJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,7 +126,11 @@ public class VolunteerCoordinatorJPanel extends javax.swing.JPanel {
 
     private void btnVolunteerStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolunteerStatsActionPerformed
         // TODO add your handling code here:
-        
+        Organization org = network.getEnterpriseDirectory().findEnterprise("Non-Profit Enterprise").getOrganizationDirectory().findOrganization("Volunteer Management");
+        VolunteerStatsJPanel vsjpanel = new VolunteerStatsJPanel(VolunteerCoordinatorWorkArea, org);
+           VolunteerCoordinatorWorkArea.add(vsjpanel);
+           CardLayout layout = (CardLayout) VolunteerCoordinatorWorkArea.getLayout();
+           layout.next(VolunteerCoordinatorWorkArea);
     }//GEN-LAST:event_btnVolunteerStatsActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
