@@ -8,6 +8,8 @@ import Directories.EnterpriseDirectory;
 import Directories.OrganizationDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
+import model.admin.AidCoordinator;
+import model.admin.AidCoordinatorDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 
@@ -101,6 +103,12 @@ public class ConfigureNetwork {
         Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
         userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
         
+        // Initializing AidCoordinator Profile Accounts
+        AidCoordinatorDirectory coordDirectory = organization2.getCoordinatorDirectory();
+        Person pp9 = new Person("12360");
+        AidCoordinator coord1 = coordDirectory.newCoordinatorProfile(pp9, "Coord", "John.coord@gmail.com", 987654321, "password");
+        userAccountDirectory.newUserAccount(coord1,coord1.getPerson().getPersonId() , "password");
+        System.out.println("Aid Coordinator: " + coord1.getPerson().getPersonId());
 
         return network;
     }

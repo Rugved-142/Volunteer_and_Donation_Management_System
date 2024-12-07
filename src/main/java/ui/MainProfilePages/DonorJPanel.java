@@ -11,6 +11,7 @@ import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
 import ui.DonationManagement.DonationHistoryJPanel;
 import ui.DonationManagement.NewDonationJPanel;
+import ui.LoginPageJPanel;
 import ui.RegistrationPanels.DonorRegistrationJPanel;
 
 /**
@@ -66,6 +67,11 @@ public class DonorJPanel extends javax.swing.JPanel {
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout DonorOptionsJPanelLayout = new javax.swing.GroupLayout(DonorOptionsJPanel);
         DonorOptionsJPanel.setLayout(DonorOptionsJPanelLayout);
@@ -130,6 +136,27 @@ public class DonorJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) DonorWorkArea.getLayout();
         layout.next(DonorWorkArea);
     }//GEN-LAST:event_btnDonateMoneyActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+            // Clear the current DonorWorkArea
+        DonorWorkArea.removeAll();
+
+        // Clear the parent container
+        userProcessContainer.removeAll();
+
+        // Create and show login panel (or whatever your initial panel is)
+        // Assuming your login panel is called LoginJPanel
+        LoginPageJPanel loginPanel = new LoginPageJPanel(userProcessContainer, network);
+        userProcessContainer.add(loginPanel);
+
+        // Refresh the container
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+        // Optional: Reset any session data
+        this.donor = null;
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
