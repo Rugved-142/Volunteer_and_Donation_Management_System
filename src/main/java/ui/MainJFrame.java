@@ -4,8 +4,6 @@
  */
 package ui;
 
-import DataConfiguration.ConfigureNetwork;
-import DataConfiguration.Network;
 import java.awt.CardLayout;
 
 /**
@@ -13,16 +11,13 @@ import java.awt.CardLayout;
  * @author Sarthak
  */
 public class MainJFrame extends javax.swing.JFrame {
-    
-    Network network;
 
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
-        network = ConfigureNetwork.initialize();
-        LoginPageJPanel loginPage = new LoginPageJPanel(userProcessContainer, network);
+        LoginPageJPanel loginPage = new LoginPageJPanel(userProcessContainer);
         userProcessContainer.add("LoginPageJPanel",loginPage);
         CardLayout layout=(CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
