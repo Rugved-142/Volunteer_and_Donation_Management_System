@@ -131,6 +131,8 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
         lblAvailableRes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblAvailableRes.setText("Available Resources");
 
+        txtAvailableRes.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(

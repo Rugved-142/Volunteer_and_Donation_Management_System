@@ -32,6 +32,7 @@ public class ResourcesReportJPanel extends javax.swing.JPanel {
         this.network = network;
         this.organization = organization;
        
+        this.organization = network.getEnterpriseDirectory().findEnterprise("Community Support Enterprise").getOrganizationDirectory().findOrganization("Donation Management");
         resource = organization.getResource();
         txtAmount.setText(Double.toString(resource.getTotalDonations()));
         txtCount.setText(Integer.toString(resource.getTotalDonationCount()));

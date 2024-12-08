@@ -153,8 +153,8 @@ public class ConfigureNetwork {
                 person,
                 name,
                 email,
-                age,
                 phoneNumber,
+                age,
                 "password"
             );
 
