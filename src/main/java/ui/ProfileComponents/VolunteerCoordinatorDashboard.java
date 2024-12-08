@@ -6,12 +6,16 @@ package ui.ProfileComponents;
 
 import DataConfiguration.Network;
 import DataConfiguration.Organization;
+import SMSFeature.SmsSender;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.organization.VolunteerManagement.VolunteerDirectory;
 import model.organization.VolunteerManagement.VolunteerProfile;
-import model.organization.VolunteerManagement.VolunteerTaskStatus;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 /**
  *
@@ -46,6 +50,9 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
         btnAssignTask = new javax.swing.JButton();
         btnDeleteVolunteer = new javax.swing.JButton();
         txtTaskTextArea = new javax.swing.JTextField();
+        txtSendSMS = new javax.swing.JButton();
+        txtMessage = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Volunteer List");
@@ -76,6 +83,20 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
         });
 
         btnDeleteVolunteer.setText("Delete Volunteer");
+        btnDeleteVolunteer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteVolunteerActionPerformed(evt);
+            }
+        });
+
+        txtSendSMS.setText("Send SMS");
+        txtSendSMS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSendSMSActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Message:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,13 +108,22 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(119, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnDeleteVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAssignTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(39, 39, 39)
-                        .addComponent(txtTaskTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(txtTaskTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSendSMS))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88))
         );
@@ -107,9 +137,13 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAssignTask)
-                    .addComponent(txtTaskTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTaskTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSendSMS))
                 .addGap(18, 18, 18)
-                .addComponent(btnDeleteVolunteer)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDeleteVolunteer)
+                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -138,13 +172,55 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
         return;
     }//GEN-LAST:event_btnAssignTaskActionPerformed
 
+    private void btnDeleteVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteVolunteerActionPerformed
+        // TODO add your handling code here:
+        Organization org = network.getEnterpriseDirectory().findEnterprise("Non-Profit Enterprise").getOrganizationDirectory().findOrganization("Volunteer Management");
+        VolunteerDirectory vd = org.getVolunteerDirectory();
+        int selectedVolunteer = tblVolunteerInfo.getSelectedRow();
+        if(selectedVolunteer<0){
+            JOptionPane.showMessageDialog(this, "Please select volunteer", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblVolunteerInfo.getModel();
+        //Getting selected row from the table
+        VolunteerProfile selectedVolunteerRecord = (VolunteerProfile) model.getValueAt(selectedVolunteer,0);
+        vd.removeVolunteer(selectedVolunteerRecord);
+        model.setRowCount(0);
+        populateVolunteersTable();
+        JOptionPane.showMessageDialog(this, "Volunteer Profile deleted!", "Sucsess",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnDeleteVolunteerActionPerformed
+
+    private void txtSendSMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSendSMSActionPerformed
+        // TODO add your handling code here:
+        String message = txtMessage.getText().trim();
+        
+        int selectedVolunteer = tblVolunteerInfo.getSelectedRow();
+        if(selectedVolunteer<0){
+            JOptionPane.showMessageDialog(this, "Please select volunteer", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(message.isBlank())
+        {
+            JOptionPane.showMessageDialog(this, "Include message to send sms", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblVolunteerInfo.getModel();
+        //Getting selected row from the table
+        VolunteerProfile vp = (VolunteerProfile) model.getValueAt(selectedVolunteer,0);
+        SmsSender sms = new SmsSender();
+        sms.sendSMS(vp.getPhoneNumber(),message) ;
+    }//GEN-LAST:event_txtSendSMSActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignTask;
     private javax.swing.JButton btnDeleteVolunteer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblVolunteerInfo;
+    private javax.swing.JTextField txtMessage;
+    private javax.swing.JButton txtSendSMS;
     private javax.swing.JTextField txtTaskTextArea;
     // End of variables declaration//GEN-END:variables
 
