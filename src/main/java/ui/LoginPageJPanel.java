@@ -199,6 +199,8 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            AidCoordinator aidcoord = (AidCoordinator) userAccount.getAssociatedPersonProfile();
             AidCoordinatorJPanel acjpanel = new AidCoordinatorJPanel(userProcessContainer, network, aidcoord);
            userProcessContainer.add(acjpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
         }
         if(userAccount.getAssociatedPersonProfile().getRole().equals("DataAnalyst")){
            Organization organization = network.getEnterpriseDirectory().findEnterprise("Corporate Donors Enterprise").getOrganizationDirectory().findOrganization("Analytics & Reporting");
