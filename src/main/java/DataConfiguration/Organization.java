@@ -5,7 +5,6 @@
 package DataConfiguration;
 
 import AidRequest.Resource;
-import Campaign.Campaign;
 import java.util.ArrayList;
 import model.admin.AidCoordinatorDirectory;
 
@@ -15,7 +14,10 @@ import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
 
 import model.organization.AidReceipent.AidReceipentDirectory;
 import model.organization.AidReceipent.AidRequestDirectory;
+import model.organization.CamapignManagement.Campaign;
+import model.organization.CamapignManagement.CampaignDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
+import model.organization.DataAnalyst.DataAnalystDirectory;
 import model.organization.DonationManagement.Donation;
 import model.organization.DonationManagement.DonationDirectory;
 import model.organization.DonationManagement.Donor;
@@ -42,6 +44,11 @@ public class Organization {
     Resource resource;
     AidCoordinatorDirectory coordinatorDirectory;
 
+    CampaignDirectory campaignDirectory;
+
+    DataAnalystDirectory dataAnalystDirectory;
+
+
     public Organization(int id, String name) {
         this.id = id;
         this.name = name;
@@ -54,8 +61,24 @@ public class Organization {
         this.aidRequestDirectory = new AidRequestDirectory(this);
         this.donationDirectory = new DonationDirectory(this);
         this.coordinatorDirectory = new AidCoordinatorDirectory(this);
+        this.campaignDirectory = new CampaignDirectory(this);
         this.resource = new Resource();
+        this.dataAnalystDirectory = new DataAnalystDirectory(this);
+    }     
+    
+
+    public CampaignDirectory getCampaignDirectory() {
+        return campaignDirectory;
+    }
+
+    public void setCampaignDirectory(CampaignDirectory campaignDirectory) {
+        this.campaignDirectory = campaignDirectory;
+    }
+
+    public void setDataAnalystDirectory(){
+        this.dataAnalystDirectory = new DataAnalystDirectory(this);
     }  
+
     
     public DonorDirectory getDonorDirectory() {
         return donorDirectory;
@@ -95,6 +118,14 @@ public class Organization {
 
     public AidCoordinatorDirectory getCoordinatorDirectory() {
         return coordinatorDirectory;
+    }
+
+    public DataAnalystDirectory getDataAnalystDirectory() {
+        return dataAnalystDirectory;
+    }
+
+    public void setDataAnalystDirectory(DataAnalystDirectory dataAnalystDirectory) {
+        this.dataAnalystDirectory = dataAnalystDirectory;
     }
 
     
@@ -138,7 +169,6 @@ public class Organization {
     
     public void processNewDonation(double amount, Donor donor){
         donationDirectory.processDonation(amount, donor);
-        resource.addFunds(amount);
         Donation donation = donor.makeDonation(amount);
     }
 

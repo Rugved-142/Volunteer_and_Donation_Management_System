@@ -4,24 +4,48 @@
  */
 package model.organization.CamapignManagement;
 
+import java.util.UUID;
+
 /**
  *
  * @author Sarthak
  */
 public class Campaign {
+    
+    UUID uuid = UUID.randomUUID();    
+    private String id;
     private String name;
     private String description;
     private String fromDate;
-    private String toDate;       
+    private String toDate;     
+    private String location;
 
-    public Campaign(String name, String description, String fromDate, String toDate) {
+    public Campaign(String name, String location, String description, String fromDate, String toDate) {
+        this.id = uuid.toString();
         this.name = name;
         this.description = description;
         this.fromDate = fromDate;
         this.toDate = toDate;
+        this.location = location;
     }
 
     // Getters and Setters
+    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public String getLocation() {
+        return this.location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
     
     public String getToDate() {
         return toDate;

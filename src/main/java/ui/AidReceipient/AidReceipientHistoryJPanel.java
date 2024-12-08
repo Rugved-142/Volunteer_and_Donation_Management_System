@@ -24,7 +24,7 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AidReceipientHistoryJPanel
      */
-    public AidReceipientHistoryJPanel(JPanel userProcessContainer, AidReceipentProfile aidReceipentProfile,Organization organization) {
+    public AidReceipientHistoryJPanel(JPanel userProcessContainer, AidReceipentProfile aidReceipentProfile, Organization organization) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.aidReceipentProfile = aidReceipentProfile;
@@ -49,7 +49,7 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("AID RECEIVED");
+        jLabel1.setText("AID Request History");
 
         tblHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,7 +59,7 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Donor Name", "Amount Received", "Received Date", "Status"
+                "Name", "Amount", "Request Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -158,7 +158,7 @@ public class AidReceipientHistoryJPanel extends javax.swing.JPanel {
                 Object[] row = new Object[5];
                 row[0] = ad;
                 row[1] = ad.getAmountNeeded();
-                row[2] = ad.getLastUpdated();
+                row[2] = ad.getRequestDate();
                 row[3] = ad.getStatus();
                 ((DefaultTableModel) tblHistory.getModel()).addRow(row);
             }

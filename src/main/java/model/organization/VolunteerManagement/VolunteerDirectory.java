@@ -23,6 +23,11 @@ public class VolunteerDirectory {
 
     }
     
+    public void removeVolunteer(VolunteerProfile vol)
+    {
+        volunteerList.remove(vol);
+    }
+    
     public ArrayList<VolunteerProfile> getVolunteerList() {
         return volunteerList;
     }
