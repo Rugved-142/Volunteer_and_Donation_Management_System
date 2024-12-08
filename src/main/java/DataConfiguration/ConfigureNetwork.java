@@ -19,6 +19,7 @@ import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 import model.organization.DataAnalyst.DataAnalystDirectory;
 import model.organization.DataAnalyst.DataAnalystProfile;
+import model.organization.DonationManagement.DonationDirectory;
 
 import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
@@ -108,18 +109,22 @@ public class ConfigureNetwork {
         System.out.println("Campaign Organizer: " + cop.getPerson().getPersonId());
 
         
-//        DonorDirectory donorDirectory = organization6.getDonerDirectory();
-//        Person pp5 = new Person("12348");
-//        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
-//        userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
+        DonorDirectory donorDirectory = organization6.getDonerDirectory();
+        Person pp5 = new Person("12348");
+        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
+        userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
+        DonationDirectory donationDirectory = organization6.getDonationDirectory();
+        donationDirectory.processDonation(1000.00, "John");
+        donationDirectory.processDonation(500.50, "John");
+        donationDirectory.processDonation(750.75, "John");
         
         // Initializing Donor Profile Accounts
-        DonorDirectory donorDirectory = organization6.getDonerDirectory();
-        for(int i=0;i<49;i++){
-        Person pp5 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-        Donor donor = donorDirectory.newDonorProfile(pp5, faker.name().firstName(), faker.animal().name()+".donor@gmail.com", (int)faker.number().randomNumber(10, true), "password");
-        userAccountDirectory.newUserAccount(donor, donor.getPerson().getPersonId(), "password");
-        }
+//        DonorDirectory donorDirectory = organization6.getDonerDirectory();
+//        for(int i=0;i<49;i++){
+//        Person pp5 = new Person(String.valueOf(random.nextInt(90000) + 10000));
+//        Donor donor = donorDirectory.newDonorProfile(pp5, faker.name().firstName(), faker.animal().name()+".donor@gmail.com", (int)faker.number().randomNumber(10, true), "password");
+//        userAccountDirectory.newUserAccount(donor, donor.getPerson().getPersonId(), "password");
+//        }
         
         // Initializing AidCoordinator Profile Accounts
         AidCoordinatorDirectory coordDirectory = organization2.getCoordinatorDirectory();

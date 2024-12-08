@@ -10,8 +10,10 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.admin.AidCoordinator;
 import model.organization.DonationManagement.Donor;
+import ui.AidDistribution.DistributionHistoryJPanel;
 import ui.AidDistribution.DistributionResourceJPanel;
 import ui.DonationManagement.DonationHistoryJPanel;
+import ui.LoginPageJPanel;
 
 /**
  *
@@ -43,7 +45,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         AidCoordinatorJPanel = new javax.swing.JPanel();
         btnDistribute = new javax.swing.JButton();
-        btnAvailableAid = new javax.swing.JButton();
+        btnAidHistory = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         AidCoordinatorWorkArea = new javax.swing.JPanel();
 
@@ -56,10 +58,10 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnAvailableAid.setText("Available Aid");
-        btnAvailableAid.addActionListener(new java.awt.event.ActionListener() {
+        btnAidHistory.setText("Aid History");
+        btnAidHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvailableAidActionPerformed(evt);
+                btnAidHistoryActionPerformed(evt);
             }
         });
 
@@ -80,7 +82,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AidCoordinatorJPanelLayout.createSequentialGroup()
                         .addGroup(AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnDistribute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAvailableAid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnAidHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AidCoordinatorJPanelLayout.createSequentialGroup()
                         .addComponent(btnLogout)
@@ -92,7 +94,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
                 .addGap(139, 139, 139)
                 .addComponent(btnDistribute)
                 .addGap(18, 18, 18)
-                .addComponent(btnAvailableAid)
+                .addComponent(btnAidHistory)
                 .addGap(31, 31, 31)
                 .addComponent(btnLogout)
                 .addContainerGap(200, Short.MAX_VALUE))
@@ -115,28 +117,53 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAvailableAidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAidActionPerformed
+    private void btnAidHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAidHistoryActionPerformed
+        // TODO add your handling code here:
+
+        DistributionHistoryJPanel hist = new DistributionHistoryJPanel(AidCoordinatorWorkArea, network , coord);
+        AidCoordinatorWorkArea.removeAll();
+        AidCoordinatorWorkArea.add(hist);
+        CardLayout layout = (CardLayout) AidCoordinatorWorkArea.getLayout();
+        layout.next(AidCoordinatorWorkArea);
+    }//GEN-LAST:event_btnAidHistoryActionPerformed
+
+    private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
         // TODO add your handling code here:
         DistributionResourceJPanel distres = new DistributionResourceJPanel(AidCoordinatorWorkArea, network , coord);
         AidCoordinatorWorkArea.removeAll();
         AidCoordinatorWorkArea.add(distres);
         CardLayout layout = (CardLayout) AidCoordinatorWorkArea.getLayout();
         layout.next(AidCoordinatorWorkArea);
-    }//GEN-LAST:event_btnAvailableAidActionPerformed
-
-    private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnDistributeActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        
+                // TODO add your handling code here:
+            // Clear the current DonorWorkArea
+        AidCoordinatorWorkArea.removeAll();
+
+        // Clear the parent container
+        userProcessContainer.removeAll();
+
+        // Create and show login panel (or whatever your initial panel is)
+        // Assuming your login panel is called LoginJPanel
+        LoginPageJPanel loginPanel = new LoginPageJPanel(userProcessContainer, network);
+        userProcessContainer.add(loginPanel);
+
+        // Refresh the container
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+        // Optional: Reset any session data
+        this.coord = null;
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AidCoordinatorJPanel;
     private javax.swing.JPanel AidCoordinatorWorkArea;
-    private javax.swing.JButton btnAvailableAid;
+    private javax.swing.JButton btnAidHistory;
     private javax.swing.JButton btnDistribute;
     private javax.swing.JButton btnLogout;
     private javax.swing.JSplitPane jSplitPane1;
