@@ -5,9 +5,7 @@
 package ui.AidDistribution;
 
 import AidRequest.Resource;
-import DataConfiguration.Enterprise;
 import DataConfiguration.Network;
-import DataConfiguration.Organization;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -30,35 +28,14 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
      private DefaultTableModel tableModel;
     /**
      * Creates new form DistributionResourceJPanel
-     * @param userProcessContainer
      */
     public DistributionResourceJPanel(JPanel userProcessContainer, Network network,AidCoordinator coord) {
         initComponents();
-        this.tableModel = (DefaultTableModel) tblAidRequest.getModel();
         this.userProcessContainer=userProcessContainer;
         this.network = network;
         this.coord = coord;
         this.requestList = network.getEnterpriseDirectory().findEnterprise("Public Service Enterprise").getOrganizationDirectory().findOrganization("Receipient Registration").getAidRequestDirectory();
-        
-        
-        // Make available resources text field non-editable
-            txtAvailableRes.setEditable(false);
-
-            // Add table selection listener
-            tblAidRequest.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-                public void valueChanged(ListSelectionEvent event) {
-                    if (!event.getValueIsAdjusting()) {
-                        int selectedRow = tblAidRequest.getSelectedRow();
-                        if (selectedRow >= 0) {
-                            txtName.setText(tblAidRequest.getValueAt(selectedRow, 0).toString());
-                            txtAmount.setText(tblAidRequest.getValueAt(selectedRow, 1).toString());
-                            txtReason.setText(tblAidRequest.getValueAt(selectedRow, 2).toString());
-                        }
-                    }
-                }
-            });
         populateTable();
-        updateAvailableResources();
     }
      
       private void populateTable() {
@@ -125,9 +102,15 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Name");
 
+        txtName.setText("jTextField1");
+
+        txtAmount.setText("jTextField1");
+
         jLabel2.setText("Amount");
 
         jLabel3.setText("Reason");
+
+        txtReason.setText("jTextField1");
 
         btnAcceptRequest.setText("Accept Request");
         btnAcceptRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -222,61 +205,25 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
         }
         
         String requestorName = txtName.getText();
-        String amountText = txtAmount.getText().trim();
+        double amount = Double.parseDouble(txtAmount.getText());
         
-        if (amountText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter an amount");
-            return;
-        }
-
-        double amount;
-        try {
-            amount = Double.parseDouble(amountText);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid number for amount");
-            return;
-        }
-        
-         AidRequest selectedRequest = findRequest(requestorName, amount);
-            if (selectedRequest != null) {
-                // Find the Community Support Enterprise and Donation Management org
-                Enterprise communityEnterprise = null;
-                Organization donationOrg = null;
-
-                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                    if (enterprise.getName().equals("Community Support Enterprise")) {
-                        communityEnterprise = enterprise;
-                        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                            if (org.getName().equals("Donation Management")) {
-                                donationOrg = org;
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                }
-
-                if (donationOrg == null) {
-                    JOptionPane.showMessageDialog(this, "Error: Donation organization not found");
-                    return;
-                }
-
-                Resource resource = donationOrg.getResource();
-                if (resource == null) {
-                    JOptionPane.showMessageDialog(this, "Error: Resource not found");
-                    return;
-                }
-
-                if (resource.allocateFunds(amount)) {
-                    selectedRequest.setStatus(AidRequest.RequestStatus.APPROVED);
-                    JOptionPane.showMessageDialog(this, "Request approved successfully");
-                    refreshPanel();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Insufficient funds");
-                }
+        AidRequest selectedRequest = findRequest(requestorName, amount);
+        if (selectedRequest != null) {
+            Resource resource = network.getEnterpriseDirectory()
+                .findEnterprise("Public Service Enterprise")
+                .getOrganizationDirectory()
+                .findOrganization("Donor Management")
+                .getDonationDirectory()
+                .getResource();
+                
+            if (resource.allocateFunds(amount)) {
+                selectedRequest.setStatus(AidRequest.RequestStatus.APPROVED);
+                JOptionPane.showMessageDialog(this, "Request approved successfully");
+                refreshPanel();
             } else {
-                JOptionPane.showMessageDialog(this, "Request not found");
+                JOptionPane.showMessageDialog(this, "Insufficient funds");
             }
+        }
         
     }//GEN-LAST:event_btnAcceptRequestActionPerformed
 
@@ -309,16 +256,6 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
             .orElse(null);
     }
     
-//    private void updateAvailableResources() {
-//        Resource resource = network.getEnterpriseDirectory()
-//            .findEnterprise("Public Service Enterprise")
-//            .getOrganizationDirectory()
-//            .findOrganization("Donor Management")
-//            .getDonationDirectory()
-//            .getResource();
-//            
-//        txtAvailableRes.setText(String.format("$%.2f", resource.getAvailableFunds()));
-//    }
     private void updateAvailableResources() {
         try {
             Enterprise communityEnterprise = null;
