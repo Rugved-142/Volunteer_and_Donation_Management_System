@@ -4,30 +4,17 @@
  */
 package ui.MainProfilePages;
 
-import DataConfiguration.Network;
-import DataConfiguration.Organization;
-import java.awt.CardLayout;
-import javax.swing.JPanel;
-import ui.DataAnalyst.ResourcesReportJPanel;
-import ui.DataAnalyst.SeeReportJPanel;
-
 /**
  *
  * @author Sarthak
  */
 public class DataAnalystJPanel extends javax.swing.JPanel {
 
-    JPanel userProcessContainer;
-    Network network;
-    Organization organization;
     /**
      * Creates new form VolunteerCoordinatorJPanel
      */
-    public DataAnalystJPanel(JPanel userProcessContainer, Network network, Organization organization) {
+    public DataAnalystJPanel() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.network = network;
-        this.organization = organization;
     }
 
     /**
@@ -44,16 +31,11 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         btnSeeReport = new javax.swing.JButton();
         btnResourcesReport = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        DataAnalystWorkArea = new javax.swing.JPanel();
+        DataAnalystWorkArea = new javax.swing.JScrollPane();
 
         jSplitPane1.setDividerLocation(150);
 
         btnSeeReport.setText("See Report");
-        btnSeeReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeeReportActionPerformed(evt);
-            }
-        });
 
         btnResourcesReport.setText("Resources Report");
         btnResourcesReport.addActionListener(new java.awt.event.ActionListener() {
@@ -63,11 +45,6 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         });
 
         btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout DataAnalystOptionsJPanelLayout = new javax.swing.GroupLayout(DataAnalystOptionsJPanel);
         DataAnalystOptionsJPanel.setLayout(DataAnalystOptionsJPanelLayout);
@@ -99,8 +76,6 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         );
 
         jSplitPane1.setLeftComponent(DataAnalystOptionsJPanel);
-
-        DataAnalystWorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(DataAnalystWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -117,33 +92,12 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
 
     private void btnResourcesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResourcesReportActionPerformed
         // TODO add your handling code here:
-        ResourcesReportJPanel rrJpanel = new ResourcesReportJPanel(userProcessContainer,network, organization);
-        DataAnalystWorkArea.removeAll();
-        DataAnalystWorkArea.add(rrJpanel);
-        CardLayout layout = (CardLayout) DataAnalystWorkArea.getLayout();
-        layout.next(DataAnalystWorkArea);
     }//GEN-LAST:event_btnResourcesReportActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this); 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnSeeReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeReportActionPerformed
-        // TODO add your handling code here:
-        SeeReportJPanel rrJpanel = new SeeReportJPanel(userProcessContainer,network, organization);
-        DataAnalystWorkArea.removeAll();
-        DataAnalystWorkArea.add(rrJpanel);
-        CardLayout layout = (CardLayout) DataAnalystWorkArea.getLayout();
-        layout.next(DataAnalystWorkArea);
-    }//GEN-LAST:event_btnSeeReportActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DataAnalystOptionsJPanel;
-    private javax.swing.JPanel DataAnalystWorkArea;
+    private javax.swing.JScrollPane DataAnalystWorkArea;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnResourcesReport;
     private javax.swing.JButton btnSeeReport;

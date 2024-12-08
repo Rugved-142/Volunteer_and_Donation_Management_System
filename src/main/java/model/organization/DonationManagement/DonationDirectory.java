@@ -21,42 +21,55 @@ public class DonationDirectory {
     public DonationDirectory(Organization organization){
         this.organization = organization;
         donations = new ArrayList<>();
-        resource = new Resource();
+//        this.resource = organization.getResource();
+//        if (this.resource == null) {
+//            this.resource = new Resource();
+//            organization.setResource(this.resource);
+//        }
     }
     
-    public void processDonation(double amount, String donorName){
-        Donation donation = new Donation(amount, donorName);
+    public void processDonation(double amount, Donor donor){
+        // Create new donation
+        Donation donation = new Donation(amount, donor);
         donations.add(donation);
         
+        // Add funds to the organization's resource
+        Resource resource = organization.getResource();
         resource.addFunds(amount);
+        
+        // Add to donation history with just the amount
+        DonationHistory donationHistory = new DonationHistory(amount);
+        resource.getDonationHistory().add(donationHistory);
+        
+        System.out.println("Donation processed - Updated funds: $" + resource.getAvailableFunds());
     }
     
     public double getAvailableFunds(){
-        return resource.getAvailableFunds();
+        return organization.getResource().getAvailableFunds();
     }
 
     public ArrayList<Donation> getDonations() {
         return donations;
     }
     
-    public List<DonationHistory> getDonationHistory(){
-        return resource.getDonationHistory();
+    public List<DonationHistory> getDonationHistory() {
+        return organization.getResource().getDonationHistory();
     }
     
-    public double getTotalDonations(){
-        return resource.getTotalDonations();
+    public double getTotalDonations() {
+        return organization.getResource().getTotalDonations();
     }
     
-    public int getDonationCount(){
-        return resource.getTotalDonationCount();
+    public int getDonationCount() {
+        return organization.getResource().getTotalDonationCount();
     }
     
-    public boolean allocateFunds(double amount){
-        return resource.allocateFunds(amount);
+    public boolean allocateFunds(double amount) {
+        return organization.getResource().allocateFunds(amount);
     }
     
     public Resource getResource() {
-        return resource;
+        return organization.getResource();
     }
     
     

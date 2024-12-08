@@ -53,7 +53,7 @@
           <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="AID Request History"/>
+        <Property name="text" type="java.lang.String" value="AID RECEIVED"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -67,9 +67,9 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
-                <Column editable="false" title="Name" type="java.lang.Object"/>
-                <Column editable="false" title="Amount" type="java.lang.Object"/>
-                <Column editable="false" title="Request Date" type="java.lang.Object"/>
+                <Column editable="false" title="Donor Name" type="java.lang.Object"/>
+                <Column editable="false" title="Amount Received" type="java.lang.Object"/>
+                <Column editable="false" title="Received Date" type="java.lang.Object"/>
                 <Column editable="false" title="Status" type="java.lang.Object"/>
               </Table>
             </Property>
