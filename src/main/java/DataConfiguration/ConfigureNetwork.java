@@ -16,6 +16,7 @@ import model.organization.AidReceipent.AidReceipentDirectory;
 import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
+import model.organization.DonationManagement.DonationDirectory;
 
 import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
@@ -109,6 +110,10 @@ public class ConfigureNetwork {
         Person pp5 = new Person("12348");
         Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
         userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
+        DonationDirectory donationDirectory = organization6.getDonationDirectory();
+        donationDirectory.processDonation(1000.00, "John");
+        donationDirectory.processDonation(500.50, "John");
+        donationDirectory.processDonation(750.75, "John");
         
         // Initializing Donor Profile Accounts
 //        DonorDirectory donorDirectory = organization6.getDonerDirectory();
