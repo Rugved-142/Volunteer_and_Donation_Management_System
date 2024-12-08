@@ -82,6 +82,12 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Phone:");
 
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneActionPerformed(evt);
+            }
+        });
+
         btnSave.setText("Save changes");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,8 +170,9 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         txtConfirmPassword.setEditable(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
+
         
         String email = txtEmail.getText().trim();
         String phoneNumber = txtPhone.getText().trim();        
@@ -203,7 +210,18 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         txtEmail.setEditable(false);
         txtPassword.setEditable(false);
         txtConfirmPassword.setEditable(false);
+
+
+    }                                         
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+
+
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

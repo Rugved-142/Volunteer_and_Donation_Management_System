@@ -29,6 +29,10 @@ public class AidCoordinatorDirectory {
         coordinatorList.add(coord);
         return coord;
     }
+
+    public ArrayList<AidCoordinator> getCoordinatorList() {
+        return coordinatorList;
+    }
     
     
 }
