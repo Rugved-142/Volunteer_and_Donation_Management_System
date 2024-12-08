@@ -82,8 +82,8 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDeleteCampaign)
                     .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(146, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +101,10 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
     private void btnDeleteCampaignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCampaignActionPerformed
         // TODO add your handling code here:
         
-        Organization org = network.getEnterpriseDirectory().findEnterprise("Corporate Donors Enterprise").getOrganizationDirectory().findOrganization("Campaign Management");
+        Organization org = network.getEnterpriseDirectory()
+                          .findEnterprise("Corporate Donors Enterprise")
+                          .getOrganizationDirectory()
+                          .findOrganization("Campaign Management");
         CampaignDirectory cd = org.getCampaignDirectory();
         
         int selectedCampaign = tblCampaigns.getSelectedRow();
@@ -114,6 +117,7 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
         //Getting selected row from the table
         Campaign selectedCampaignRecord = (Campaign) model.getValueAt(selectedCampaign,0);
         cd.removeCampaign(selectedCampaignRecord);
+        model.setRowCount(0);
         populateCampaignTable();
         JOptionPane.showMessageDialog(this, "Campaign deleted", "Sucess",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnDeleteCampaignActionPerformed
@@ -127,22 +131,28 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateCampaignTable() {
-        Organization org = network.getEnterpriseDirectory().findEnterprise("Corporate Donors Enterprise").getOrganizationDirectory().findOrganization("Campaign Management");
+        Organization org = network.getEnterpriseDirectory()
+                          .findEnterprise("Corporate Donors Enterprise")
+                          .getOrganizationDirectory()
+                          .findOrganization("Campaign Management");
         CampaignDirectory cd = org.getCampaignDirectory();
         ArrayList<Campaign> campaignList = cd.getAllCampaigns();        
         if (campaignList.isEmpty()) {
             return;
         }
+        
+        DefaultTableModel model = (DefaultTableModel) tblCampaigns.getModel();
+        model.setRowCount(0); // Clear the table
 
         for (Campaign camp : campaignList) { 
                 Object[] row = new Object[5];
                 row[0] = camp;
-                row[1] = camp.getName();    
+                row[1] = camp.getLocation();    
                 row[2] = camp.getDescription();  
                 row[3] = camp.getFromDate();  
                 row[4] = camp.getToDate();  
 
-                ((DefaultTableModel) tblCampaigns.getModel()).addRow(row);          
+                model.addRow(row);          
 
         }
     }

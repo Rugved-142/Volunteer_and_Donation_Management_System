@@ -4,15 +4,18 @@
  */
 package model.organization.CamapignManagement;
 
+import DataConfiguration.Organization;
+
 /**
  *
  * @author Sarthak
  */
 public class CampaignOrganizer {
+    Organization org;
     private CampaignDirectory directory;
 
-    public CampaignOrganizer() {
-        directory = new CampaignDirectory();   
+    public CampaignOrganizer(Organization org) {
+        this.org = org;
     }   
     
 
