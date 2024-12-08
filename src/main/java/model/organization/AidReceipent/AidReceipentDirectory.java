@@ -26,6 +26,10 @@ public class AidReceipentDirectory {
     
 }
 
+    public ArrayList<AidReceipentProfile> getAidReceipentsList() {
+        return aidReceipentsList;
+    }
+
     public AidReceipentProfile newAidReceipentProfile(Person p, String name,String email, int phoneNumber, int age, String password) {
         AidReceipentProfile arp = new AidReceipentProfile(p,name,email,phoneNumber, age, password);
         aidReceipentsList.add(arp);
