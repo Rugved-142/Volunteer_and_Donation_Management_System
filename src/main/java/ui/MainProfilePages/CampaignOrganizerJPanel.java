@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 import ui.ProfileComponents.AddCampaignsJPanel;
+import ui.ProfileComponents.ViewCampaignsJPanel;
 import ui.ProfileComponents.VolunteerCoordinatorDashboard;
 
 /**
@@ -57,8 +58,18 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
-        btnViewCampaigns.setText("View Campaign");
+        btnViewCampaigns.setText("View Campaigns");
+        btnViewCampaigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCampaignsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CampaignOrganizerJPanelLayout = new javax.swing.GroupLayout(CampaignOrganizerJPanel);
         CampaignOrganizerJPanel.setLayout(CampaignOrganizerJPanelLayout);
@@ -111,6 +122,21 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
            CardLayout layout = (CardLayout) CampaignOrganizerWorkArea.getLayout();
            layout.next(CampaignOrganizerWorkArea);
     }//GEN-LAST:event_btnAddCampaignsActionPerformed
+
+    private void btnViewCampaignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCampaignsActionPerformed
+        // TODO add your handling code here:
+        ViewCampaignsJPanel cowa = new ViewCampaignsJPanel(CampaignOrganizerWorkArea, network);
+        CampaignOrganizerWorkArea.add(cowa);
+        CardLayout layout = (CardLayout) CampaignOrganizerWorkArea.getLayout();
+        layout.next(CampaignOrganizerWorkArea);
+    }//GEN-LAST:event_btnViewCampaignsActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this); 
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

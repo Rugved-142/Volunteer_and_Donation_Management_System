@@ -4,17 +4,31 @@
  */
 package ui.ProfileComponents;
 
+import DataConfiguration.Network;
+import DataConfiguration.Organization;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.organization.CamapignManagement.Campaign;
+import model.organization.CamapignManagement.CampaignDirectory;
+
 /**
  *
  * @author Sarthak
  */
 public class ViewCampaignsJPanel extends javax.swing.JPanel {
 
+    JPanel CampaignOrganizerWorkArea;
+    Network network;
     /**
      * Creates new form ViewCampaignsJPanel
      */
-    public ViewCampaignsJPanel() {
+    public ViewCampaignsJPanel(JPanel CampaignOrganizerWorkArea, Network network) {
         initComponents();
+        this.CampaignOrganizerWorkArea = CampaignOrganizerWorkArea;
+        this.network = network;
+        populateCampaignTable();
     }
 
     /**
@@ -27,35 +41,37 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCampaigns = new javax.swing.JTable();
         btnDeleteCampaign = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnUpdateCampaign = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCampaigns.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Description", "From", "To"
+                "Name", "Location", "Description", "From", "To"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblCampaigns);
 
         btnDeleteCampaign.setText("Delete");
+        btnDeleteCampaign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCampaignActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Campaigns:");
-
-        btnUpdateCampaign.setText("Update");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,13 +80,10 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDeleteCampaign)
                     .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnUpdateCampaign)
-                        .addGap(55, 55, 55)
-                        .addComponent(btnDeleteCampaign))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(146, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,20 +92,68 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteCampaign)
-                    .addComponent(btnUpdateCampaign))
-                .addGap(127, 127, 127))
+                .addGap(39, 39, 39)
+                .addComponent(btnDeleteCampaign)
+                .addGap(135, 135, 135))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDeleteCampaignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCampaignActionPerformed
+        // TODO add your handling code here:
+        
+        Organization org = network.getEnterpriseDirectory()
+                          .findEnterprise("Corporate Donors Enterprise")
+                          .getOrganizationDirectory()
+                          .findOrganization("Campaign Management");
+        CampaignDirectory cd = org.getCampaignDirectory();
+        
+        int selectedCampaign = tblCampaigns.getSelectedRow();
+        if(selectedCampaign<0){
+            JOptionPane.showMessageDialog(this, "Please select campaign", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        //Getting table model
+        DefaultTableModel model = (DefaultTableModel) tblCampaigns.getModel();
+        //Getting selected row from the table
+        Campaign selectedCampaignRecord = (Campaign) model.getValueAt(selectedCampaign,0);
+        cd.removeCampaign(selectedCampaignRecord);
+        model.setRowCount(0);
+        populateCampaignTable();
+        JOptionPane.showMessageDialog(this, "Campaign deleted", "Sucess",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnDeleteCampaignActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteCampaign;
-    private javax.swing.JButton btnUpdateCampaign;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblCampaigns;
     // End of variables declaration//GEN-END:variables
+
+    private void populateCampaignTable() {
+        Organization org = network.getEnterpriseDirectory()
+                          .findEnterprise("Corporate Donors Enterprise")
+                          .getOrganizationDirectory()
+                          .findOrganization("Campaign Management");
+        CampaignDirectory cd = org.getCampaignDirectory();
+        ArrayList<Campaign> campaignList = cd.getAllCampaigns();        
+        if (campaignList.isEmpty()) {
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblCampaigns.getModel();
+        model.setRowCount(0); // Clear the table
+
+        for (Campaign camp : campaignList) { 
+                Object[] row = new Object[5];
+                row[0] = camp;
+                row[1] = camp.getLocation();    
+                row[2] = camp.getDescription();  
+                row[3] = camp.getFromDate();  
+                row[4] = camp.getToDate();  
+
+                model.addRow(row);          
+
+        }
+    }
 }

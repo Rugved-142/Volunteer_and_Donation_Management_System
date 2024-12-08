@@ -8,13 +8,19 @@ import Directories.EnterpriseDirectory;
 import Directories.OrganizationDirectory;
 import com.github.javafaker.Faker;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
 import model.admin.AidCoordinator;
 import model.admin.AidCoordinatorDirectory;
 import model.organization.AidReceipent.AidReceipentDirectory;
 import model.organization.AidReceipent.AidReceipentProfile;
+
+import model.organization.CamapignManagement.Campaign;
+import model.organization.CamapignManagement.CampaignDirectory;
+
 import model.organization.AidReceipent.AidRequest;
+
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 import model.organization.DonationManagement.DonationDirectory;
@@ -107,6 +113,12 @@ public class ConfigureNetwork {
         CampaignOrganizerProfile cop = campaignOrganizerDirectory.newCampaignOrganizerProfile(pp6, "SarthakOrganizer", "organizer@example.com", "password");
         userAccountDirectory.newUserAccount(cop, cop.getPerson().getPersonId(), "password");
         System.out.println("Campaign Organizer: " + cop.getPerson().getPersonId());
+        
+        //Creating Campaigns
+        CampaignDirectory campaignDirectory = organization3.getCampaignDirectory();
+        for(int i=0;i<24;i++){
+            campaignDirectory.addCampaign(new Campaign(faker.ancient().god(),faker.address().city(),"Description of the Campaign",faker.date().future(365, java.util.concurrent.TimeUnit.DAYS).toString(),faker.date().future(365, java.util.concurrent.TimeUnit.DAYS).toString()));
+        }
 
         
         DonorDirectory donorDirectory = organization6.getDonerDirectory();
