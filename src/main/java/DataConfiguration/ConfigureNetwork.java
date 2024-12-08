@@ -108,21 +108,15 @@ public class ConfigureNetwork {
         System.out.println("Campaign Organizer: " + cop.getPerson().getPersonId());
 
         
-        DonorDirectory donorDirectory = organization6.getDonerDirectory();
-        Person pp5 = new Person("12348");
-        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
-        userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
-        // After creating the donor
-        DonationDirectory donationDirectory = organization6.getDonationDirectory();
-
-        System.out.println("Before donations - Available funds: $" + organization6.getResource().getAvailableFunds());
-        organization6.processNewDonation(1000.00, donor1);
-        organization6.processNewDonation(500.50, donor1);
-        System.out.println("After donations - Available funds: $" + organization6.getResource().getAvailableFunds());
+//        DonorDirectory donorDirectory = organization6.getDonerDirectory();
+//        Person pp5 = new Person("12348");
+//        Donor donor1 = donorDirectory.newDonorProfile(pp5, "John", "John.donor@gmail.com", 987654321, "password");
+//        userAccountDirectory.newUserAccount(donor1,donor1.getPerson().getPersonId() , "password");
         
         // Initializing Donor Profile Accounts
+        DonorDirectory donorDirectory = organization6.getDonerDirectory();
         for(int i=0;i<49;i++){
-        pp5 = new Person(String.valueOf(random.nextInt(90000) + 10000));
+        Person pp5 = new Person(String.valueOf(random.nextInt(90000) + 10000));
         Donor donor = donorDirectory.newDonorProfile(pp5, faker.name().firstName(), faker.animal().name()+".donor@gmail.com", (int)faker.number().randomNumber(10, true), "password");
         userAccountDirectory.newUserAccount(donor, donor.getPerson().getPersonId(), "password");
         }
