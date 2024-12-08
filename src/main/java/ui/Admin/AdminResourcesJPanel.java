@@ -4,8 +4,14 @@
  */
 package ui.Admin;
 
+import AidRequest.Resource;
+import DataConfiguration.Enterprise;
 import DataConfiguration.Network;
+import DataConfiguration.Organization;
+import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.organization.DonationManagement.DonationHistory;
 
 /**
  *
@@ -15,6 +21,8 @@ public class AdminResourcesJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     Network network;
+    Organization organization;
+    Resource resource;
     /**
      * Creates new form AdminResources
      */
@@ -22,6 +30,26 @@ public class AdminResourcesJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.network = network;
+        
+        Enterprise enterprise = network.getEnterpriseDirectory().findEnterprise("Community Support Enterprise");
+        System.out.println("Found enterprise: " + (enterprise!= null? "yes":"no"));
+        
+        this.organization = enterprise.getOrganizationDirectory().findOrganization("Donation Management");
+        System.out.println("Found organization: " + (this.organization!= null? "yes":"no"));
+        
+        resource = organization.getResource();
+        System.out.println("Found resource: " + (resource!= null? "yes":"no"));
+        
+        List<DonationHistory> history = resource.getDonationHistory();
+        System.out.println("Donation history size: " + history.size());
+        
+        for(DonationHistory dh: history){
+            System.out.println("Donation amount: " + dh.getAmount());
+        }
+        txtAmount.setText(Double.toString(resource.getTotalDonations()));
+        txtCount.setText(Integer.toString(resource.getTotalDonationCount()));
+        txtRemainingRes.setText(Double.toString(resource.getAvailableFunds()));
+        populateTable();
     }
 
     /**
@@ -40,6 +68,8 @@ public class AdminResourcesJPanel extends javax.swing.JPanel {
         txtAmount = new javax.swing.JTextField();
         txtCount = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        txtRemainingRes = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         tblDonationHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,11 +110,24 @@ public class AdminResourcesJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Donation Count:");
 
+        txtRemainingRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRemainingResActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Remaining Resources");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(27, 27, 27)
+                .addComponent(txtRemainingRes, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(331, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -103,7 +146,12 @@ public class AdminResourcesJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 423, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(257, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtRemainingRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(143, 143, 143))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(61, 61, 61)
@@ -130,14 +178,35 @@ public class AdminResourcesJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCountActionPerformed
 
+    private void txtRemainingResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRemainingResActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRemainingResActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDonationHistory;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCount;
+    private javax.swing.JTextField txtRemainingRes;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+       DefaultTableModel tableModel = (DefaultTableModel) tblDonationHistory.getModel();
+        tableModel.setRowCount(0);
+        System.out.println("Populating table with history size: " + resource.getDonationHistory().size());
+        
+        for (DonationHistory dh : resource.getDonationHistory()) {
+                Object[] row ={
+                            String.format("$%.2f", dh.getAmount()),
+                            dh.getTimestamp()
+                        };
+                        tableModel.addRow(row);        
+                        System.out.println("Added row: " + row[0] + "at" + row[1]);
+        }
+    }
 }
