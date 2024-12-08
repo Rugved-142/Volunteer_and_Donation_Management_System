@@ -14,13 +14,13 @@ import java.util.UUID;
 public class Donation {
    private String donationId;
    private double amount;
-   private String donorName;
+   private Donor donor;
    private LocalDateTime timestamp;
    
-   public Donation(double amount, String donorName){
+   public Donation(double amount, Donor donor){
        this.donationId = UUID.randomUUID().toString();
        this.amount = amount;
-       this.donorName = donorName;
+       this.donor = donor;
        this.timestamp = LocalDateTime.now();
    }
 
@@ -32,9 +32,10 @@ public class Donation {
         return amount;
     }
 
-    public String getDonorName() {
-        return donorName;
+    public Donor getDonor() {
+        return donor;
     }
+
 
     public LocalDateTime getTimestamp() {
         return timestamp;

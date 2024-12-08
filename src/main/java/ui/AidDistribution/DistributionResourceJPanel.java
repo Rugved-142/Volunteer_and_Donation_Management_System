@@ -146,8 +146,6 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
         lblAvailableRes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblAvailableRes.setText("Available Resources");
 
-        txtAvailableRes.setText("jTextField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -325,7 +323,7 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
         try {
             Enterprise communityEnterprise = null;
             Organization donationOrg = null;
-
+            System.out.println("Number of enterprises: " + network.getEnterpriseDirectory().getEnterpriseList().size());
             // Find the Community Support Enterprise and Donation Management org
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 if (enterprise.getName().equals("Community Support Enterprise")) {
@@ -355,6 +353,7 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
         } catch (Exception e) {
             txtAvailableRes.setText("$0.00");
             System.err.println("Error updating available resources: " + e.getMessage());
+            e.printStackTrace();
         }
     }
     
