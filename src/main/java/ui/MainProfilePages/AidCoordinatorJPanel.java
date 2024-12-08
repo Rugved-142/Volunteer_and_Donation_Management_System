@@ -12,6 +12,7 @@ import model.admin.AidCoordinator;
 import model.organization.DonationManagement.Donor;
 import ui.AidDistribution.DistributionResourceJPanel;
 import ui.DonationManagement.DonationHistoryJPanel;
+import ui.LoginPageJPanel;
 
 /**
  *
@@ -117,19 +118,44 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
 
     private void btnAvailableAidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailableAidActionPerformed
         // TODO add your handling code here:
-        DistributionResourceJPanel distres = new DistributionResourceJPanel(AidCoordinatorWorkArea, network , coord);
-        AidCoordinatorWorkArea.removeAll();
-        AidCoordinatorWorkArea.add(distres);
-        CardLayout layout = (CardLayout) AidCoordinatorWorkArea.getLayout();
-        layout.next(AidCoordinatorWorkArea);
+
+//    AidCoordinatorWorkArea.add("DistributionResource", distres);
+//    AidCoordinatorWorkArea.revalidate();
+//    AidCoordinatorWorkArea.repaint();
+//    CardLayout layout = (CardLayout) AidCoordinatorWorkArea.getLayout();
+//    layout.show(AidCoordinatorWorkArea, "DistributionResource");
     }//GEN-LAST:event_btnAvailableAidActionPerformed
 
     private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
         // TODO add your handling code here:
+                DistributionResourceJPanel distres = new DistributionResourceJPanel(AidCoordinatorWorkArea, network , coord);
+        AidCoordinatorWorkArea.removeAll();
+        AidCoordinatorWorkArea.add(distres);
+        CardLayout layout = (CardLayout) AidCoordinatorWorkArea.getLayout();
+        layout.next(AidCoordinatorWorkArea);
     }//GEN-LAST:event_btnDistributeActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        
+                // TODO add your handling code here:
+            // Clear the current DonorWorkArea
+        AidCoordinatorWorkArea.removeAll();
+
+        // Clear the parent container
+        userProcessContainer.removeAll();
+
+        // Create and show login panel (or whatever your initial panel is)
+        // Assuming your login panel is called LoginJPanel
+        LoginPageJPanel loginPanel = new LoginPageJPanel(userProcessContainer, network);
+        userProcessContainer.add(loginPanel);
+
+        // Refresh the container
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+        // Optional: Reset any session data
+        this.coord = null;
     }//GEN-LAST:event_btnLogoutActionPerformed
 
 
