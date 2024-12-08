@@ -63,7 +63,7 @@ public class Organization {
         this.coordinatorDirectory = new AidCoordinatorDirectory(this);
         this.campaignDirectory = new CampaignDirectory(this);
         this.resource = new Resource();
-
+        this.dataAnalystDirectory = new DataAnalystDirectory(this);
     }     
     
 
@@ -75,6 +75,7 @@ public class Organization {
         this.campaignDirectory = campaignDirectory;
     }
 
+    public void setDataAnalystDirectory(){
         this.dataAnalystDirectory = new DataAnalystDirectory(this);
     }  
 
