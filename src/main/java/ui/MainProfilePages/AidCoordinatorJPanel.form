@@ -49,7 +49,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="btnDistribute" max="32767" attributes="0"/>
-                                  <Component id="btnAvailableAid" max="32767" attributes="0"/>
+                                  <Component id="btnAidHistory" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -67,7 +67,7 @@
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                       <Component id="btnDistribute" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnAvailableAid" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAidHistory" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="200" max="32767" attributes="0"/>
@@ -84,12 +84,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDistributeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnAvailableAid">
+            <Component class="javax.swing.JButton" name="btnAidHistory">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Available Aid"/>
+                <Property name="text" type="java.lang.String" value="Aid History"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAvailableAidActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAidHistoryActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnLogout">
