@@ -16,14 +16,14 @@ import model.client.PersonProfile;
  */
 public class VolunteerProfile extends PersonProfile {
     private String name;
-    private String email;
+    private String email;    
+    String phoneNumber;
     int age;
     String gender;
     String DOB;    
     private String password;
     private ArrayList<String> skills;
     private ArrayList<String> availability;
-//    private HashMap<VolunteerTask> tasks;
     private ArrayList<VolunteerTask> tasks;
     private VolunteerSchedule schedule;
     private List<String> completedTasks;
@@ -34,6 +34,7 @@ public class VolunteerProfile extends PersonProfile {
         super(p);
         this.name = name;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.DOB = DOB;
         this.age = age;
         this.gender = gender;
@@ -44,6 +45,14 @@ public class VolunteerProfile extends PersonProfile {
         this.schedule = new VolunteerSchedule();
         this.completedTasks = new ArrayList<>();
         this.totalHours = 0;
+    }
+    
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     
     public int getAge() {
@@ -88,10 +97,8 @@ public class VolunteerProfile extends PersonProfile {
     } 
     
     public void incrementHours(){
-        this.totalHours  += 4; 
-    }
-
-    
+        this.totalHours  += 2; 
+    }    
 
     public void addSkill(String skill) {
         this.skills.add(skill);
