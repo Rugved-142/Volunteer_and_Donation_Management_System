@@ -4,17 +4,36 @@
  */
 package ui.MainProfilePages;
 
+import DataConfiguration.Network;
+import DataConfiguration.Organization;
+import java.awt.CardLayout;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import model.admin.AdminProfile;
+import ui.Admin.AdminAidCoordinatorJPanel;
+import ui.Admin.AdminDataAnalystJPanel;
+import ui.Admin.AdminResourcesJPanel;
+import ui.Admin.AdminVolunteersJPanel;
+
 /**
  *
  * @author Sarthak
  */
 public class AdminProfileJPanel extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Network network;
+    Organization organization;
+    AdminProfile adminProfile;
     /**
      * Creates new form VolunteerProfileJPanel
      */
-    public AdminProfileJPanel() {
+    public AdminProfileJPanel(JPanel userProcessContainer, Network network, AdminProfile adminProfile) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.network = network;
+        this.adminProfile = adminProfile;
+        
     }
 
     /**
@@ -28,48 +47,71 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         AdminOptionsJPanel = new javax.swing.JPanel();
-        btnResourses = new javax.swing.JButton();
-        Campaigns = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        AdminWorkAreaJanel = new javax.swing.JScrollPane();
+        cmbProfile = new javax.swing.JComboBox<>();
+        btnView = new javax.swing.JButton();
+        AdminWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
-        btnResourses.setText("Resources");
-
-        Campaigns.setText("Campaigns");
-
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        cmbProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aid Coordinator", "Data Analyst", "Volunteers", "Resources" }));
+        cmbProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProfileActionPerformed(evt);
+            }
+        });
+
+        btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AdminOptionsJPanelLayout = new javax.swing.GroupLayout(AdminOptionsJPanel);
         AdminOptionsJPanel.setLayout(AdminOptionsJPanelLayout);
         AdminOptionsJPanelLayout.setHorizontalGroup(
             AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminOptionsJPanelLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Campaigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnResourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36))
             .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btnLogout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cmbProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLogout)))
+                    .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnView)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        AdminOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, cmbProfile});
+
         AdminOptionsJPanelLayout.setVerticalGroup(
             AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(btnResourses)
-                .addGap(30, 30, 30)
-                .addComponent(Campaigns)
-                .addGap(50, 50, 50)
+                .addGap(175, 175, 175)
+                .addComponent(cmbProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnView)
+                .addGap(29, 29, 29)
                 .addComponent(btnLogout)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
+        AdminOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLogout, cmbProfile});
+
         jSplitPane1.setLeftComponent(AdminOptionsJPanel);
-        jSplitPane1.setRightComponent(AdminWorkAreaJanel);
+
+        AdminWorkArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(AdminWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -79,17 +121,63 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this); 
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void cmbProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProfileActionPerformed
+        // TODO add your handling code here:
+        String selectedItem = (String) cmbProfile.getSelectedItem();
+    }//GEN-LAST:event_cmbProfileActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        String selectedItem = (String) cmbProfile.getSelectedItem();
+        
+        if(selectedItem.equals("Aid Coordinator")){
+            AdminAidCoordinatorJPanel aacJpanel = new AdminAidCoordinatorJPanel(userProcessContainer,network);
+            AdminWorkArea.removeAll();
+            AdminWorkArea.add(aacJpanel);
+            CardLayout layout = (CardLayout) AdminWorkArea.getLayout();
+            layout.next(AdminWorkArea);
+        }
+        if(selectedItem.equals("Data Analyst")){
+            AdminDataAnalystJPanel adaJpanel = new AdminDataAnalystJPanel(userProcessContainer,network);
+            AdminWorkArea.removeAll();
+            AdminWorkArea.add(adaJpanel);
+            CardLayout layout = (CardLayout) AdminWorkArea.getLayout();
+            layout.next(AdminWorkArea);
+        }
+        if(selectedItem.equals("Resources")){
+            AdminResourcesJPanel arJpanel = new AdminResourcesJPanel(userProcessContainer,network);
+            AdminWorkArea.removeAll();
+            AdminWorkArea.add(arJpanel);
+            CardLayout layout = (CardLayout) AdminWorkArea.getLayout();
+            layout.next(AdminWorkArea);
+        }
+        if(selectedItem.equals("Volunteers")){
+            AdminVolunteersJPanel avJpanel = new AdminVolunteersJPanel(userProcessContainer,network);
+            AdminWorkArea.removeAll();
+            AdminWorkArea.add(avJpanel);
+            CardLayout layout = (CardLayout) AdminWorkArea.getLayout();
+            layout.next(AdminWorkArea);
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminOptionsJPanel;
-    private javax.swing.JScrollPane AdminWorkAreaJanel;
-    private javax.swing.JButton Campaigns;
+    private javax.swing.JPanel AdminWorkArea;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnResourses;
+    private javax.swing.JButton btnView;
+    private javax.swing.JComboBox<String> cmbProfile;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
