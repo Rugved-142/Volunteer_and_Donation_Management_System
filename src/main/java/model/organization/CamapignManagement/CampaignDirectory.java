@@ -8,13 +8,16 @@ package model.organization.CamapignManagement;
  *
  * @author Sarthak
  */
+import DataConfiguration.Organization;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CampaignDirectory {
-    private List<Campaign> campaigns;
+    Organization org;
+    private ArrayList<Campaign> campaigns;
 
-    public CampaignDirectory() {
+    public CampaignDirectory(Organization org) {
+        this.org = org;
         this.campaigns = new ArrayList<>();
     }
 
@@ -28,10 +31,11 @@ public class CampaignDirectory {
     }
 
     // Modify a campaign
-    public void modifyCampaign(String name, String newDescription, String newFromDate,String newToDate) {
+    public void modifyCampaign(String name, String newDescription, String location, String newFromDate,String newToDate) {
         for (Campaign campaign : campaigns) {
             if (campaign.getName().equals(name)) {
                 campaign.setDescription(newDescription);
+                campaign.setLocation(location);
                 campaign.setFromDate(newFromDate);
                 campaign.setToDate(newToDate);
                 break;
@@ -40,7 +44,7 @@ public class CampaignDirectory {
     }
 
     // Get all campaigns
-    public List<Campaign> getAllCampaigns() {
+    public ArrayList<Campaign> getAllCampaigns() {
         return campaigns;
     }
 
