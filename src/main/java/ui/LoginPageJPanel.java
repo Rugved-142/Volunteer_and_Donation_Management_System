@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.admin.AidCoordinator;
+import model.admin.AdminProfile;
 import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 import model.organization.DataAnalyst.DataAnalystProfile;
@@ -19,6 +20,7 @@ import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
 import ui.AidDistribution.DistributionResourceJPanel;
+import ui.MainProfilePages.AdminProfileJPanel;
 import ui.MainProfilePages.AidCoordinatorJPanel;
 import ui.MainProfilePages.AidRecipientJPanel;
 import ui.MainProfilePages.CampaignOrganizerJPanel;
@@ -153,6 +155,13 @@ public class LoginPageJPanel extends javax.swing.JPanel {
             return;
         }
         
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("Admin")){
+           AdminProfile adminProfile = (AdminProfile) userAccount.getAssociatedPersonProfile();
+           AdminProfileJPanel appanel = new AdminProfileJPanel(userProcessContainer, network, adminProfile);
+           userProcessContainer.add(appanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
         if(userAccount.getAssociatedPersonProfile().getRole().equals("Volunteer")){
            VolunteerProfile volunteerProfile = (VolunteerProfile) userAccount.getAssociatedPersonProfile();
            VolunteerJPanel vjpanel = new VolunteerJPanel(userProcessContainer, network, volunteerProfile);

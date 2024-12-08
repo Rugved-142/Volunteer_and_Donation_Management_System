@@ -13,6 +13,7 @@ import model.UserAccountManagement.UserAccountDirectory;
 import model.client.Person;
 import model.admin.AidCoordinator;
 import model.admin.AidCoordinatorDirectory;
+import model.admin.AdminProfile;
 import model.organization.AidReceipent.AidReceipentDirectory;
 import model.organization.AidReceipent.AidReceipentProfile;
 
@@ -83,6 +84,20 @@ public class ConfigureNetwork {
         //Initializing organizations in Enterprise 4
         OrganizationDirectory od4 = enterprise4.getOrganizationDirectory();
         Organization organization6 = od4.newOrganization(6, "Donation Management");
+
+
+        // Create an Admin profile for the Non-Profit Enterprise
+        Person adminPerson = new Person("10001"); // Unique Person ID for the admin
+        String adminName = "Admin";
+        String adminEmail = "admin@admin.com";
+        int adminPhone = 1390442676;
+        String adminPassword = "password";
+
+        // Assuming an Admin class exists
+        AdminProfile adminProfile = new AdminProfile(adminPerson, adminName, adminEmail, adminPhone, adminPassword);
+
+        // Add the Admin profile to the user account directory for authentication
+        network.userAccountDirectory.newUserAccount(adminProfile, adminPerson.getPersonId(), adminPassword);
 
         //Initializing Volunteer profile accounts
         UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
