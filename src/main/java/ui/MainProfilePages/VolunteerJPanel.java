@@ -8,6 +8,7 @@ import DataConfiguration.Network;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.VolunteerManagement.VolunteerProfile;
+import ui.ProfileComponents.VolunteerProfileUpdateJPanel;
 import ui.ProfileComponents.VolunteerTasksJPanel;
 
 /**
@@ -44,6 +45,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         btnViewTasks = new javax.swing.JButton();
         btnViewCampaigns = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        btnProfile = new javax.swing.JButton();
         VolunteerWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
@@ -64,31 +66,42 @@ public class VolunteerJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnProfile.setText("Profile");
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout VolunteerOptionsJPanelLayout = new javax.swing.GroupLayout(VolunteerOptionsJPanel);
         VolunteerOptionsJPanel.setLayout(VolunteerOptionsJPanelLayout);
         VolunteerOptionsJPanelLayout.setHorizontalGroup(
             VolunteerOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VolunteerOptionsJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(VolunteerOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnViewCampaigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewTasks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36))
             .addGroup(VolunteerOptionsJPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btnLogout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(VolunteerOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VolunteerOptionsJPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(VolunteerOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnViewTasks, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewCampaigns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnProfile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(VolunteerOptionsJPanelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnLogout)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         VolunteerOptionsJPanelLayout.setVerticalGroup(
             VolunteerOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VolunteerOptionsJPanelLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
+                .addGap(114, 114, 114)
                 .addComponent(btnViewTasks)
-                .addGap(30, 30, 30)
+                .addGap(31, 31, 31)
                 .addComponent(btnViewCampaigns)
-                .addGap(50, 50, 50)
+                .addGap(37, 37, 37)
+                .addComponent(btnProfile)
+                .addGap(34, 34, 34)
                 .addComponent(btnLogout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(VolunteerOptionsJPanel);
@@ -100,11 +113,11 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,11 +136,20 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         layout.next(VolunteerWorkArea);
     }//GEN-LAST:event_btnViewTasksActionPerformed
 
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        // TODO add your handling code here:
+        VolunteerProfileUpdateJPanel vtjp = new VolunteerProfileUpdateJPanel(VolunteerWorkArea, network, volunteerProfile);
+        VolunteerWorkArea.add(vtjp);
+        CardLayout layout = (CardLayout) VolunteerWorkArea.getLayout();
+        layout.next(VolunteerWorkArea);
+    }//GEN-LAST:event_btnProfileActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel VolunteerOptionsJPanel;
     private javax.swing.JPanel VolunteerWorkArea;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnViewCampaigns;
     private javax.swing.JButton btnViewTasks;
     private javax.swing.JSplitPane jSplitPane1;
