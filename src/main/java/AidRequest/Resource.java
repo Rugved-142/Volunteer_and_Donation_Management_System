@@ -28,6 +28,9 @@ public class Resource {
         if (amount > 0) {
             this.availableFunds += amount;
             donationHistory.add(new DonationHistory(amount));
+            System.out.println("Added donation to history: $" + amount);
+            System.out.println("Current history size: $" + donationHistory.size());
+            
         }
     }
 

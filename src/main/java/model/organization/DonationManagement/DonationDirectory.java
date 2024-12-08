@@ -36,10 +36,7 @@ public class DonationDirectory {
         // Add funds to the organization's resource
         Resource resource = organization.getResource();
         resource.addFunds(amount);
-        
-        // Add to donation history with just the amount
-        DonationHistory donationHistory = new DonationHistory(amount);
-        resource.getDonationHistory().add(donationHistory);
+
         
         System.out.println("Donation processed - Updated funds: $" + resource.getAvailableFunds());
     }
