@@ -148,9 +148,13 @@ public class Organization {
     }
     
     public void processNewDonation(double amount, Donor donor){
-        donationDirectory.processDonation(amount, donor.getLoginName());
+        donationDirectory.processDonation(amount, donor);
         resource.addFunds(amount);
         Donation donation = donor.makeDonation(amount);
+    }
+
+    public void setResource(Resource resource) {
+        this.resource = resource;
     }
     
 }

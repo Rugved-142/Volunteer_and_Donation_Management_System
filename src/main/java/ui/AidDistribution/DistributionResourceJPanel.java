@@ -129,8 +129,6 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
         lblAvailableRes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblAvailableRes.setText("Available Resources");
 
-        txtAvailableRes.setText("jTextField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -267,6 +265,41 @@ public class DistributionResourceJPanel extends javax.swing.JPanel {
             .getResource();
             
         txtAvailableRes.setText(String.format("$%.2f", resource.getAvailableFunds()));
+        try {
+            Enterprise communityEnterprise = null;
+            Organization donationOrg = null;
+            System.out.println("Number of enterprises: " + network.getEnterpriseDirectory().getEnterpriseList().size());
+            // Find the Community Support Enterprise and Donation Management org
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enterprise.getName().equals("Community Support Enterprise")) {
+                    communityEnterprise = enterprise;
+                    for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                        if (org.getName().equals("Donation Management")) {
+                            donationOrg = org;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+
+            if (donationOrg == null) {
+                txtAvailableRes.setText("$0.00");
+                return;
+            }
+
+            resource = donationOrg.getResource();
+            if (resource == null) {
+                txtAvailableRes.setText("$0.00");
+                return;
+            }
+
+            txtAvailableRes.setText(String.format("$%.2f", resource.getAvailableFunds()));
+        } catch (Exception e) {
+            txtAvailableRes.setText("$0.00");
+            System.err.println("Error updating available resources: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
     
     private void refreshPanel() {

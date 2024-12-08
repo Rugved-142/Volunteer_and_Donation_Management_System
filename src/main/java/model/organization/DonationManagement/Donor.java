@@ -38,7 +38,7 @@ public class Donor extends PersonProfile {
     }
     
     public Donation makeDonation(double amount){
-        Donation donation = new Donation(amount, this.loginName);
+        Donation donation = new Donation(amount, this);
         donationHistory.add(donation);
         return donation;
     }
