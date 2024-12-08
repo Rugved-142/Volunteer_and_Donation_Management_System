@@ -9,6 +9,7 @@ import DataConfiguration.Organization;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import ui.DataAnalyst.ResourcesReportJPanel;
+import ui.DataAnalyst.SeeReportJPanel;
 
 /**
  *
@@ -48,6 +49,11 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         jSplitPane1.setDividerLocation(150);
 
         btnSeeReport.setText("See Report");
+        btnSeeReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeeReportActionPerformed(evt);
+            }
+        });
 
         btnResourcesReport.setText("Resources Report");
         btnResourcesReport.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +130,15 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnSeeReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeReportActionPerformed
+        // TODO add your handling code here:
+        SeeReportJPanel rrJpanel = new SeeReportJPanel(userProcessContainer,network, organization);
+        DataAnalystWorkArea.removeAll();
+        DataAnalystWorkArea.add(rrJpanel);
+        CardLayout layout = (CardLayout) DataAnalystWorkArea.getLayout();
+        layout.next(DataAnalystWorkArea);
+    }//GEN-LAST:event_btnSeeReportActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
