@@ -13,11 +13,13 @@ import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
+import model.organization.DataAnalyst.DataAnalystProfile;
 import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
 import ui.MainProfilePages.AidRecipientJPanel;
 import ui.MainProfilePages.CampaignOrganizerJPanel;
+import ui.MainProfilePages.DataAnalystJPanel;
 
 import ui.MainProfilePages.RegistrationJPanel;
 
@@ -186,6 +188,14 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            AidReceipentProfile aidReceipentProfile = (AidReceipentProfile) userAccount.getAssociatedPersonProfile();
            AidRecipientJPanel ajpanel = new AidRecipientJPanel(userProcessContainer, network, aidReceipentProfile,organization);
            userProcessContainer.add(ajpanel);
+           CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
+        if(userAccount.getAssociatedPersonProfile().getRole().equals("DataAnalyst")){
+           Organization organization = network.getEnterpriseDirectory().findEnterprise("Corporate Donors Enterprise").getOrganizationDirectory().findOrganization("Analytics & Reporting");
+           DataAnalystProfile dataAnalystProfile = (DataAnalystProfile) userAccount.getAssociatedPersonProfile();
+           DataAnalystJPanel dapanel = new DataAnalystJPanel(userProcessContainer, network, organization);
+           userProcessContainer.add(dapanel);
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
         }  

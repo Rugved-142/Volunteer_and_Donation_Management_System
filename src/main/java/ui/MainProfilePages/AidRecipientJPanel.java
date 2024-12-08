@@ -84,7 +84,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
                     .addComponent(btnNewRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         AidRecipientOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnHistory, btnLogout, btnNewRequest});
@@ -124,7 +124,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         AidReceipientWorkArea.removeAll();
         AidReceipientWorkArea.add(arhpanel);
         CardLayout layout = (CardLayout) AidReceipientWorkArea.getLayout();
-        layout.next(AidReceipientWorkArea);
+        layout.next(AidReceipientWorkArea);   
     }//GEN-LAST:event_btnHistoryActionPerformed
 
     private void btnNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRequestActionPerformed
