@@ -17,6 +17,7 @@ import model.organization.AidReceipent.AidRequestDirectory;
 import model.organization.CamapignManagement.Campaign;
 import model.organization.CamapignManagement.CampaignDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
+import model.organization.DataAnalyst.DataAnalystDirectory;
 import model.organization.DonationManagement.Donation;
 import model.organization.DonationManagement.DonationDirectory;
 import model.organization.DonationManagement.Donor;
@@ -42,7 +43,11 @@ public class Organization {
     DonationDirectory donationDirectory;
     Resource resource;
     AidCoordinatorDirectory coordinatorDirectory;
+
     CampaignDirectory campaignDirectory;
+
+    DataAnalystDirectory dataAnalystDirectory;
+
 
     public Organization(int id, String name) {
         this.id = id;
@@ -58,6 +63,7 @@ public class Organization {
         this.coordinatorDirectory = new AidCoordinatorDirectory(this);
         this.campaignDirectory = new CampaignDirectory(this);
         this.resource = new Resource();
+
     }     
     
 
@@ -68,6 +74,10 @@ public class Organization {
     public void setCampaignDirectory(CampaignDirectory campaignDirectory) {
         this.campaignDirectory = campaignDirectory;
     }
+
+        this.dataAnalystDirectory = new DataAnalystDirectory(this);
+    }  
+
     
     public DonorDirectory getDonorDirectory() {
         return donorDirectory;
@@ -107,6 +117,14 @@ public class Organization {
 
     public AidCoordinatorDirectory getCoordinatorDirectory() {
         return coordinatorDirectory;
+    }
+
+    public DataAnalystDirectory getDataAnalystDirectory() {
+        return dataAnalystDirectory;
+    }
+
+    public void setDataAnalystDirectory(DataAnalystDirectory dataAnalystDirectory) {
+        this.dataAnalystDirectory = dataAnalystDirectory;
     }
 
     
@@ -150,7 +168,6 @@ public class Organization {
     
     public void processNewDonation(double amount, Donor donor){
         donationDirectory.processDonation(amount, donor);
-        resource.addFunds(amount);
         Donation donation = donor.makeDonation(amount);
     }
 

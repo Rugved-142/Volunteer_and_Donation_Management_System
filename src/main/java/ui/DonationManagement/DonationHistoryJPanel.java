@@ -57,7 +57,7 @@ public class DonationHistoryJPanel extends javax.swing.JPanel {
             if (donationOrg != null) {
                 List<Donation> donations = donationOrg.getDonationDirectory().getDonations();
                 for(Donation donation: donations){
-                    if(donation.getDonor().equals(donor.getLoginName())){
+                    if(donation.getDonor().getLoginName().equals(donor.getLoginName())){
                         Object[] row ={
                             donation.getDonationId(),
                             String.format("$%.2f", donation.getAmount()),
