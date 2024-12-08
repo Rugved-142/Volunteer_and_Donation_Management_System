@@ -19,6 +19,7 @@ import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 import model.organization.DataAnalyst.DataAnalystDirectory;
 import model.organization.DataAnalyst.DataAnalystProfile;
+import model.organization.DonationManagement.DonationDirectory;
 
 import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
@@ -121,12 +122,12 @@ public class ConfigureNetwork {
         System.out.println("After donations - Available funds: $" + organization6.getResource().getAvailableFunds());
         
         // Initializing Donor Profile Accounts
-        DonorDirectory donorDirectory = organization6.getDonerDirectory();
-        for(int i=0;i<49;i++){
-        Person pp5 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-        Donor donor = donorDirectory.newDonorProfile(pp5, faker.name().firstName(), faker.animal().name()+".donor@gmail.com", (int)faker.number().randomNumber(10, true), "password");
-        userAccountDirectory.newUserAccount(donor, donor.getPerson().getPersonId(), "password");
-        }
+//        DonorDirectory donorDirectory = organization6.getDonerDirectory();
+//        for(int i=0;i<49;i++){
+//        Person pp5 = new Person(String.valueOf(random.nextInt(90000) + 10000));
+//        Donor donor = donorDirectory.newDonorProfile(pp5, faker.name().firstName(), faker.animal().name()+".donor@gmail.com", (int)faker.number().randomNumber(10, true), "password");
+//        userAccountDirectory.newUserAccount(donor, donor.getPerson().getPersonId(), "password");
+//        }
         
         // Initializing AidCoordinator Profile Accounts
         AidCoordinatorDirectory coordDirectory = organization2.getCoordinatorDirectory();

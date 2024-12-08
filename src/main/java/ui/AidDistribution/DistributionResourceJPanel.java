@@ -5,7 +5,9 @@
 package ui.AidDistribution;
 
 import AidRequest.Resource;
+import DataConfiguration.Enterprise;
 import DataConfiguration.Network;
+import DataConfiguration.Organization;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
