@@ -5,12 +5,12 @@
 package ui.DataAnalyst;
 
 import AidRequest.Resource;
-import Campaign.Campaign;
 import DataConfiguration.Network;
 import DataConfiguration.Organization;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.organization.AidReceipent.AidReceipentProfile;
+import model.organization.CamapignManagement.Campaign;
 import model.organization.VolunteerManagement.VolunteerDirectory;
 import model.organization.VolunteerManagement.VolunteerProfile;
 
@@ -137,17 +137,17 @@ public class SeeReportJPanel extends javax.swing.JPanel {
 
         tblCampaignData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title", "Description", "Location", "Date"
+                "Title", "Description", "Location", "From Date", "To Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -300,19 +300,20 @@ public class SeeReportJPanel extends javax.swing.JPanel {
     System.err.println("Organization 'Campaign Management' not found!");
     return; // Exit the method to avoid further errors
 }
-        if (organization.getCampaigns() == null) {
+        if (organization.getCampaignDirectory().getAllCampaigns() == null) {
     System.err.println("No campaigns found for organization: " + organization.getName());
     return; // Exit the method
 }
 
-        for (Campaign c : organization.getCampaigns()) {
+        for (Campaign c : organization.getCampaignDirectory().getAllCampaigns()) {
                 Object[] row ={
-                            c.getTitle(),
+                            c.getName(),
                             c.getDescription(),
                             c.getLocation(),
-                            c.getDate()
+                            c.getFromDate(),
+                            c.getToDate()
                         };
                         tableModel.addRow(row);        }
-        txtReceipientsCount.setText(Integer.toString(organization.getCampaigns().size()));
+        txtCampaignCount.setText(Integer.toString(organization.getCampaignDirectory().getAllCampaigns().size()));
     }
 }

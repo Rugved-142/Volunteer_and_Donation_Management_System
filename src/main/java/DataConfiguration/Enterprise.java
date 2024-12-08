@@ -8,7 +8,6 @@ package DataConfiguration;
  *
  * @author sarthak deshmukh
  */
-import Campaign.Campaign;
 import Directories.OrganizationDirectory;
 import Directories.OrganizationDirectory;
 import java.util.Arrays;
