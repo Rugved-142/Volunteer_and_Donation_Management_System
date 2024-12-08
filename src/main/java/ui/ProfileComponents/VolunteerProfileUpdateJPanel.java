@@ -77,6 +77,12 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Phone:");
 
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneActionPerformed(evt);
+            }
+        });
+
         btnSave.setText("Save changes");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,71 +156,75 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String firstName = txtFirstName.getText().trim();
-        String lastName = txtLastName.getText().trim();
-        String userName = txtFirstName.getText().trim() + " " + txtLastName.getText().trim();
-        String email = txtEmail.getText();
-        String phoneNumber = txtPhone.getText().trim();
-        String gender = genderComboBox.getSelectedItem().toString();
-        String DOB = txtDOB.getText();
-        int age;
-        char[] password = txtPassword.getPassword();
-        char[] confirmPassword = txtConfirmPassword.getPassword();        
-        
-               
-        if(firstName.isEmpty() || userName.isEmpty() || email.isEmpty() || password==null || confirmPassword==null || gender.isEmpty() || DOB.isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!","Warning",JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")) {
-            JOptionPane.showMessageDialog(this, "First Name & Last Name must contain only alphabets.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
-            JOptionPane.showMessageDialog(this, "Invalid Email format.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        try{
-            age = Integer.parseInt(txtAge.getText().trim());
-        }
-        catch(Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, "Please enter valid age!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if (!phoneNumber.matches("^[+]?\\d{1,3}?[- .]?\\(?\\d{1,4}?\\)?[- .]?\\d{1,4}[- .]?\\d{1,9}$")) {
-            JOptionPane.showMessageDialog(this, "Invalid phone number!", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if(!(String.valueOf(password).equals(String.valueOf(confirmPassword))))
-        {
-            JOptionPane.showMessageDialog(null, "Passwords don't match","Warning",JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        Random random = new Random();
-        EnterpriseDirectory enterpriseDirectory = network.getEnterpriseDirectory();
-        Enterprise enterprise = enterpriseDirectory.findEnterprise("Non-Profit Enterprise");
-        Organization organization = enterprise.getOrganizationDirectory().findOrganization("Volunteer Management");
-        UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
-        VolunteerDirectory volunteerDirectory = organization.getVolunteerDirectory();
-        Person pp1 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp1, userName, email, gender,age,DOB,String.valueOf(password));
-        userAccountDirectory.newUserAccount(vp,firstName , String.valueOf(password));
-        
-        System.out.println("Volunteer profile created: " + vp.getPerson().getPersonId());
-        
-        JOptionPane.showMessageDialog(null, "Registration Succesful","Success",JOptionPane.INFORMATION_MESSAGE);
+//        String firstName = txtFirstName.getText().trim();
+//        String lastName = txtLastName.getText().trim();
+//        String userName = txtFirstName.getText().trim() + " " + txtLastName.getText().trim();
+//        String email = txtEmail.getText();
+//        String phoneNumber = txtPhone.getText().trim();
+//        String gender = genderComboBox.getSelectedItem().toString();
+//        String DOB = txtDOB.getText();
+//        int age;
+//        char[] password = txtPassword.getPassword();
+//        char[] confirmPassword = txtConfirmPassword.getPassword();        
+//        
+//               
+//        if(firstName.isEmpty() || userName.isEmpty() || email.isEmpty() || password==null || confirmPassword==null || gender.isEmpty() || DOB.isEmpty()){
+//            JOptionPane.showMessageDialog(null, "All fields are required!","Warning",JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
+//        
+//        if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")) {
+//            JOptionPane.showMessageDialog(this, "First Name & Last Name must contain only alphabets.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        
+//        if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
+//            JOptionPane.showMessageDialog(this, "Invalid Email format.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//
+//        try{
+//            age = Integer.parseInt(txtAge.getText().trim());
+//        }
+//        catch(Exception ex)
+//        {
+//            JOptionPane.showMessageDialog(null, "Please enter valid age!", "Error", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        
+//        if (!phoneNumber.matches("^[+]?\\d{1,3}?[- .]?\\(?\\d{1,4}?\\)?[- .]?\\d{1,4}[- .]?\\d{1,9}$")) {
+//            JOptionPane.showMessageDialog(this, "Invalid phone number!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        
+//        if(!(String.valueOf(password).equals(String.valueOf(confirmPassword))))
+//        {
+//            JOptionPane.showMessageDialog(null, "Passwords don't match","Warning",JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
+//        
+//        Random random = new Random();
+//        EnterpriseDirectory enterpriseDirectory = network.getEnterpriseDirectory();
+//        Enterprise enterprise = enterpriseDirectory.findEnterprise("Non-Profit Enterprise");
+//        Organization organization = enterprise.getOrganizationDirectory().findOrganization("Volunteer Management");
+//        UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
+//        VolunteerDirectory volunteerDirectory = organization.getVolunteerDirectory();
+//        Person pp1 = new Person(String.valueOf(random.nextInt(90000) + 10000));
+//        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp1, userName, email, gender,age,DOB,String.valueOf(password));
+//        userAccountDirectory.newUserAccount(vp,firstName , String.valueOf(password));
+//        
+//        System.out.println("Volunteer profile created: " + vp.getPerson().getPersonId());
+//        
+//        JOptionPane.showMessageDialog(null, "Registration Succesful","Success",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

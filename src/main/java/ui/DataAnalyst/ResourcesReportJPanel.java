@@ -5,9 +5,11 @@
 package ui.DataAnalyst;
 
 import AidRequest.Resource;
+import DataConfiguration.Enterprise;
 import DataConfiguration.Network;
 import DataConfiguration.Organization;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.organization.DonationManagement.Donation;
@@ -26,16 +28,43 @@ public class ResourcesReportJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ResourcesReport
      */
+//    public ResourcesReportJPanel(JPanel userProcessContainer, Network network, Organization organization) {
+//        initComponents();
+//        this.userProcessContainer = userProcessContainer;
+//        this.network = network;
+//        this.organization = organization;
+//       
+//        this.organization = network.getEnterpriseDirectory().findEnterprise("Community Support Enterprise").getOrganizationDirectory().findOrganization("Donation Management");
+//        resource = organization.getResource();
+//        txtAmount.setText(Double.toString(resource.getTotalDonations()));
+//        txtCount.setText(Integer.toString(resource.getTotalDonationCount()));
+//        populateTable();
+//    }
+    
     public ResourcesReportJPanel(JPanel userProcessContainer, Network network, Organization organization) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.network = network;
         this.organization = organization;
        
-        this.organization = network.getEnterpriseDirectory().findEnterprise("Community Support Enterprise").getOrganizationDirectory().findOrganization("Donation Management");
+        Enterprise enterprise = network.getEnterpriseDirectory().findEnterprise("Community Support Enterprise");
+        System.out.println("Found enterprise: " + (enterprise!= null? "yes":"no"));
+        
+        this.organization = enterprise.getOrganizationDirectory().findOrganization("Donation Management");
+        System.out.println("Found organization: " + (this.organization!= null? "yes":"no"));
+        
         resource = organization.getResource();
+        System.out.println("Found resource: " + (resource!= null? "yes":"no"));
+        
+        List<DonationHistory> history = resource.getDonationHistory();
+        System.out.println("Donation history size: " + history.size());
+        
+        for(DonationHistory dh: history){
+            System.out.println("Donation amount: " + dh.getAmount());
+        }
         txtAmount.setText(Double.toString(resource.getTotalDonations()));
         txtCount.setText(Integer.toString(resource.getTotalDonationCount()));
+        txtRemainingRes.setText(Double.toString(resource.getAvailableFunds()));
         populateTable();
     }
 
@@ -56,6 +85,8 @@ public class ResourcesReportJPanel extends javax.swing.JPanel {
         txtAmount = new javax.swing.JTextField();
         txtCount = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        txtRemainingRes = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -104,6 +135,14 @@ public class ResourcesReportJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Donation Count:");
 
+        txtRemainingRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRemainingResActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Remaining Resources");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,10 +159,14 @@ public class ResourcesReportJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(28, 28, 28)
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(27, 27, 27)
+                                .addComponent(txtRemainingRes, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 201, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -147,7 +190,11 @@ public class ResourcesReportJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
                         .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtRemainingRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel3, jLabel4, txtAmount, txtCount});
@@ -162,26 +209,36 @@ public class ResourcesReportJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCountActionPerformed
 
+    private void txtRemainingResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRemainingResActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRemainingResActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDonationHistory;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCount;
+    private javax.swing.JTextField txtRemainingRes;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
         DefaultTableModel tableModel = (DefaultTableModel) tblDonationHistory.getModel();
         tableModel.setRowCount(0);
+        System.out.println("Populating table with history size: " + resource.getDonationHistory().size());
+        
         for (DonationHistory dh : resource.getDonationHistory()) {
                 Object[] row ={
                             String.format("$%.2f", dh.getAmount()),
                             dh.getTimestamp()
                         };
-                        tableModel.addRow(row);        }
+                        tableModel.addRow(row);        
+                        System.out.println("Added row: " + row[0] + "at" + row[1]);
+        }
     }
 }

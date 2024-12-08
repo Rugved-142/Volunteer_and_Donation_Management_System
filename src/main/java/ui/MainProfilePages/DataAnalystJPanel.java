@@ -4,6 +4,7 @@
  */
 package ui.MainProfilePages;
 
+import DataConfiguration.Enterprise;
 import DataConfiguration.Network;
 import DataConfiguration.Organization;
 import java.awt.CardLayout;
@@ -28,6 +29,9 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.network = network;
         this.organization = organization;
+        
+        Enterprise communityEnterprise = network.getEnterpriseDirectory().findEnterprise("Community Support Enterprise");
+        this.organization = communityEnterprise.getOrganizationDirectory().findOrganization("Donation Management");
     }
 
     /**
