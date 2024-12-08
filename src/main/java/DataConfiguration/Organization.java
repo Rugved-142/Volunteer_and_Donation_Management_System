@@ -16,6 +16,7 @@ import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
 import model.organization.AidReceipent.AidReceipentDirectory;
 import model.organization.AidReceipent.AidRequestDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
+import model.organization.DataAnalyst.DataAnalystDirectory;
 import model.organization.DonationManagement.Donation;
 import model.organization.DonationManagement.DonationDirectory;
 import model.organization.DonationManagement.Donor;
@@ -41,6 +42,7 @@ public class Organization {
     DonationDirectory donationDirectory;
     Resource resource;
     AidCoordinatorDirectory coordinatorDirectory;
+    DataAnalystDirectory dataAnalystDirectory;
 
     public Organization(int id, String name) {
         this.id = id;
@@ -55,6 +57,7 @@ public class Organization {
         this.donationDirectory = new DonationDirectory(this);
         this.coordinatorDirectory = new AidCoordinatorDirectory(this);
         this.resource = new Resource();
+        this.dataAnalystDirectory = new DataAnalystDirectory(this);
     }  
     
     public DonorDirectory getDonorDirectory() {
@@ -95,6 +98,14 @@ public class Organization {
 
     public AidCoordinatorDirectory getCoordinatorDirectory() {
         return coordinatorDirectory;
+    }
+
+    public DataAnalystDirectory getDataAnalystDirectory() {
+        return dataAnalystDirectory;
+    }
+
+    public void setDataAnalystDirectory(DataAnalystDirectory dataAnalystDirectory) {
+        this.dataAnalystDirectory = dataAnalystDirectory;
     }
 
     
@@ -139,10 +150,6 @@ public class Organization {
     public void processNewDonation(double amount, Donor donor){
         donationDirectory.processDonation(amount, donor);
         Donation donation = donor.makeDonation(amount);
-    }
-
-    public void setResource(Resource resource) {
-        this.resource = resource;
     }
     
 }
