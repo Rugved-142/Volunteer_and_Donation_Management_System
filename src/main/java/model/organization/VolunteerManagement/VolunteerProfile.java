@@ -5,7 +5,6 @@
 package model.organization.VolunteerManagement;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import model.client.Person;
 import model.client.PersonProfile;
@@ -30,7 +29,7 @@ public class VolunteerProfile extends PersonProfile {
     private int totalHours;
     boolean registrationRequest=false;
     
-    public VolunteerProfile(Person p, String name, String email, String gender,int age,String DOB,String password) {
+    public VolunteerProfile(Person p, String name, String phoneNumber,String email, String gender,int age,String DOB,String password) {
         super(p);
         this.name = name;
         this.email = email;

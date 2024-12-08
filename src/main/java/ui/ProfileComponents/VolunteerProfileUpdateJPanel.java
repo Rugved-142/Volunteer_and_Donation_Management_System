@@ -36,6 +36,11 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         this.network = network;
         this.volunteerProfile = volunteerProfile;
         populateProfileData();
+        btnSave.setEnabled(false);
+        txtPhone.setEditable(false);
+        txtEmail.setEditable(false);
+        txtPassword.setEditable(false);
+        txtConfirmPassword.setEditable(false);
     }
 
     /**
@@ -61,7 +66,7 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Email:");
 
-        jLabel4.setText("Password:");
+        jLabel4.setText("New Password:");
 
         jLabel5.setText("Confirm Password");
 
@@ -108,16 +113,14 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(txtConfirmPassword)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                .addComponent(txtConfirmPassword)
+                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnSave))))
                 .addContainerGap(145, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addGap(126, 126, 126))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtConfirmPassword, txtEmail, txtPassword, txtPhone});
@@ -143,11 +146,14 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
-                    .addComponent(btnUpdate))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(btnUpdate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(btnSave)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtConfirmPassword, txtEmail, txtPassword, txtPhone});
@@ -155,71 +161,62 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-//        String firstName = txtFirstName.getText().trim();
-//        String lastName = txtLastName.getText().trim();
-//        String userName = txtFirstName.getText().trim() + " " + txtLastName.getText().trim();
-//        String email = txtEmail.getText();
-//        String phoneNumber = txtPhone.getText().trim();
-//        String gender = genderComboBox.getSelectedItem().toString();
-//        String DOB = txtDOB.getText();
-//        int age;
-//        char[] password = txtPassword.getPassword();
-//        char[] confirmPassword = txtConfirmPassword.getPassword();        
-//        
-//               
-//        if(firstName.isEmpty() || userName.isEmpty() || email.isEmpty() || password==null || confirmPassword==null || gender.isEmpty() || DOB.isEmpty()){
-//            JOptionPane.showMessageDialog(null, "All fields are required!","Warning",JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-//        
-//        if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")) {
-//            JOptionPane.showMessageDialog(this, "First Name & Last Name must contain only alphabets.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        
-//        if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
-//            JOptionPane.showMessageDialog(this, "Invalid Email format.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        try{
-//            age = Integer.parseInt(txtAge.getText().trim());
-//        }
-//        catch(Exception ex)
-//        {
-//            JOptionPane.showMessageDialog(null, "Please enter valid age!", "Error", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        
-//        if (!phoneNumber.matches("^[+]?\\d{1,3}?[- .]?\\(?\\d{1,4}?\\)?[- .]?\\d{1,4}[- .]?\\d{1,9}$")) {
-//            JOptionPane.showMessageDialog(this, "Invalid phone number!", "Validation Error", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        
-//        if(!(String.valueOf(password).equals(String.valueOf(confirmPassword))))
-//        {
-//            JOptionPane.showMessageDialog(null, "Passwords don't match","Warning",JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-//        
-//        Random random = new Random();
-//        EnterpriseDirectory enterpriseDirectory = network.getEnterpriseDirectory();
-//        Enterprise enterprise = enterpriseDirectory.findEnterprise("Non-Profit Enterprise");
-//        Organization organization = enterprise.getOrganizationDirectory().findOrganization("Volunteer Management");
-//        UserAccountDirectory userAccountDirectory = network.getUserAccountDirectory();
-//        VolunteerDirectory volunteerDirectory = organization.getVolunteerDirectory();
-//        Person pp1 = new Person(String.valueOf(random.nextInt(90000) + 10000));
-//        VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp1, userName, email, gender,age,DOB,String.valueOf(password));
-//        userAccountDirectory.newUserAccount(vp,firstName , String.valueOf(password));
-//        
-//        System.out.println("Volunteer profile created: " + vp.getPerson().getPersonId());
-//        
-//        JOptionPane.showMessageDialog(null, "Registration Succesful","Success",JOptionPane.INFORMATION_MESSAGE);
+        // TODO add your handling code here:     
+        btnSave.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        txtPhone.setEditable(true);
+        txtEmail.setEditable(true);
+        txtPassword.setEditable(true);
+        txtConfirmPassword.setEditable(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
+
+        
+        String email = txtEmail.getText().trim();
+        String phoneNumber = txtPhone.getText().trim();        
+        
+        char[] password = txtPassword.getPassword();   
+        
+        String pwd = new String(password);
+        String cpwd = new String(password);
+        
+        if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid Email format.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }        
+        
+        if (!phoneNumber.matches("^[+]?\\d{1,3}?[- .]?\\(?\\d{1,4}?\\)?[- .]?\\d{1,4}[- .]?\\d{1,9}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid phone number!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (!pwd.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
+            JOptionPane.showMessageDialog(this, "Check if password is at least 8 characters long, contains only letters and digits", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }    
+             
+        
+        volunteerProfile.setEmail(email);
+        volunteerProfile.setPhoneNumber(phoneNumber);
+        volunteerProfile.setPassword(pwd);
+        
+        
+        JOptionPane.showMessageDialog(null, "Profile updated","Success",JOptionPane.INFORMATION_MESSAGE);
+        
+        btnSave.setEnabled(false);
+        txtPhone.setEditable(false);
+        txtEmail.setEditable(false);
+        txtPassword.setEditable(false);
+        txtConfirmPassword.setEditable(false);
+
+
+    }                                         
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
@@ -244,5 +241,6 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
     private void populateProfileData() {
         txtPhone.setText(volunteerProfile.getPhoneNumber());
         txtEmail.setText(volunteerProfile.getEmail());
+        txtPassword.setText(volunteerProfile.getPassword());
     }
 }
