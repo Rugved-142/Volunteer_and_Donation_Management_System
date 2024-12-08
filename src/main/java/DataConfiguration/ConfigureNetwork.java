@@ -14,9 +14,12 @@ import model.admin.AidCoordinator;
 import model.admin.AidCoordinatorDirectory;
 import model.organization.AidReceipent.AidReceipentDirectory;
 import model.organization.AidReceipent.AidReceipentProfile;
+import model.organization.AidReceipent.AidRequest;
 import model.organization.CamapignManagement.CampaignOrganizerDirectory;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 import model.organization.DonationManagement.DonationDirectory;
+import model.organization.DataAnalyst.DataAnalystDirectory;
+import model.organization.DataAnalyst.DataAnalystProfile;
 
 import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.VolunteerManagement.VolunteerCoordinatorDirectory;
@@ -150,14 +153,45 @@ public class ConfigureNetwork {
                 person,
                 name,
                 email,
-                age,
                 phoneNumber,
+                age,
                 "password"
             );
 
+            // Associate an AidRequest with this profile
+            String reason = faker.lorem().sentence(); // Generate a random reason
+            double amountNeeded = random.nextInt(5000) + 1000; // Random amount between 1000 and 6000
+            organization5.getAidRequestDirectory().addAidRequest(name,amountNeeded,reason,aidReceipentProfile); // Create AidRequest
             // Add the profile to UserAccountDirectory
             userAccountDirectory.newUserAccount(aidReceipentProfile, aidReceipentProfile.getPerson().getPersonId(), "password");
             System.out.println("Aid Recipient Profile Created: " + aidReceipentProfile.getPerson().getPersonId());
+            
+        }
+        
+        // Initializing Data Analyst Profile Accounts
+        DataAnalystDirectory dataAnalystDirectory = organization4.getDataAnalystDirectory(); // Organization for "Analytics & Reporting"
+
+        for (int i = 0; i < 20; i++) { // Create 20 sample DataAnalyst profiles
+            // Generate random details
+            Person person = new Person(String.valueOf(random.nextInt(90000) + 10000)); // Unique Person ID
+            String name = faker.name().firstName() + " " + faker.name().lastName();    // Random full name
+            String email = name.replace(" ", ".").toLowerCase() + "@dataanalyst.com";  // Email
+            int phoneNumber = (int) (1000000000L + random.nextInt(900000000));         // Random 10-digit phone number
+            int age = random.nextInt(40) + 22;                                        // Age between 22 and 62
+            String password = "password";                                             // Default password
+
+            // Create the DataAnalystProfile
+            DataAnalystProfile dataAnalystProfile = dataAnalystDirectory.newDataAnalystProfile(
+                person,
+                name,
+                email,
+                phoneNumber,
+                password
+            );
+
+            // Add the profile to UserAccountDirectory
+            userAccountDirectory.newUserAccount(dataAnalystProfile, dataAnalystProfile.getPerson().getPersonId(), password);
+            System.out.println("Data Analyst Profile Created: " + dataAnalystProfile.getPerson().getPersonId());
         }
 
         return network;
