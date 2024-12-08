@@ -11,15 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
-import model.admin.AidCoordinator;
 import model.organization.AidReceipent.AidReceipentProfile;
 import model.organization.CamapignManagement.CampaignOrganizerProfile;
 import model.organization.DataAnalyst.DataAnalystProfile;
 import model.organization.VolunteerManagement.VolunteerCoordinator;
 import model.organization.DonationManagement.Donor;
 import model.organization.VolunteerManagement.VolunteerProfile;
-import ui.AidDistribution.DistributionResourceJPanel;
-import ui.MainProfilePages.AidCoordinatorJPanel;
 import ui.MainProfilePages.AidRecipientJPanel;
 import ui.MainProfilePages.CampaignOrganizerJPanel;
 import ui.MainProfilePages.DataAnalystJPanel;
@@ -199,12 +196,6 @@ public class LoginPageJPanel extends javax.swing.JPanel {
            DataAnalystProfile dataAnalystProfile = (DataAnalystProfile) userAccount.getAssociatedPersonProfile();
            DataAnalystJPanel dapanel = new DataAnalystJPanel(userProcessContainer, network, organization);
            userProcessContainer.add(dapanel);
-        }
-        if(userAccount.getAssociatedPersonProfile().getRole().equals("Aid Coordinator")){
-           Organization organization = network.getEnterpriseDirectory().findEnterprise("Non-Profit Enterprise").getOrganizationDirectory().findOrganization("Aid Distribution");
-           AidCoordinator aidcoord = (AidCoordinator) userAccount.getAssociatedPersonProfile();
-            AidCoordinatorJPanel acjpanel = new AidCoordinatorJPanel(userProcessContainer, network, aidcoord);
-           userProcessContainer.add(acjpanel);
            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
            layout.next(userProcessContainer);
         }  
