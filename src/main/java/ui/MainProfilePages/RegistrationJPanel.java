@@ -44,10 +44,16 @@ public class RegistrationJPanel extends javax.swing.JPanel {
         btnDonor = new javax.swing.JButton();
         btnLoginPage = new javax.swing.JButton();
         btnRecipient = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         RegistrationWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(170);
 
+        RegistrationOptionsJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        RegistrationOptionsJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
+        RegistrationOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
+
+        btnVolunteer.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnVolunteer.setText("Volunteer");
         btnVolunteer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +61,7 @@ public class RegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDonor.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnDonor.setText("Donor");
         btnDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,13 +69,18 @@ public class RegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLoginPage.setBackground(new java.awt.Color(255, 30, 0));
+        btnLoginPage.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
+        btnLoginPage.setForeground(new java.awt.Color(255, 255, 255));
         btnLoginPage.setText("Login Page");
+        btnLoginPage.setBorder(null);
         btnLoginPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginPageActionPerformed(evt);
             }
         });
 
+        btnRecipient.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnRecipient.setText("Recipient");
         btnRecipient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,34 +88,38 @@ public class RegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>Registration</html>");
+
         javax.swing.GroupLayout RegistrationOptionsJPanelLayout = new javax.swing.GroupLayout(RegistrationOptionsJPanel);
         RegistrationOptionsJPanel.setLayout(RegistrationOptionsJPanelLayout);
         RegistrationOptionsJPanelLayout.setHorizontalGroup(
             RegistrationOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrationOptionsJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(RegistrationOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                    .addComponent(btnDonor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRecipient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(32, 32, 32))
             .addGroup(RegistrationOptionsJPanelLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(btnLoginPage)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(RegistrationOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDonor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRecipient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLoginPage, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         RegistrationOptionsJPanelLayout.setVerticalGroup(
             RegistrationOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegistrationOptionsJPanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(btnVolunteer)
-                .addGap(27, 27, 27)
-                .addComponent(btnDonor)
-                .addGap(29, 29, 29)
-                .addComponent(btnRecipient)
-                .addGap(51, 51, 51)
-                .addComponent(btnLoginPage)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDonor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRecipient, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(btnLoginPage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         jSplitPane1.setLeftComponent(RegistrationOptionsJPanel);
@@ -115,11 +131,11 @@ public class RegistrationJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -166,6 +182,7 @@ public class RegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnLoginPage;
     private javax.swing.JButton btnRecipient;
     private javax.swing.JButton btnVolunteer;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

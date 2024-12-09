@@ -56,6 +56,7 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
         jSplitPane1.setDividerLocation(150);
 
         AdminOptionsJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        AdminOptionsJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
         AdminOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
 
         btnLogout.setBackground(new java.awt.Color(255, 30, 0));
@@ -105,7 +106,7 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
                         .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                             .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         AdminOptionsJPanelLayout.setVerticalGroup(
             AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
