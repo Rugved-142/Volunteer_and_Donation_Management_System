@@ -4,17 +4,9 @@
  */
 package ui.ProfileComponents;
 
-import ui.RegistrationPanels.*;
-import DataConfiguration.Enterprise;
 import DataConfiguration.Network;
-import DataConfiguration.Organization;
-import Directories.EnterpriseDirectory;
-import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.UserAccountManagement.UserAccountDirectory;
-import model.client.Person;
-import model.organization.VolunteerManagement.VolunteerDirectory;
 import model.organization.VolunteerManagement.VolunteerProfile;
 
 /**
@@ -81,12 +73,6 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         jLabel6.setText("Profile");
 
         jLabel10.setText("Phone:");
-
-        txtPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneActionPerformed(evt);
-            }
-        });
 
         btnSave.setText("Save changes");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -170,17 +156,14 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         txtConfirmPassword.setEditable(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-
-        
         String email = txtEmail.getText().trim();
         String phoneNumber = txtPhone.getText().trim();        
         
         char[] password = txtPassword.getPassword();   
         
         String pwd = new String(password);
-        String cpwd = new String(password);
         
         if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             JOptionPane.showMessageDialog(this, "Invalid Email format.", "Validation Error", JOptionPane.ERROR_MESSAGE);
@@ -195,8 +178,7 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         if (!pwd.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
             JOptionPane.showMessageDialog(this, "Check if password is at least 8 characters long, contains only letters and digits", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
-        }    
-             
+        }             
         
         volunteerProfile.setEmail(email);
         volunteerProfile.setPhoneNumber(phoneNumber);
@@ -210,18 +192,7 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         txtEmail.setEditable(false);
         txtPassword.setEditable(false);
         txtConfirmPassword.setEditable(false);
-
-
-    }                                         
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
-
     }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

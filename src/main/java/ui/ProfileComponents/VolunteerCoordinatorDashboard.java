@@ -209,6 +209,7 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
         VolunteerProfile vp = (VolunteerProfile) model.getValueAt(selectedVolunteer,0);
         SmsSender sms = new SmsSender();
         sms.sendSMS(vp.getPhoneNumber(),message) ;
+        JOptionPane.showMessageDialog(this, "Message sent to volunteer successfully", "Sucsess",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_txtSendSMSActionPerformed
 
 
