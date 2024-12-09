@@ -57,6 +57,7 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         DataAnalystOptionsJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
         DataAnalystOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 457));
 
+        btnSeeReport.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnSeeReport.setText("See Report");
         btnSeeReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +65,7 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnResourcesReport.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnResourcesReport.setText("Resources Report");
         btnResourcesReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
