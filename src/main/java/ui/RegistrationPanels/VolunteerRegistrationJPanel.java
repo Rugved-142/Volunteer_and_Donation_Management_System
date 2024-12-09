@@ -64,34 +64,48 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel1.setText("First Name:");
 
+        jLabel2.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel2.setText("Last Name:");
 
+        jLabel3.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel3.setText("Email:");
 
+        jLabel4.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel4.setText("Password:");
 
+        jLabel5.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel5.setText("Confirm Password");
 
+        btnSubmitVolunteer.setBackground(new java.awt.Color(0, 153, 51));
+        btnSubmitVolunteer.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmitVolunteer.setText("Submit");
+        btnSubmitVolunteer.setBorder(null);
         btnSubmitVolunteer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitVolunteerActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Sora ExtraBold", 0, 18)); // NOI18N
         jLabel6.setText("Volunteer Registration");
 
+        jLabel7.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel7.setText("Gender:");
 
         genderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE", "OTHERS" }));
 
+        jLabel8.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel8.setText("DOB:");
 
+        jLabel9.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel9.setText("Age:");
 
+        jLabel10.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         jLabel10.setText("Phone:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -99,43 +113,45 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel10))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtLastName)
-                                .addComponent(txtEmail)
-                                .addComponent(txtPassword)
-                                .addComponent(txtConfirmPassword)
-                                .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtDOB)
-                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel10))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtLastName)
+                                        .addComponent(txtEmail)
+                                        .addComponent(txtPassword)
+                                        .addComponent(txtConfirmPassword)
+                                        .addComponent(genderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDOB)
+                                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(btnSubmitVolunteer)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                        .addGap(178, 178, 178)
+                        .addComponent(btnSubmitVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -172,8 +188,8 @@ public class VolunteerRegistrationJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel9)
                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(btnSubmitVolunteer)
-                .addGap(77, 77, 77))
+                .addComponent(btnSubmitVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
