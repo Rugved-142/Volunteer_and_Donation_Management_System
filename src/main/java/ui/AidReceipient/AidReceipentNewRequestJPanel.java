@@ -8,7 +8,6 @@ import DataConfiguration.Organization;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.organization.AidReceipent.AidReceipentProfile;
-import model.organization.AidReceipent.AidRequest;
 import model.organization.AidReceipent.AidRequestDirectory;
 
 /**
