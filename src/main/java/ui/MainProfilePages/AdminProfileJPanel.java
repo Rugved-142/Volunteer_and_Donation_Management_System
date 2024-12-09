@@ -50,17 +50,26 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         cmbProfile = new javax.swing.JComboBox<>();
         btnView = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         AdminWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
+        AdminOptionsJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        AdminOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
+
+        btnLogout.setBackground(new java.awt.Color(255, 30, 0));
+        btnLogout.setFont(new java.awt.Font("Sora Medium", 0, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
 
+        cmbProfile.setFont(new java.awt.Font("Sora Light", 0, 12)); // NOI18N
         cmbProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aid Coordinator", "Data Analyst", "Volunteers", "Resources" }));
         cmbProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,12 +77,17 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnView.setFont(new java.awt.Font("Sora Light", 0, 12)); // NOI18N
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>Admin Portal</html>");
 
         javax.swing.GroupLayout AdminOptionsJPanelLayout = new javax.swing.GroupLayout(AdminOptionsJPanel);
         AdminOptionsJPanel.setLayout(AdminOptionsJPanelLayout);
@@ -82,31 +96,30 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
             .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
                 .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cmbProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLogout)))
+                        .addGap(31, 31, 31)
+                        .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addComponent(cmbProfile, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnView)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addGroup(AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                            .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
-
-        AdminOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, cmbProfile});
-
         AdminOptionsJPanelLayout.setVerticalGroup(
             AdminOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminOptionsJPanelLayout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(cmbProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnView)
-                .addGap(29, 29, 29)
-                .addComponent(btnLogout)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(cmbProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
-
-        AdminOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLogout, cmbProfile});
 
         jSplitPane1.setLeftComponent(AdminOptionsJPanel);
 
@@ -117,11 +130,11 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,6 +191,7 @@ public class AdminProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox<String> cmbProfile;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

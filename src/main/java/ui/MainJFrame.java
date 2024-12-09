@@ -31,7 +31,7 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout=(CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         pack();
-        setSize(870,600);
+        setSize(927,600);
     }
 
     /**
