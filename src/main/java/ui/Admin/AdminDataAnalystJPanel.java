@@ -44,7 +44,9 @@ public class AdminDataAnalystJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDA = new javax.swing.JTable();
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 1, 16)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Data Analysts Data");
 
@@ -94,7 +96,7 @@ public class AdminDataAnalystJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

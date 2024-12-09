@@ -52,6 +52,8 @@ public class AddCampaignsJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("Name:");
 
         jLabel2.setText("Description:");

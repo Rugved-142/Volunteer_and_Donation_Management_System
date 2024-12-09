@@ -49,10 +49,15 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         btnNewRequest = new javax.swing.JButton();
         btnHistory = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         AidReceipientWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
+        AidRecipientOptionsJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        AidRecipientOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
+
+        btnNewRequest.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnNewRequest.setText("New Request");
         btnNewRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +65,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnHistory.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnHistory.setText("History");
         btnHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,42 +73,57 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(255, 30, 0));
+        btnLogout.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>Aid Coordinator Panel</html>");
+
         javax.swing.GroupLayout AidRecipientOptionsJPanelLayout = new javax.swing.GroupLayout(AidRecipientOptionsJPanel);
         AidRecipientOptionsJPanel.setLayout(AidRecipientOptionsJPanelLayout);
         AidRecipientOptionsJPanelLayout.setHorizontalGroup(
             AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(34, 34, 34)
                 .addGroup(AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNewRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogout))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
+                        .addGroup(AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNewRequest, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                        .addGap(69, 69, 69)))
+                .addContainerGap())
         );
 
-        AidRecipientOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnHistory, btnLogout, btnNewRequest});
+        AidRecipientOptionsJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, btnNewRequest});
 
         AidRecipientOptionsJPanelLayout.setVerticalGroup(
             AidRecipientOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AidRecipientOptionsJPanelLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnNewRequest)
-                .addGap(37, 37, 37)
-                .addComponent(btnHistory)
-                .addGap(32, 32, 32)
-                .addComponent(btnLogout)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnNewRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
 
         jSplitPane1.setLeftComponent(AidRecipientOptionsJPanel);
 
+        AidReceipientWorkArea.setPreferredSize(new java.awt.Dimension(812, 557));
         AidReceipientWorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(AidReceipientWorkArea);
 
@@ -110,7 +131,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,6 +172,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnNewRequest;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
