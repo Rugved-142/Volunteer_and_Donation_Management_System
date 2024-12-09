@@ -47,9 +47,13 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         btnDistribute = new javax.swing.JButton();
         btnAidHistory = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         AidCoordinatorWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(170);
+
+        AidCoordinatorJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        AidCoordinatorJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
 
         btnDistribute.setText("Distribute Resources");
         btnDistribute.addActionListener(new java.awt.event.ActionListener() {
@@ -65,39 +69,52 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(255, 30, 0));
+        btnLogout.setFont(new java.awt.Font("Sora SemiBold", 1, 12)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>Aid Coordinator Panel</html>");
+
         javax.swing.GroupLayout AidCoordinatorJPanelLayout = new javax.swing.GroupLayout(AidCoordinatorJPanel);
         AidCoordinatorJPanel.setLayout(AidCoordinatorJPanelLayout);
         AidCoordinatorJPanelLayout.setHorizontalGroup(
             AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AidCoordinatorJPanelLayout.createSequentialGroup()
-                .addGap(0, 18, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AidCoordinatorJPanelLayout.createSequentialGroup()
-                        .addGroup(AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnDistribute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAidHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AidCoordinatorJPanelLayout.createSequentialGroup()
-                        .addComponent(btnLogout)
-                        .addGap(48, 48, 48))))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addGroup(AidCoordinatorJPanelLayout.createSequentialGroup()
+                        .addGroup(AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAidHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDistribute))
+                        .addGap(0, 0, 0)))
+                .addGap(27, 27, 27))
+            .addGroup(AidCoordinatorJPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         AidCoordinatorJPanelLayout.setVerticalGroup(
             AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AidCoordinatorJPanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(btnDistribute)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(btnDistribute, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAidHistory)
-                .addGap(31, 31, 31)
-                .addComponent(btnLogout)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addComponent(btnAidHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
 
         jSplitPane1.setLeftComponent(AidCoordinatorJPanel);
@@ -109,7 +126,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,6 +183,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnAidHistory;
     private javax.swing.JButton btnDistribute;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
