@@ -107,11 +107,21 @@ public class ConfigureNetwork {
             Person pp = new Person(String.valueOf(random.nextInt(90000) + 10000));
             VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp, faker.name().firstName(), faker.phoneNumber().cellPhone(), faker.animal().name() + "@gmail.com", "MALE", random.nextInt(30) + 20, faker.date().toString(), "password");
             vp.setTotalHours(random.nextInt(2)+4);
-            userAccountDirectory.newUserAccount(vp, vp.getPerson().getPersonId(), "password");
+            userAccountDirectory.newUserAccount(vp, vp.getName(), "password");
             if (i == 1) {
-                System.out.println("Volunteer profile" + vp.getPerson().getPersonId());
+                System.out.println("Volunteer profile: " + vp.getPerson().getPersonId());
             }
-        }     
+        }
+        //Female volunteers
+        for (int i = 0; i < 24; i++) {
+            Person pp = new Person(String.valueOf(random.nextInt(90000) + 10000));
+            VolunteerProfile vp = volunteerDirectory.newVolunteerProfile(pp, faker.name().firstName(), faker.phoneNumber().cellPhone(), faker.animal().name() + "@gmail.com", "FEMALE", random.nextInt(30) + 20, faker.date().toString(), "password");
+            vp.setTotalHours(random.nextInt(2)+4);
+            userAccountDirectory.newUserAccount(vp, vp.getName(), "password");
+            if (i == 1) {
+                System.out.println("FEMALE Volunteer profile: " + vp.getPerson().getPersonId());
+            }
+        }
         
         //Twilio demo profile
         Person pp19 = new Person(String.valueOf(random.nextInt(90000) + 10000));
