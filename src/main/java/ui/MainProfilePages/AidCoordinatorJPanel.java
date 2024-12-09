@@ -56,6 +56,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         AidCoordinatorJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
         AidCoordinatorJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
 
+        btnDistribute.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnDistribute.setText("Distribute Resources");
         btnDistribute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +64,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAidHistory.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnAidHistory.setText("Aid History");
         btnAidHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,12 +94,10 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
             .addGroup(AidCoordinatorJPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                    .addGroup(AidCoordinatorJPanelLayout.createSequentialGroup()
-                        .addGroup(AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAidHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDistribute))
-                        .addGap(0, 0, 0)))
+                    .addGroup(AidCoordinatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnDistribute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAidHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
             .addGroup(AidCoordinatorJPanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
