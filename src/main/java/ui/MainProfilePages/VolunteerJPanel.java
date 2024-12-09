@@ -8,7 +8,6 @@ import DataConfiguration.Network;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.organization.VolunteerManagement.VolunteerProfile;
-import ui.ProfileComponents.ViewCampaignsJPanel;
 import ui.ProfileComponents.ViewCampaignsOnVP;
 import ui.ProfileComponents.VolunteerProfileUpdateJPanel;
 import ui.ProfileComponents.VolunteerTasksJPanel;

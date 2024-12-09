@@ -62,11 +62,11 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Email", "Tasks", "Total Hours"
+                "Name", "Email", "Phone", "Tasks", "Total Hours"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -235,11 +235,12 @@ public class VolunteerCoordinatorDashboard extends javax.swing.JPanel {
         }
 
         for (VolunteerProfile vp : volunteersList) { 
-                Object[] row = new Object[4];
+                Object[] row = new Object[5];
                 row[0] = vp;
                 row[1] = vp.getEmail();
-                row[2] = vp.getTasks().isEmpty() ?  "No Tasks" : vp.getTasks().toString().replace("[", "").replace("]", "");
-                row[3] = vp.getTotalHours();
+                row[2] = vp.getPhoneNumber();
+                row[3] = vp.getTasks().isEmpty() ?  "No Tasks" : vp.getTasks().toString().replace("[", "").replace("]", "");
+                row[4] = vp.getTotalHours();
 
                 ((DefaultTableModel) tblVolunteerInfo.getModel()).addRow(row);          
 
