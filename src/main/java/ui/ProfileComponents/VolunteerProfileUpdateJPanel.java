@@ -32,7 +32,6 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         txtPhone.setEditable(false);
         txtEmail.setEditable(false);
         txtPassword.setEditable(false);
-        txtConfirmPassword.setEditable(false);
     }
 
     /**
@@ -47,20 +46,16 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        txtConfirmPassword = new javax.swing.JPasswordField();
         jLabel10 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
 
         jLabel3.setText("Email:");
 
-        jLabel4.setText("New Password:");
-
-        jLabel5.setText("Confirm Password");
+        jLabel4.setText("Password:");
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -91,25 +86,22 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
                         .addGap(283, 283, 283)
                         .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
+                        .addGap(171, 171, 171)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                .addComponent(txtConfirmPassword)
-                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSave))))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtConfirmPassword, txtEmail, txtPassword, txtPhone});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEmail, txtPassword, txtPhone});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,21 +120,14 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(34, 34, 34)
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnUpdate))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnSave)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                    .addComponent(btnSave)
+                    .addComponent(btnUpdate))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtConfirmPassword, txtEmail, txtPassword, txtPhone});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEmail, txtPassword, txtPhone});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -153,7 +138,6 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         txtPhone.setEditable(true);
         txtEmail.setEditable(true);
         txtPassword.setEditable(true);
-        txtConfirmPassword.setEditable(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -191,7 +175,6 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
         txtPhone.setEditable(false);
         txtEmail.setEditable(false);
         txtPassword.setEditable(false);
-        txtConfirmPassword.setEditable(false);
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
@@ -201,9 +184,7 @@ public class VolunteerProfileUpdateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhone;
