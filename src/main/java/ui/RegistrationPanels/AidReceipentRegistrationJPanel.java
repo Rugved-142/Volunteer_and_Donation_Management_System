@@ -68,18 +68,27 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
 
         jTextField3.setText("jTextField1");
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AID Receipient Registration");
 
+        lblAidReceiptName.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptName.setText("Name:");
 
+        lblAidReceiptEmail.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptEmail.setText("Email Address:");
 
+        lblAidReceiptContact.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptContact.setText("Phone Number:");
 
+        lblAidReceiptAddress.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptAddress.setText("Address:");
 
+        btnAidReciptRegister.setBackground(new java.awt.Color(0, 153, 51));
+        btnAidReciptRegister.setFont(new java.awt.Font("Sora Light", 0, 14)); // NOI18N
+        btnAidReciptRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnAidReciptRegister.setText("Register");
         btnAidReciptRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,10 +96,13 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblAidReceiptAge.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptAge.setText("Age:");
 
+        lblAidReceiptPassword.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptPassword.setText("Password:");
 
+        lblAidReceiptConfirmPassword.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptConfirmPassword.setText("Confirm Password:");
 
         txtAidReceiptPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -110,40 +122,40 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAidReceiptConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAidReceiptConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAidReceiptName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAidReceiptName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAidReceiptEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAidReceiptEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblAidReceiptContact, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblAidReceiptAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblAidReceiptAge)
-                                    .addComponent(lblAidReceiptPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtAidReceiptAge, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtAidReceiptAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtAidReceiptContact, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(btnAidReciptRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtAidReceiptPassword)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGap(228, 228, 228)
+                .addComponent(btnAidReciptRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblAidReceiptConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtAidReceiptConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblAidReceiptName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtAidReceiptName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblAidReceiptEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtAidReceiptEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblAidReceiptContact, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAidReceiptAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblAidReceiptAge)
+                                .addComponent(lblAidReceiptPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtAidReceiptAge, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(txtAidReceiptAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(txtAidReceiptContact, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(txtAidReceiptPassword)))))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAidReciptRegister, lblAidReceiptAddress, lblAidReceiptAge, lblAidReceiptConfirmPassword, lblAidReceiptContact, lblAidReceiptEmail, lblAidReceiptName, lblAidReceiptPassword, txtAidReceiptAddress, txtAidReceiptAge, txtAidReceiptConfirmPassword, txtAidReceiptContact, txtAidReceiptEmail, txtAidReceiptName, txtAidReceiptPassword});
@@ -151,9 +163,9 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAidReceiptName)
                     .addComponent(txtAidReceiptName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,12 +193,12 @@ public class AidReceipentRegistrationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAidReceiptConfirmPassword)
                     .addComponent(txtAidReceiptConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnAidReciptRegister)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(btnAidReciptRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAidReciptRegister, lblAidReceiptAddress, lblAidReceiptAge, lblAidReceiptConfirmPassword, lblAidReceiptContact, lblAidReceiptEmail, lblAidReceiptName, lblAidReceiptPassword, txtAidReceiptAddress, txtAidReceiptAge, txtAidReceiptConfirmPassword, txtAidReceiptContact, txtAidReceiptEmail, txtAidReceiptName, txtAidReceiptPassword});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAidReceiptAddress, lblAidReceiptAge, lblAidReceiptConfirmPassword, lblAidReceiptContact, lblAidReceiptEmail, lblAidReceiptName, lblAidReceiptPassword, txtAidReceiptAddress, txtAidReceiptAge, txtAidReceiptConfirmPassword, txtAidReceiptContact, txtAidReceiptEmail, txtAidReceiptName, txtAidReceiptPassword});
 
     }// </editor-fold>//GEN-END:initComponents
 

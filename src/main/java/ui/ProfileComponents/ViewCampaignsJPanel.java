@@ -65,7 +65,11 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCampaigns);
 
+        btnDeleteCampaign.setBackground(new java.awt.Color(255, 30, 0));
+        btnDeleteCampaign.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
+        btnDeleteCampaign.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteCampaign.setText("Delete");
+        btnDeleteCampaign.setBorder(null);
         btnDeleteCampaign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteCampaignActionPerformed(evt);

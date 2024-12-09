@@ -54,6 +54,9 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         txtDonorName = new javax.swing.JTextField();
         lblAidReceiptConfirmPassword = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        lblAidReceiptEmail.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptEmail.setText("Email Address:");
 
         txtDonorPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -68,8 +71,12 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblAidReceiptContact.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptContact.setText("Phone Number:");
 
+        btnDonorRegister.setBackground(new java.awt.Color(0, 153, 51));
+        btnDonorRegister.setFont(new java.awt.Font("Sora Light", 0, 14)); // NOI18N
+        btnDonorRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnDonorRegister.setText("Register");
         btnDonorRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,10 +88,13 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Donor Registration");
 
+        lblAidReceiptName.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptName.setText("Name:");
 
+        lblAidReceiptPassword.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptPassword.setText("Password:");
 
+        lblAidReceiptConfirmPassword.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         lblAidReceiptConfirmPassword.setText("Confirm Password:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -118,12 +128,11 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                                 .addComponent(txtDonorContact, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(202, 202, 202)
-                        .addComponent(btnDonorRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(131, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnDonorRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,8 +160,8 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                     .addComponent(lblAidReceiptConfirmPassword)
                     .addComponent(txtDonorConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(btnDonorRegister)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addComponent(btnDonorRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
