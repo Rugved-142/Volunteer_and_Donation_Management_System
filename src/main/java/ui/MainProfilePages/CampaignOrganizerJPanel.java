@@ -46,10 +46,16 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
         btnAddCampaigns = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnViewCampaigns = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         CampaignOrganizerWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
+        CampaignOrganizerJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        CampaignOrganizerJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
+        CampaignOrganizerJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
+
+        btnAddCampaigns.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnAddCampaigns.setText("Add Campaign");
         btnAddCampaigns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,13 +63,18 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(255, 30, 0));
+        btnLogout.setFont(new java.awt.Font("Sora Medium", 0, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
 
+        btnViewCampaigns.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnViewCampaigns.setText("View Campaigns");
         btnViewCampaigns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,31 +82,35 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>Campaign Organizer Panel</html>");
+
         javax.swing.GroupLayout CampaignOrganizerJPanelLayout = new javax.swing.GroupLayout(CampaignOrganizerJPanel);
         CampaignOrganizerJPanel.setLayout(CampaignOrganizerJPanelLayout);
         CampaignOrganizerJPanelLayout.setHorizontalGroup(
             CampaignOrganizerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CampaignOrganizerJPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btnLogout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CampaignOrganizerJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(CampaignOrganizerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnViewCampaigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddCampaigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36))
+                .addGap(29, 29, 29)
+                .addGroup(CampaignOrganizerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddCampaigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewCampaigns, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         CampaignOrganizerJPanelLayout.setVerticalGroup(
             CampaignOrganizerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CampaignOrganizerJPanelLayout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(btnAddCampaigns)
-                .addGap(34, 34, 34)
-                .addComponent(btnViewCampaigns)
-                .addGap(53, 53, 53)
-                .addComponent(btnLogout)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddCampaigns, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewCampaigns, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         jSplitPane1.setLeftComponent(CampaignOrganizerJPanel);
@@ -107,11 +122,11 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -145,6 +160,7 @@ public class CampaignOrganizerJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnAddCampaigns;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewCampaigns;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

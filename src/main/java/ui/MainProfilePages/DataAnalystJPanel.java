@@ -48,9 +48,14 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
         btnSeeReport = new javax.swing.JButton();
         btnResourcesReport = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         DataAnalystWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
+
+        DataAnalystOptionsJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        DataAnalystOptionsJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
+        DataAnalystOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 457));
 
         btnSeeReport.setText("See Report");
         btnSeeReport.addActionListener(new java.awt.event.ActionListener() {
@@ -66,40 +71,47 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(255, 30, 0));
+        btnLogout.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>Data Analyst Panel</html>");
+
         javax.swing.GroupLayout DataAnalystOptionsJPanelLayout = new javax.swing.GroupLayout(DataAnalystOptionsJPanel);
         DataAnalystOptionsJPanel.setLayout(DataAnalystOptionsJPanelLayout);
         DataAnalystOptionsJPanelLayout.setHorizontalGroup(
             DataAnalystOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DataAnalystOptionsJPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(DataAnalystOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DataAnalystOptionsJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnSeeReport, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DataAnalystOptionsJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnResourcesReport, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DataAnalystOptionsJPanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnLogout)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(DataAnalystOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnResourcesReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSeeReport, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         DataAnalystOptionsJPanelLayout.setVerticalGroup(
             DataAnalystOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DataAnalystOptionsJPanelLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnSeeReport)
-                .addGap(37, 37, 37)
-                .addComponent(btnResourcesReport)
-                .addGap(32, 32, 32)
-                .addComponent(btnLogout)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnSeeReport, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btnResourcesReport, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         jSplitPane1.setLeftComponent(DataAnalystOptionsJPanel);
@@ -151,6 +163,7 @@ public class DataAnalystJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnResourcesReport;
     private javax.swing.JButton btnSeeReport;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

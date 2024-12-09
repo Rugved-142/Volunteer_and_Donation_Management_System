@@ -53,6 +53,7 @@ public class AidCoordinatorJPanel extends javax.swing.JPanel {
         jSplitPane1.setDividerLocation(170);
 
         AidCoordinatorJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        AidCoordinatorJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
         AidCoordinatorJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
 
         btnDistribute.setText("Distribute Resources");

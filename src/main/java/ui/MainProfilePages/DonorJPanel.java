@@ -48,10 +48,16 @@ public class DonorJPanel extends javax.swing.JPanel {
         btnDonateMoney = new javax.swing.JButton();
         btnDonateResources = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         DonorWorkArea = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(150);
 
+        DonorOptionsJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        DonorOptionsJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
+        DonorOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
+
+        btnDonateMoney.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnDonateMoney.setText("Donate Money");
         btnDonateMoney.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +65,7 @@ public class DonorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDonateResources.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
         btnDonateResources.setText("Donation History");
         btnDonateResources.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +73,9 @@ public class DonorJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(255, 30, 0));
+        btnLogout.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,33 +83,35 @@ public class DonorJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>Donor Panel</html>");
+
         javax.swing.GroupLayout DonorOptionsJPanelLayout = new javax.swing.GroupLayout(DonorOptionsJPanel);
         DonorOptionsJPanel.setLayout(DonorOptionsJPanelLayout);
         DonorOptionsJPanelLayout.setHorizontalGroup(
             DonorOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DonorOptionsJPanelLayout.createSequentialGroup()
-                .addGroup(DonorOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DonorOptionsJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnDonateMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DonorOptionsJPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnDonateResources, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DonorOptionsJPanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnLogout)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(DonorOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDonateMoney, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDonateResources, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         DonorOptionsJPanelLayout.setVerticalGroup(
             DonorOptionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DonorOptionsJPanelLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnDonateMoney)
-                .addGap(37, 37, 37)
-                .addComponent(btnDonateResources)
-                .addGap(32, 32, 32)
-                .addComponent(btnLogout)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDonateMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDonateResources, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         jSplitPane1.setLeftComponent(DonorOptionsJPanel);
@@ -111,11 +123,11 @@ public class DonorJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -165,6 +177,7 @@ public class DonorJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDonateMoney;
     private javax.swing.JButton btnDonateResources;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -55,6 +55,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
         jSplitPane1.setDividerLocation(150);
 
         AidRecipientOptionsJPanel.setBackground(new java.awt.Color(0, 32, 41));
+        AidRecipientOptionsJPanel.setMinimumSize(new java.awt.Dimension(238, 0));
         AidRecipientOptionsJPanel.setPreferredSize(new java.awt.Dimension(238, 518));
 
         btnNewRequest.setFont(new java.awt.Font("Sora Medium", 0, 12)); // NOI18N
@@ -116,7 +117,7 @@ public class AidRecipientJPanel extends javax.swing.JPanel {
                 .addComponent(btnNewRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
