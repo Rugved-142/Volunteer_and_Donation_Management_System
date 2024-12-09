@@ -44,6 +44,8 @@ public class ViewCampaignsOnVP extends javax.swing.JPanel {
         tblCampaigns = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         tblCampaigns.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -62,7 +64,7 @@ public class ViewCampaignsOnVP extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCampaigns);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 1, 18)); // NOI18N
         jLabel1.setText("Campaigns:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

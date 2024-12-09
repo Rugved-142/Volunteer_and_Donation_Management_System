@@ -45,6 +45,8 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
         btnDeleteCampaign = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         tblCampaigns.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -70,7 +72,7 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sora ExtraBold", 1, 18)); // NOI18N
         jLabel1.setText("Campaigns:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -80,7 +82,7 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDeleteCampaign)
+                    .addComponent(btnDeleteCampaign, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(153, Short.MAX_VALUE))
@@ -93,8 +95,8 @@ public class ViewCampaignsJPanel extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addComponent(btnDeleteCampaign)
-                .addGap(135, 135, 135))
+                .addComponent(btnDeleteCampaign, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
     }// </editor-fold>//GEN-END:initComponents
 
