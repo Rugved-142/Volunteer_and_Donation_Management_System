@@ -1,4 +1,4 @@
-# Wednesday_Group_33_FinalProject
+# Volunteer and Donation Management System
 
  The system creates an interconnected network of organizations, enterprises, and roles
  that streamlines the coordination of charitable activities. Through role-based access control and
